@@ -1,4 +1,5 @@
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import StudentList from "../StudentList/Student";
+import { Layout, Menu, Breadcrumb } from 'antd';
 import React from "react";
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -29,14 +30,14 @@ export class Home extends React.Component<any,HomeState> {
               <Menu.Item key="2">Vocabulary</Menu.Item>
               <Menu.Item key="3">Article</Menu.Item>
             </SubMenu>
-            <SubMenu key="sub2" title={<span>📊 (Statistics)录入</span> }>
+            <SubMenu key="sub3" title={<span>📊 (Statistics)录入</span> }>
               <Menu.Item key="4">Age</Menu.Item>
               
             </SubMenu>
           </Menu>
         </Sider>
-        <Layout>
-          <Header style={{ background: 'red', padding: 0 }} >
+        <Layout style={{background: 'white'}}>
+          <Header style={{ padding: 0 }} >
             Funny English
           </Header>
           <Content style={{ margin: '0 16px' }}>
@@ -44,7 +45,9 @@ export class Home extends React.Component<any,HomeState> {
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>Bill is a cat.</div>
+            <div>
+            <StudentList></StudentList>
+            </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>

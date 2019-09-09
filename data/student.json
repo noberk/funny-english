@@ -1,0 +1,10 @@
+[
+    {
+        "account":"noberk",
+        "password":"12321312",
+        "name": "王明",
+        "age": 50,
+        "job" : "撸代码的",
+        "hobby" :"吃"
+    }
+]
