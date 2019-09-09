@@ -6,7 +6,7 @@ export const createMockData= <T extends object|any>(time:number,entity:T)=>{
         for (const key in newEntity) {
             if (newEntity.hasOwnProperty(key)) {
                 if(key!=="key"){
-                    newEntity[key] = `${key}${i}`;
+                    newEntity[key] = `${newEntity[key]}${i}`;
             }
                 else{
                     newEntity[key] =  i;
