@@ -56,18 +56,18 @@ export class DBConnetion {
             mongoClient.close();
         })
     }
-    findAll<T>() {
-        let arr: T[] = [];
-        this.open(mongoClient => {
-            let dbo = mongoClient.db(this.db);;
-            dbo.collection(this.tableName).find<T>({}).toArray((e, r) => {
-                this.er(e);
-                arr = r;
-                console.log(r);
-            });
-            mongoClient.close();
+    findAll<T>() : Promise<T[]>{
+        return new Promise((resolve, reject) => {
+            this.open(mongoClient => {
+                let dbo = mongoClient.db(this.db);;
+                dbo.collection(this.tableName).find<T>({}).toArray((e, r) => {
+                    this.er(e);
+                    resolve(r);
+                    console.log(r);
+                });
+                mongoClient.close();
+            })
         })
-        return arr;
     }
 }
 
