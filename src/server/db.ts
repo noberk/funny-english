@@ -1,18 +1,15 @@
 import { MongoClient, MongoError } from "mongodb";
-import { Student } from "../types";
 
-const Tables = {
-    Student: "student",
 
-}
-
+export const Tables = { Student: "student" }
+type TableName = "student";
 type Nullable<T> = { [P in keyof T]: T[P] | null }
 type Partial<T> = { [P in keyof T]?: T[P] }
 
 type Action = (mongoClient: MongoClient) => void;
 
-class DBConnetion {
-    constructor(public tableName: string) {
+export class DBConnetion {
+    constructor(public tableName: TableName) {
 
     }
     private url = "mongodb://localhost:27017";
@@ -60,19 +57,21 @@ class DBConnetion {
         })
     }
     findAll<T>() {
+        let arr: T[] = [];
         this.open(mongoClient => {
             let dbo = mongoClient.db(this.db);;
             dbo.collection(this.tableName).find<T>({}).toArray((e, r) => {
                 this.er(e);
-                return r;
+                arr = r;
             });
         })
+        return arr;
     }
 }
 
-const db = new DBConnetion(Tables.Student);
+
 // db.insert<Student>({ nickname: "anYlsj", account: "wer", password: "123", age: 5, job: "我", hobby: "weew" });
 // db.delete({ age: 5 });
-db.findAll<Student>();
+
 export { }
 
