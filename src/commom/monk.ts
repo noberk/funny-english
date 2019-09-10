@@ -19,3 +19,4 @@ export const createMockData= <T extends object|any>(time:number,entity:T)=>{
      
     return arr;
 }
+

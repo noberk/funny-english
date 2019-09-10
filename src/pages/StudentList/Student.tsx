@@ -3,12 +3,15 @@ import { IStudent } from "../../types";
 import { Table } from 'antd';
 import {createMockData} from "../../commom/monk";
 interface StudentState extends IStudent{
-
+    arr: IStudent[];
 }
+
+
 
 
 export default class Home extends React.Component<any,StudentState> {
      
+    
     render(){
         return (
             <>
@@ -20,7 +23,8 @@ export default class Home extends React.Component<any,StudentState> {
                 nickname: "王明",
                 age: 50,
                 job : "撸代码的",
-                hobby :"吃"
+                hobby :"吃",
+                phone : 123
             }
         )} columns={[
             {title:'Account',dataIndex:'account',key:'account'},
@@ -28,7 +32,8 @@ export default class Home extends React.Component<any,StudentState> {
             {title:'Nickname',dataIndex:'nickname',key:'nickname'},
             {title:'Age',dataIndex:'age',key:'age'},
             {title:'Job',dataIndex:'job',key:'job'},
-            {title:'Hobby',dataIndex:'hobby',key:'hobby'}
+            {title:'Hobby',dataIndex:'hobby',key:'hobby'},
+            {title:'phone',dataIndex:'phone',key:'phone'},
         ]
         }></Table>
             </>

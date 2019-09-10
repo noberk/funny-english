@@ -5,7 +5,6 @@ export const Tables = { Student: "student" }
 type TableName = "student";
 type Nullable<T> = { [P in keyof T]: T[P] | null }
 type Partial<T> = { [P in keyof T]?: T[P] }
-
 type Action = (mongoClient: MongoClient) => void;
 
 export class DBConnetion {
@@ -59,7 +58,7 @@ export class DBConnetion {
     findAll<T>() : Promise<T[]>{
         return new Promise((resolve, reject) => {
             this.open(mongoClient => {
-                let dbo = mongoClient.db(this.db);;
+                let dbo = mongoClient.db(this.db);
                 dbo.collection(this.tableName).find<T>({}).toArray((e, r) => {
                     this.er(e);
                     resolve(r);

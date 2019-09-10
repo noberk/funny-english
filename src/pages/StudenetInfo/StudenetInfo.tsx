@@ -20,7 +20,8 @@ export default class StudenetInfo extends React.Component<any,StudenetInfoState>
                 nickname: "胜多负少东方闪电",
                 age: 520,
                 job : "胜多负少东方闪电",
-                hobby :"胜多负少东方闪电"
+                hobby :"胜多负少东方闪电",
+                phone:123
             }
         )} columns={[
             {title:'Account',dataIndex:'account',key:'account'},

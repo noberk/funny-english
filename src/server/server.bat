@@ -1,0 +1,1 @@
+start ts-node index.ts
