@@ -6,6 +6,7 @@ export interface IStudent{
     age:number
     job:string
     hobby:string
+    phone:number
 }
 
     

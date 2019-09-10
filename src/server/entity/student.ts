@@ -3,6 +3,7 @@ import { IStudent } from "../../types";
 
 @Entity()
 export class Student implements IStudent{
+    phone!: number;
     age!: number
     key?: number  ;
     account!: string;
@@ -13,5 +14,4 @@ export class Student implements IStudent{
     @PrimaryGeneratedColumn()
     _id!: string;
 
-  
 }
