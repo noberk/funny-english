@@ -1,21 +1,32 @@
 import React from "react";
 import { IStudent } from "../../types";
-import { Table } from 'antd';
+import { Table} from 'antd';
 import {createMockData} from "../../commom/monk";
+import { take } from "../../commom/fetch";
+
+
 interface StudentState extends IStudent{
-    arr: IStudent[];
+    data: IStudent[];
 }
 
 
+export default class Studnet extends React.Component<any,Partial<StudentState>> {
 
+    constructor(props: any) {
+        super(props)
 
-export default class Home extends React.Component<any,StudentState> {
-     
-    
+        this.state = {
+            data: []
+        }
+        take<Array<IStudent>>("http://localhost:3333/").then(d => {
+            console.log(d);
+              this.setState({ data: d });
+        })
+    }
     render(){
         return (
             <>
-            <Table dataSource={createMockData<IStudent>(10,
+            {/* <Table  size={"small"} dataSource={createMockData<IStudent>(500,
             {  
                 key: 0,
                 account:"noberk",
@@ -25,8 +36,8 @@ export default class Home extends React.Component<any,StudentState> {
                 job : "撸代码的",
                 hobby :"吃",
                 phone : 123
-            }
-        )} columns={[
+            } */}
+             <Table  size={"small"} dataSource={this.state.data } columns={[
             {title:'Account',dataIndex:'account',key:'account'},
             {title:'Password',dataIndex:'password',key:'password'},
             {title:'Nickname',dataIndex:'nickname',key:'nickname'},
@@ -35,11 +46,10 @@ export default class Home extends React.Component<any,StudentState> {
             {title:'Hobby',dataIndex:'hobby',key:'hobby'},
             {title:'phone',dataIndex:'phone',key:'phone'},
         ]
-        }></Table>
+        }>
+        </Table>
             </>
         )
-        
-        
     }
 }
   
