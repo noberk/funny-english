@@ -1,5 +1,7 @@
 import StudentList from "../StudentList/Student";
 import StudenetInfo from "../StudenetInfo/StudenetInfo";
+import addVocabulary from "../AddVocabulary/addVocabulary";
+import {WrappedDemo} from "../AddArticle/addArticle";
 import { Layout, Menu, Breadcrumb } from 'antd';
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -34,8 +36,10 @@ export class Home extends React.Component<any,HomeState> {
               </Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" title={<span>✍️ (Write)录入</span> }>
-              <Menu.Item key="2">Vocabulary</Menu.Item>
-              <Menu.Item key="3">Article</Menu.Item>
+              <Menu.Item key="2"><Link to="/addVocabulary">Vocabulary</Link></Menu.Item>
+              <Menu.Item key="3"><Link to="/addArticle">Article</Link></Menu.Item>
+     
+              
             </SubMenu>
             <SubMenu key="sub3" title={<span>📊 (Statistics)录入</span> }>
               <Menu.Item key="4">Age</Menu.Item>
@@ -54,8 +58,9 @@ export class Home extends React.Component<any,HomeState> {
             </Breadcrumb>
         <Route path="/" exact component={StudentList} />
         <Route path="/StudentInfo" component={StudenetInfo} />
+        <Route path="/addVocabulary" component={addVocabulary} />
+        <Route path="/addArticle" component={WrappedDemo} />
         
-           
           </Content>
           <Footer style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
         </Layout>

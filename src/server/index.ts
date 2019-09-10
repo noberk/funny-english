@@ -14,14 +14,13 @@ app.use(async ctx => {
     ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
     ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     // db.insert<IStudent>({ nickname: "anYlsj", account: "wer", password: "123", age: 5, job: "我", hobby: "weew" });
-    // ctx.body = 
-    let st= await db.findAll<IStudent>();
-    
-    console.log(st);
+ 
+     let st= await db.findAll<IStudent>();
+   
+    console.log(1);
     ctx.header
     ctx.body=st
-    // ctx.body = db.findAll<IStudent>();
-    // ctx.body = Tables.Student;
+ 
 });
 
 app.listen(3333);

@@ -26,18 +26,9 @@ export default class Studnet extends React.Component<any,Partial<StudentState>> 
     render(){
         return (
             <>
-            {/* <Table  size={"small"} dataSource={createMockData<IStudent>(500,
-            {  
-                key: 0,
-                account:"noberk",
-                password:"12321312",
-                nickname: "王明",
-                age: 50,
-                job : "撸代码的",
-                hobby :"吃",
-                phone : 123
-            } */}
+        
              <Table  size={"small"} dataSource={this.state.data } columns={[
+            {title:'Unique',dataIndex:'_id',key:'_id'},
             {title:'Account',dataIndex:'account',key:'account'},
             {title:'Password',dataIndex:'password',key:'password'},
             {title:'Nickname',dataIndex:'nickname',key:'nickname'},
@@ -45,6 +36,7 @@ export default class Studnet extends React.Component<any,Partial<StudentState>> 
             {title:'Job',dataIndex:'job',key:'job'},
             {title:'Hobby',dataIndex:'hobby',key:'hobby'},
             {title:'phone',dataIndex:'phone',key:'phone'},
+    
         ]
         }>
         </Table>

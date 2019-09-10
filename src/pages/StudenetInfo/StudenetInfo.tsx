@@ -14,6 +14,7 @@ export default class StudenetInfo extends React.Component<any,StudenetInfoState>
             <>
             <Table dataSource={createMockData<IStudent>(120,
             {  
+                _id : "10",
                 key: 0,
                 account:"胜多负少东方闪电",
                 password:"胜多负少东方闪电",
