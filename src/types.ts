@@ -1,4 +1,4 @@
-export interface Student{
+export interface IStudent{
     key?:number;
     account:string
     password:string

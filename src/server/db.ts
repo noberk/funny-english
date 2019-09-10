@@ -63,7 +63,9 @@ export class DBConnetion {
             dbo.collection(this.tableName).find<T>({}).toArray((e, r) => {
                 this.er(e);
                 arr = r;
+                console.log(r);
             });
+            mongoClient.close();
         })
         return arr;
     }

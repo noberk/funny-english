@@ -12,12 +12,15 @@
     "antd": "^3.23.2",
     "koa": "^2.8.1",
     "mongodb": "^3.3.2",
+    "nodemon": "^1.19.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
+    "reflect-metadata": "^0.1.13",
     "ts-node": "^8.3.0",
+    "typeorm": "^0.2.18",
     "typescript": "3.6.2"
   },
   "scripts": {

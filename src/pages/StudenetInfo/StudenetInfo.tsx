@@ -1,8 +1,8 @@
 import React from "react";
-import { Student } from "../../types";
+import { IStudent } from "../../types";
 import { Table } from 'antd';
 import {createMockData} from "../../commom/monk";
-interface StudenetInfoState extends Student{
+interface StudenetInfoState extends IStudent{
 
 }
 
@@ -12,7 +12,7 @@ export default class StudenetInfo extends React.Component<any,StudenetInfoState>
     render(){
         return (
             <>
-            <Table dataSource={createMockData<Student>(120,
+            <Table dataSource={createMockData<IStudent>(120,
             {  
                 key: 0,
                 account:"胜多负少东方闪电",
