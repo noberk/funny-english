@@ -32,11 +32,11 @@ export default class WordList extends React.Component<any, WordListState> {
                     <Beam></Beam>
                 </div>
                 <Table dataSource={wordList15000(20)} columns={[
-                    { title: 'ID', dataIndex: 'age', key: 'age' },
+                    // { title: 'ID', dataIndex: 'age', key: 'age' },
                     { title: 'word', dataIndex: 'word', key: 'word' },
+                    { title: 'british', dataIndex: 'british', key: 'british' },
+                    { title: 'american', dataIndex: 'american', key: 'american' },
                     { title: 'definition', dataIndex: 'definition', key: 'definition' },
-                    { title: 'America', dataIndex: 'password', key: 'password' },
-                    { title: 'English', dataIndex: 'nickname', key: 'nickname' },
                     { title: 'Image', dataIndex: 'age', key: 'age' },
                 ]
                 }>
