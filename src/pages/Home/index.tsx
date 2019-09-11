@@ -1,7 +1,9 @@
 import StudentList from "../StudentList/Student";
 import StudenetInfo from "../StudenetInfo/StudenetInfo";
 import addVocabulary from "../AddVocabulary/addVocabulary";
+import WordList from "../WordList/WordList";
 import {WrappedDemo} from "../AddArticle/addArticle";
+import "./home.css"
 import { Layout, Menu, Breadcrumb } from 'antd';
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -27,22 +29,26 @@ export class Home extends React.Component<any,HomeState> {
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultOpenKeys={['sub1','sub2']}  mode="inline">
-            <SubMenu key="sub1"title={<span>👨‍🏫 (Student)学员</span>}>
-              <Menu.Item key="1">
+            <SubMenu key="sub1"  title={<span className="emojiSize">👪 Student</span>}>
+              <Menu.Item key="101">
               <Link to="/">Student List</Link>
               </Menu.Item>
-              <Menu.Item key="11">
+              <Menu.Item key="102">
               <Link to="/StudentInfo">Student Info</Link>
               </Menu.Item>
             </SubMenu>
-            <SubMenu key="sub2" title={<span>✍️ (Write)录入</span> }>
-              <Menu.Item key="2"><Link to="/addVocabulary">Vocabulary</Link></Menu.Item>
-              <Menu.Item key="3"><Link to="/addArticle">Article</Link></Menu.Item>
+            <SubMenu key="sub2" title={<span className="emojiSize">✍️ Write</span> }>
+              <Menu.Item key="201"><Link to="/addVocabulary">Vocabulary</Link></Menu.Item>
+              <Menu.Item key="202"><Link to="/addArticle">Article</Link></Menu.Item>
      
               
             </SubMenu>
-            <SubMenu key="sub3" title={<span>📊 (Statistics)录入</span> }>
-              <Menu.Item key="4">Age</Menu.Item>
+            <SubMenu key="sub3" title={<span className="emojiSize">🗃 Statistic</span> }>
+              <Menu.Item key="301"><Link to="/WordList">Word List</Link></Menu.Item>
+              
+            </SubMenu>
+            <SubMenu key="sub4" title={<span className="emojiSize">📈 Chart</span> }>
+              <Menu.Item key="401">Age</Menu.Item>
               
             </SubMenu>
           </Menu>
@@ -60,6 +66,8 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/StudentInfo" component={StudenetInfo} />
         <Route path="/addVocabulary" component={addVocabulary} />
         <Route path="/addArticle" component={WrappedDemo} />
+        <Route path="/WordList" component={WordList} />
+ 
         
           </Content>
           <Footer style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
