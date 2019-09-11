@@ -1,7 +1,7 @@
 import React from "react";
 import { IWordList } from "../../types";
 import { Table, Input, Button, Row, Col } from 'antd';
-import { createMockData } from "../../commom/monk";
+import { createMockData, wordList15000 } from "../../commom/monk";
 import { Beam } from "../styled";
 import { Link } from "react-router-dom";
 import { Nav } from "../../commom/nav";
@@ -31,13 +31,10 @@ export default class WordList extends React.Component<any, WordListState> {
                     </Row>
                     <Beam></Beam>
                 </div>
-                <Table dataSource={createMockData<IWordList>(2,
-                    {
-                        _id: "10",
-                    }
-                )} columns={[
+                <Table dataSource={wordList15000(20)} columns={[
                     { title: 'ID', dataIndex: 'age', key: 'age' },
-                    { title: 'Word', dataIndex: 'Word', key: 'Word' },
+                    { title: 'word', dataIndex: 'word', key: 'word' },
+                    { title: 'definition', dataIndex: 'definition', key: 'definition' },
                     { title: 'America', dataIndex: 'password', key: 'password' },
                     { title: 'English', dataIndex: 'nickname', key: 'nickname' },
                     { title: 'Image', dataIndex: 'age', key: 'age' },
