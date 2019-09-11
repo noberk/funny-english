@@ -3,6 +3,8 @@ import { IWordList } from "../../types";
 import { Table, Input, Button, Row, Col } from 'antd';
 import { createMockData } from "../../commom/monk";
 import { Beam } from "../styled";
+import { Link } from "react-router-dom";
+import { Nav } from "../../commom/nav";
 
 const { Search } = Input;
 
@@ -20,9 +22,11 @@ export default class WordList extends React.Component<any, WordListState> {
                                 size="large"
                                 enterButton="Search"
                                 onSearch={value => console.log(value)}
-                               />
+                            />
                         </Col>
-                        <Col span={12} style={{textAlign:"right"}} ><Button type="primary"    size="large">Add New</Button></Col>
+                        <Col span={12} style={{ textAlign: "right" }} >
+                          <Link to={Nav.addVocabulary.path}> <Button type="primary" size="large">Add New</Button></Link> 
+                        </Col>
 
                     </Row>
                     <Beam></Beam>
