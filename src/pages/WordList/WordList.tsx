@@ -2,6 +2,8 @@ import React from "react";
 import { IWordList } from "../../types";
 import { Table, Input, Button, Row, Col } from 'antd';
 import { createMockData } from "../../commom/monk";
+import { Beam } from "../styled";
+
 const { Search } = Input;
 
 interface WordListState extends IWordList { }
@@ -23,6 +25,7 @@ export default class WordList extends React.Component<any, WordListState> {
                         <Col span={12} style={{textAlign:"right"}} ><Button type="primary"    size="large">Add New</Button></Col>
 
                     </Row>
+                    <Beam></Beam>
                 </div>
                 <Table dataSource={createMockData<IWordList>(2,
                     {
