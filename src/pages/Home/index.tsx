@@ -2,6 +2,7 @@ import StudentList from "../StudentList/Student";
 import StudenetInfo from "../StudenetInfo/StudenetInfo";
 import addVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
+import Login from "../Login/login";
 import {WrappedDemo} from "../AddArticle/addArticle";
 import "./home.css"
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -67,6 +68,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/addVocabulary" component={addVocabulary} />
         <Route path="/addArticle" component={WrappedDemo} />
         <Route path="/WordList" component={WordList} />
+        <Route path="/amuse" component={Login} />
  
         
           </Content>
