@@ -13,3 +13,4 @@ https://nivo.rocks/components
 https://uber.github.io/react-vis/
 https://formidable.com/open-source/victory/
 http://recharts.org/en-US/
+http://www.chiptune.com/kaleidoscope/
