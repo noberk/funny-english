@@ -21,7 +21,7 @@ const AmusementPark :  React.FC = () => {
         <svg id="sky_day" data-name="sky day" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1295.87 804.79">
         <defs>
         </defs>
-        <title>Amusement park flat by Lina</title>
+        <title>Funny English</title>
         <g>
           <rect id="day" className="cls-1"  y="-27.96" width="100%" height="100%"/>
           <g id="sun">
