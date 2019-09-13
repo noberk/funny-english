@@ -1,6 +1,5 @@
 import { Tile, TileInfo } from "./types";
 import * as  System from "./types";
-import { Festival } from "./festival";
 import { Option } from "./option";
 
 
@@ -22,6 +21,23 @@ export function value2emoji(score :number):string{
         default: return Option.emoji.default
     }
 
+}
+export function value2word(score:number):string{
+    
+    switch (score) {
+        // case 0: return "";
+        // case 2**1: return GCC.data[0].word
+        // case 2**2: return GCC.data[1].word
+        // case 2**3: return GCC.data[2].word
+        // case 2**4: return GCC.data[3].word
+        // case 2**5: return GCC.data[4].word
+        // case 2**6: return GCC.data[5].word
+        // case 2**7: return GCC.data[6].word
+        // case 2**8: return GCC.data[7].word
+        // case 2**9: return GCC.data[8].word
+        // case 2**10: return GCC.data[9].word
+        default: return Option.emoji.default
+    }
 }
 export function toPath(filename: string, path: string): System.Path {
     return Object.assign(filename, { __pathBrand: path });
@@ -112,7 +128,7 @@ export function combinationTiles(tileSquare: Tile[][], dir: System.Direction): T
  * @param dir 
  */
 
-export function combineTilesRows(table: TileInfo[][], dir: System.Direction, scoreBouns = 1): TileInfo[][] {
+export function combineTilesRows(table: TileInfo[][], dir: System.Direction): TileInfo[][] {
 
     var blankArr = createBlank2DArray(table.length, table[0].length);
 
@@ -232,7 +248,7 @@ export function combineTilesRows(table: TileInfo[][], dir: System.Direction, sco
 export function pointRecord(ti: TileInfo) {
     ti.previousIndex = ti.index;
 }
-export function combineTilesColumns(table: TileInfo[][], dir: System.Direction, scoreBouns = 1): TileInfo[][] {
+export function combineTilesColumns(table: TileInfo[][], dir: System.Direction): TileInfo[][] {
     var blankArr = createBlank2DArray(table.length, table[0].length);
 
     const colsLength = table[0].length
@@ -255,12 +271,10 @@ export function combineTilesColumns(table: TileInfo[][], dir: System.Direction, 
 
             var vaildDataCache: TileInfo[] = []; //有效數據值
             var finalCache: TileInfo[] = []; //計算後的值
-            var blankRowArr = blankArr[c];
 
             // 每一行最右边依次向最左边拿"元素" 
             // 每个拿到的元素会和它自身右边的元素相乘
             vaildCol(c, vaildDataCache);
-            var floor = 0;
             //如果有效數據數組中的數據長度大於0,那麼就無限循環下去
             while (vaildDataCache.length != 0) {
                 var targetIndex: number = 0;  //從左開始
@@ -300,12 +314,10 @@ export function combineTilesColumns(table: TileInfo[][], dir: System.Direction, 
 
             var vaildDataCache: TileInfo[] = []; //有效數據值
             var finalCache: TileInfo[] = []; //計算後的值
-            var blankRowArr = blankArr[c];
 
             // 每一行最右边依次向最左边拿"元素" 
             // 每个拿到的元素会和它自身右边的元素相乘
             vaildCol(c, vaildDataCache);
-            var floor = 0;
             //如果有效數據數組中的數據長度大於0,那麼就無限循環下去
             while (vaildDataCache.length != 0) {
                 var targetIndex: number = vaildDataCache.length - 1 //從右開始
@@ -396,7 +408,7 @@ export function aid(data: TileInfo[], count: number = 1): TileInfo[]  {
 export function initCreateTilesTest() {
     return [4, 4, 4, 0, 2, 2, 4, 4, 2, 2, 2, 2, 4, 2, 4, 4];
 }
-export function createBlank2DArray(rows: number, cols: number, defaultVallue = 0): TileInfo[][] {
+export function createBlank2DArray(rows: number, cols: number): TileInfo[][] {
     var arr2d = new Array<Array<TileInfo>>(rows);
     for (let i = 0; i < rows; i++) {
         arr2d[i] = new Array<TileInfo>(cols);
@@ -426,20 +438,3 @@ export function printInfo<T extends System.Step>() {
     }
 }
 
-let testDecorator = (type: any) => {
-
-    return (target: any, name: string, descriptor: PropertyDescriptor) => {
-        const method = descriptor.value;
-        descriptor.value = (...args: any[]) => {
-            console.info(`($) 正在执行: $($) = ?`);
-            let ret;
-            try {
-                ret = method.apply(target, args);
-                console.info(`($) 成功 : $($) => $`);
-            } catch (error) {
-                console.error(`($) 失败: $($) => $`);
-            }
-            return ret;
-        }
-    }
-}
