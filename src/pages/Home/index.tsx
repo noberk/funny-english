@@ -3,9 +3,10 @@ import StudenetInfo from "../StudenetInfo/StudenetInfo";
 import addVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
 import Login from "../Login/login";
+import GWeAreCouple from "../GWeAreCouple/gWeAreCouple";
 import {WrappedDemo} from "../AddArticle/addArticle";
 import "./home.css"
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb,Icon } from 'antd';
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
@@ -14,6 +15,9 @@ const { SubMenu } = Menu;
 interface HomeState{
   collapsed:boolean;
 }
+const PandaSvg = () => (<span className="emojiSize">✍️</span>)
+const emoji = (emoji:string) => (<span className="emojiSize">{emoji}️</span>)
+const myEmoji2 = () => (<span className="emojiSize">✍</span>)
 export class Home extends React.Component<any,HomeState> {
   state = {
     collapsed: false,
@@ -27,34 +31,54 @@ export class Home extends React.Component<any,HomeState> {
     return (
       <Router>
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+        <Sider style={{width:20}} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultOpenKeys={['sub1','sub2']}  mode="inline">
-            <SubMenu key="sub1"  title={<span className="emojiSize">👪 Student</span>}>
-              <Menu.Item key="101">
-              <Link to="/">Student List</Link>
-              </Menu.Item>
-              <Menu.Item key="102">
-              <Link to="/StudentInfo">Student Info</Link>
-              </Menu.Item>
+
+          <SubMenu key="sub1" title={  
+            <span>
+              <Icon component={()=> emoji("👪") } spin/>
+              <span className="emojiSize">Student</span>
+            </span>}>
+              <Menu.Item key="101"><Link to="/">Student List</Link></Menu.Item>
+              <Menu.Item key="102"><Link to="/StudentInfo">Student Info</Link></Menu.Item>
             </SubMenu>
-            <SubMenu key="sub2" title={<span className="emojiSize">✍️ Write</span> }>
+            <SubMenu key="sub2" title={  
+            <span>
+              <Icon component={()=> emoji("✍️") }  />
+              <span className="emojiSize">Write</span>
+            </span>
+            }>
               <Menu.Item key="201"><Link to="/addVocabulary">Vocabulary</Link></Menu.Item>
-              <Menu.Item key="202"><Link to="/addArticle">Article</Link></Menu.Item>
-     
-              
+              <Menu.Item key="202"><Link to="/addArticle">Article</Link></Menu.Item>  
             </SubMenu>
-            <SubMenu key="sub3" title={<span className="emojiSize">🗃 Statistic</span> }>
-              <Menu.Item key="301"><Link to="/WordList">Word List</Link></Menu.Item>
-              
+            <SubMenu key="sub3" title={  
+            <span>
+              <Icon component={()=> emoji("🗂️") }  />
+              <span className="emojiSize">Statistic</span>
+            </span>
+            }>
+           <Menu.Item key="301"><Link to="/WordList">Word List</Link></Menu.Item>
             </SubMenu>
-            <SubMenu key="sub4" title={<span className="emojiSize">📈 Charts</span> }>
+            
+            <SubMenu key="sub4" title={  
+            <span>
+              <Icon component={()=> emoji("📈") }  />
+              <span className="emojiSize">Charts</span>
+            </span>
+            }>
               <Menu.Item key="401">Age(coming soon)</Menu.Item>
               
             </SubMenu>
-            <SubMenu key="sub5" title={<span className="emojiSize">🕹️ Games</span> }>
+
+            <SubMenu key="sub5" title={  
+            <span>
+              <Icon component={()=> emoji("🕹️") }  />
+              <span className="emojiSize">Games</span>
+            </span>
+            }>
               <Menu.Item key="501">2048(coming soon)</Menu.Item>
-              <Menu.Item key="502">Fish(coming soon)</Menu.Item>
+              <Menu.Item key="502"><Link to="/GWeAreCouple">GWeAreCouple</Link></Menu.Item>
               <Menu.Item key="503"><Link to="/amuse">Amuse</Link></Menu.Item>
             </SubMenu>
           </Menu>
@@ -74,7 +98,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/addArticle" component={WrappedDemo} />
         <Route path="/WordList" component={WordList} />
         <Route path="/amuse" component={Login} />
- 
+        <Route path="/GWeAreCouple" component={GWeAreCouple} />
         
           </Content>
           <Footer style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
