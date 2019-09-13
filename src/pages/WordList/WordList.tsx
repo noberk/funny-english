@@ -11,6 +11,13 @@ const { Search } = Input;
 interface WordListState extends IWordList { }
 export default class WordList extends React.Component<any, WordListState> {
 
+    playSound = (record:{sound:string})=>{
+        let audio= document.createElement("audio");
+        audio.src= record.sound;
+        audio.play();
+    }
+    
+
     render() {
         return (
             <>
@@ -32,8 +39,8 @@ export default class WordList extends React.Component<any, WordListState> {
                     <Beam></Beam>
                 </div>
                 <Table dataSource={wordList15000(20)} columns={[
-                    // { title: 'ID', dataIndex: 'age', key: 'age' },
                     { title: 'word', dataIndex: 'word', key: 'word' },
+                    { title: 'sound', dataIndex: 'sound', key: 'sound', render:(text ,record,index)=><span onClick={()=>{this.playSound(record)}}>🔊</span> },
                     { title: 'british', dataIndex: 'british', key: 'british' },
                     { title: 'american', dataIndex: 'american', key: 'american' },
                     { title: 'definition', dataIndex: 'definition', key: 'definition' },

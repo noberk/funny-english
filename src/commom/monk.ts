@@ -23,13 +23,14 @@ export const createMockData= <T extends object|any>(time:number,entity:T)=>{
 }
 export const wordList15000=(count:number,rawData:any =RawData)=>{
     let i =0;
-    const arr : {word:string,definition:string,british:string,american:string}[]=[]
+    const arr : {word:string,definition:string,british:string,american:string,sound:string}[]=[]
     for (const it in rawData) {
-          let word=  rawData[it].word;
+        let word=  rawData[it].word;
+        let sound = 'http://dict.youdao.com/dictvoice?audio='+ word;
           let definition=  rawData[it].definition;
           let british = (en.exec(definition)) as unknown as string
           let american =  mei.exec(definition) as unknown as string
-         arr.push({word,definition,british,american})
+         arr.push({word,definition,british,american,sound})
         if(i>count)
         break;
     }

@@ -49,12 +49,13 @@ export class Home extends React.Component<any,HomeState> {
               
             </SubMenu>
             <SubMenu key="sub4" title={<span className="emojiSize">📈 Charts</span> }>
-              <Menu.Item key="401">Age</Menu.Item>
+              <Menu.Item key="401">Age(coming soon)</Menu.Item>
               
             </SubMenu>
             <SubMenu key="sub5" title={<span className="emojiSize">🕹️ Games</span> }>
-              <Menu.Item key="501">2048</Menu.Item>
-              <Menu.Item key="502">Fish</Menu.Item>
+              <Menu.Item key="501">2048(coming soon)</Menu.Item>
+              <Menu.Item key="502">Fish(coming soon)</Menu.Item>
+              <Menu.Item key="503"><Link to="/amuse">Amuse</Link></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>

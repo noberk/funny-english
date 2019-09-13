@@ -15,14 +15,16 @@ export interface IAddVocabulary extends _id{
     word:string
     pronunciationAmerica?:string
     pronunciationEnglish?:string
+    sound?:string
     base64PNG?:string[]
     base64JPG?:string[]
-    v?:string;
+    v?:string
     n?:string
     vt?:string
     vi?:string
     adj?:string
     adv?:string
+
 }
 export interface ISentence extends _id{
     sentence:string
