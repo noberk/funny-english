@@ -1,5 +1,5 @@
 import {Option} from "./option";
-import { async } from "q";
+ 
 
 export const MoveSound ='./audio/updown.mp3';
 export class Sound {
@@ -10,9 +10,10 @@ export class Sound {
       audio.play();
   }
    playAudio =  () =>{
-       let ad=  (document.getElementById(Option.audioId) as HTMLAudioElement);
-       ad.src= MoveSound;
-      ad.play()
+       let ad=  document.getElementById(Option.audioId) as HTMLAudioElement;
+       console.log(ad);
+       ad.src=  'http://dict.youdao.com/dictvoice?audio='+ "yes";
+       ad.play()
      }
    
 }

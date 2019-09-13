@@ -1,6 +1,14 @@
-import * as  System from "./types";
+import {Difficult} from "./types";
+
+export enum TileRepresent{
+    Emoji,
+    Digtal,
+    English
+}
+
 export const Option = {
-    emojiMode: true,
+    represent:TileRepresent.Emoji,  //选择游戏的模式
+    emojiMode: false,
     animation:false,
     audioId:"7b03258a-18a7-44f6-9087-d4f7f28cdf7b",
     /**元素id */
@@ -36,8 +44,5 @@ export const Option = {
     /**畫佈的大小 */
     resolution: { w: 1600, h: 900 },
 
-    diff: System.Difficult.Normal,
-
- 
-
+    diff:Difficult.Normal,
 }
