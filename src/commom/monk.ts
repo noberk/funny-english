@@ -26,32 +26,40 @@ export type WordRowNames ={word:string,definition:string,british:string,american
 export const wordList15000=(count:number,rawData:any =RawData)=>{
     let i =0;
     const arr : WordRowNames[]=[];
-    for (const it in rawData) {
+    for (const it in RawData) {
         let word=  rawData[it].word;
         let sound = 'http://dict.youdao.com/dictvoice?audio='+ word;
-          let definition=  rawData[it].definition;
+          let definition = rawData[it].definition;
           let british = (en.exec(definition)) as unknown as string
           let american =  mei.exec(definition) as unknown as string
          arr.push({word,definition,british,american,sound})
-        if(i>count)
+         i++;
+        if(i>=count)
         break;
     }
     return arr;
 }
 
-export const randomPickWords=(count:number,rawData:any =RawData)=>{
-    let i =0;
-    const arr : WordRowNames[]=[];
-    for (const it in rawData) {
-        let word=  rawData[it].word;
-        let sound = 'http://dict.youdao.com/dictvoice?audio='+ word;
-          let definition=  rawData[it].definition;
-          let british = (en.exec(definition)) as unknown as string
-          let american =  mei.exec(definition) as unknown as string
-         arr.push({word,definition,british,american,sound})
-        break;
+
+export const randomPickWords=(count:number)=>{
+    let words=15000
+    const rawData= wordList15000(words);
+    const indexs :number[]=[];
+    for (let i = 0; i < count; i++) {
+        let x= Math.round((Math.random()*10000))+1
+       indexs.push(x);
     }
-    let wordIndexOfRawData= randomRangeIndexs(10,i);
-    return wordIndexOfRawData.map(index=> arr[index] );
+    console.log(indexs);
+    
+    
+    
+    return indexs.map(i=>rawData[i]);
+    
+}
+const range= (range:number,count:number)=>{
+    // var res: string[] = [];
+    // while (res.length===count) {
+        
+    // }
 }
 

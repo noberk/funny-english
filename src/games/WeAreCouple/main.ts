@@ -7,6 +7,7 @@ import { WordRowNames } from "../../commom/monk";
 
 /** Game control center 游戏控制 ! */
 export class GCC {
+    static data:any[]=[];
     /**画板 */
     static canvas =  document.getElementById(Option.canvasId) as HTMLDivElement
     static readonly stage = document.getElementsByTagName('body')[0] as HTMLBodyElement

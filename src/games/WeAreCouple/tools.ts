@@ -1,6 +1,7 @@
 import { Tile, TileInfo } from "./types";
 import * as  System from "./types";
 import { Option } from "./option";
+import { GCC } from "./main";
 
 
 export function value2emoji(score :number):string{

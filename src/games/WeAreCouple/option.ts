@@ -7,7 +7,7 @@ export enum TileRepresent{
 }
 
 export const Option = {
-    represent:TileRepresent.Emoji,  //选择游戏的模式
+    represent:TileRepresent.English,  //选择游戏的模式
     emojiMode: false,
     animation:false,
     audioId:"7b03258a-18a7-44f6-9087-d4f7f28cdf7b",
