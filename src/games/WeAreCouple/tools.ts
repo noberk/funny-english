@@ -26,17 +26,17 @@ export function value2emoji(score :number):string{
 export function value2word(score:number):string{
     
     switch (score) {
-        // case 0: return "";
-        // case 2**1: return GCC.data[0].word
-        // case 2**2: return GCC.data[1].word
-        // case 2**3: return GCC.data[2].word
-        // case 2**4: return GCC.data[3].word
-        // case 2**5: return GCC.data[4].word
-        // case 2**6: return GCC.data[5].word
-        // case 2**7: return GCC.data[6].word
-        // case 2**8: return GCC.data[7].word
-        // case 2**9: return GCC.data[8].word
-        // case 2**10: return GCC.data[9].word
+        case 0: return "";
+        case 2**1: return GCC.data[0].word
+        case 2**2: return GCC.data[1].word
+        case 2**3: return GCC.data[2].word
+        case 2**4: return GCC.data[3].word
+        case 2**5: return GCC.data[4].word
+        case 2**6: return GCC.data[5].word
+        case 2**7: return GCC.data[6].word
+        case 2**8: return GCC.data[7].word
+        case 2**9: return GCC.data[8].word
+        case 2**10: return GCC.data[9].word
         default: return Option.emoji.default
     }
 }
