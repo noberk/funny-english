@@ -1,11 +1,11 @@
 import { GCC } from './main';
 import { ColorPan } from './colors';
-import { combineTilesRows, combineTilesColumns, aid, value2emoji } from "./tools";
+import { combineTilesRows, combineTilesColumns, aid, value2emoji, value2word } from "./tools";
 import * as  System from "./types";
 import { Tile, TileSquare, TileInfo } from "./types";
 import { convertD2, convertD1 } from './convert';
 import { Sound } from './sound';
-import { Option } from './option';
+import { Option, TileRepresent } from './option';
 
 export class UserInterface {
 
@@ -120,11 +120,18 @@ export class UserInterface {
             for (var j = 0; j < array1.length; j++) {
                 array1[j] = new Tile();
                 array1[j].index = tab;
-                if (Option.emojiMode) {
-                    array1[j].text = value2emoji(record2D[i][j].value);
-                } else {
-                    array1[j].value = record2D[i][j].value
-                    array1[j].text = record2D[i][j].value.toString()
+                switch (Option.represent) {
+                    case TileRepresent.Emoji:
+                        array1[j].text = value2emoji(record2D[i][j].value);    
+                        break;
+                    case TileRepresent.Digtal:
+                            array1[j].value = record2D[i][j].value
+                            array1[j].text = record2D[i][j].value.toString()
+                            break;
+                    case TileRepresent.English:
+                            array1[j].text =  value2word(record2D[i][j].value)
+                        break;
+
                 }
 
                 tab++;

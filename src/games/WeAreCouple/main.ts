@@ -3,10 +3,10 @@ import { randomNum, initCreateTiles, printInfo } from './tools'
 import { Option } from "./option";
 import { UserInterface } from "./render";
 import { Tile, Size, Step, TileSquare } from "./types";
+import { WordRowNames } from "../../commom/monk";
 
 /** Game control center 游戏控制 ! */
 export class GCC {
-
     /**画板 */
     static canvas =  document.getElementById(Option.canvasId) as HTMLDivElement
     static readonly stage = document.getElementsByTagName('body')[0] as HTMLBodyElement
@@ -70,7 +70,7 @@ export class Main {
     tileSquare: TileSquare;
     cellArray = new Array<Tile>();
     //开局生成随机多少个瓦片
-    constructor(difficult: System.Difficult) {
+    constructor(difficult: System.Difficult,data?:Array<WordRowNames>) {
         this.setDifficult(difficult);
         let div = document.getElementById(Option.canvasId) as HTMLDivElement
         GCC.canvas = div;
@@ -137,7 +137,9 @@ export class Main {
         return table;
     }
 
+    unload(){
 
+    }
     init(): void {
 
         var initRecord = initCreateTiles(GCC.tableSize.count(), Option.initTileCount, Option.initTileValueRange);
