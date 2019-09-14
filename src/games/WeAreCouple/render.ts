@@ -227,6 +227,10 @@ export class UserInterface {
         let singleborderHeight = borderHeight / (row + 1);
         let eleDiv = document.createElement("div");
 
+        eleDiv.addEventListener("click",()=>{
+            new Sound().playAudio(text);
+        })
+
         eleDiv.style.width = this.toPx(width);
         eleDiv.style.height = this.toPx(height);
         eleDiv.style.backgroundColor = color;

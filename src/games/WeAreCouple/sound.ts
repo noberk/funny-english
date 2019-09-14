@@ -9,11 +9,10 @@ export class Sound {
       audio.src= MoveSound;
       audio.play();
   }
-   playAudio =  () =>{
-       let ad=  document.getElementById(Option.audioId) as HTMLAudioElement;
-       console.log(ad);
-       ad.src=  'http://dict.youdao.com/dictvoice?audio='+ "yes";
-       ad.play()
+   playAudio =  (word="yes") =>{
+        let audio= document.createElement("audio");
+        audio.src=  'http://dict.youdao.com/dictvoice?audio='+ word;
+        audio.play()
      }
    
 }
