@@ -11,8 +11,8 @@ export class UserInterface {
 
     private canvasStyle(): void {
         let canvas = document.getElementById(Option.canvasId) as HTMLDivElement;
-        canvas.style.width = this.toPx(GCC.canvasWidth)
-        canvas.style.height = this.toPx(GCC.canvasHeight)
+        canvas.style.width = "80%" //this.toPx(GCC.canvasWidth)
+        canvas.style.height = "80%" // this.toPx(GCC.canvasHeight)
     }
     private bodyStyle(): void {
         var body:any = document.getElementsByTagName('body').item(0);
@@ -34,10 +34,12 @@ export class UserInterface {
         this.bodyStyle();
         this.canvasStyle();
         this.createBackGroundTail("div");
-
+      
     }
 
     private backgroundSkin(): void {
+        this.divCanvas.style.width ="80%";
+        this.divCanvas.style.height="80%";
         this.divCanvas.style.backgroundColor = ColorPan.backgroundDivBig;
         this.divCanvas.style.margin = "auto";
         this.divCanvas.style.position = "relative";
@@ -61,10 +63,10 @@ export class UserInterface {
     }
     private createBackGroundTail(eleName: string): void {
 
-        let borderWidth = GCC.canvasWidth * (1 / 6);
-        let borderHeight =  GCC.canvasHeight * (1 / 6);
-        let width = (GCC.canvasWidth - borderWidth) / GCC.tableSize.columns;
-        let height = ( GCC.canvasHeight - borderHeight) / GCC.tableSize.rows;
+        let borderWidth = GCC.canvasWidth() * (1 / 6);
+        let borderHeight =  GCC.canvasHeight() * (1 / 6);
+        let width = (GCC.canvasWidth() - borderWidth) / GCC.tableSize.columns;
+        let height = ( GCC.canvasHeight() - borderHeight) / GCC.tableSize.rows;
         let pieceOfRectangle = GCC.tableSize.rows * GCC.tableSize.columns;
         let singleborderWidth = borderWidth / (GCC.tableSize.columns + 1);
         let singleborderHeight = borderHeight / (GCC.tableSize.rows + 1);
@@ -88,11 +90,8 @@ export class UserInterface {
         }
     }
     //随机创建一个新的  "格子""
-
-    public update(previous: TileSquare, next: TileSquare): Boolean {
-        return true;
-    }
-    private clear(canvas: HTMLDivElement): boolean {
+ 
+    public clear(canvas: HTMLDivElement): boolean {
         try {
             while (canvas.hasChildNodes()) //当div下还存在子节点时 循环继续
             {
@@ -108,6 +107,7 @@ export class UserInterface {
         
         return true
     }
+    
     public draw(records: TileInfo[], animation?: boolean) {
 
         var record2D = convertD2(records, GCC.tableSize.rows);
@@ -146,7 +146,7 @@ export class UserInterface {
                     this.moveTile2(tile, GCC.curRecord().direction)
             });
         });
-
+        
 
 
     }
@@ -216,10 +216,12 @@ export class UserInterface {
 
         let color = this.colorfulValue(value);
 
-        let borderWidth = GCC.canvasWidth * (1 / 6);
-        let borderHeight = GCC.canvasHeight * (1 / 6);
-        let width = (GCC.canvasWidth - borderWidth) / col;
-        let height = (GCC.canvasHeight - borderHeight) / row;
+        let borderWidth = GCC.canvasWidth() * (1 / 6);
+        let borderHeight = GCC.canvasHeight() * (1 / 6);
+        
+    
+        let width = (GCC.canvasWidth() - borderWidth) / col;
+        let height = (GCC.canvasHeight() - borderHeight) / row;
         let pieceOfRectangle = row * col;
         let singleborderWidth = borderWidth / (col + 1);
         let singleborderHeight = borderHeight / (row + 1);

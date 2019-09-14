@@ -42,7 +42,9 @@ export const Option = {
     /**再下一回合會獎勵方塊的數量 */
     tilesCountBouns: 1,
     /**畫佈的大小 */
-    resolution: { w: 1600, h: 900 },
+    resolution: { 
+        w: 1600, h: 900 
+    },
 
     diff:Difficult.Normal,
 }

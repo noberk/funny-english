@@ -14,9 +14,9 @@ export class GCC {
     /**画板上内边距 */
     static readonly canvasPaddingTop: number = 0
     /**画板宽度 */
-    static readonly canvasWidth: number = Option.resolution.w;
+    static readonly canvasWidth: ()=> number = ()=> (<HTMLDivElement>document.getElementById(Option.canvasId)).clientWidth;
     /**画板高度 */
-    static readonly canvasHeight: number = Option.resolution.h;
+    static readonly canvasHeight:()=> number =  ()=>(<HTMLDivElement>document.getElementById(Option.canvasId)).clientHeight;
     /**动画持续时间 */
     static readonly animDuration: number = 100
     /**棋盘格 */
@@ -32,6 +32,7 @@ export class GCC {
             return Object.create(null) as Step
         }
     }
+    static curTable:System.Tile[];
     score: number = 0;
     // //根据难度计算出的来行数
     // canInput: boolean = true;
@@ -84,6 +85,13 @@ export class Main {
     bindEvent() {
         GCC.stage.onkeydown = (e) => { this.ui.move(e) }
         GCC.canvas.onmouseover = this.mouseOver;
+        window.onresize=()=>{
+            this.ui.draw(GCC.curRecord().value);
+            this.ui.clear(GCC.canvas);
+        }
+        
+
+        
     }
     setDifficult(diff: System.Difficult): void {
 

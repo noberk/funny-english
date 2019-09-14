@@ -71,6 +71,7 @@ export interface Step {
     direction: Direction;
     index?: number;
     value: TileInfo[];
+    
 }
 
 export class Tile implements TileInfo {
