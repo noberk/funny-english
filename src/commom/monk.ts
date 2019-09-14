@@ -23,15 +23,15 @@ export const createMockData= <T extends object|any>(time:number,entity:T)=>{
     return arr;
 }
 export type WordRowNames ={word:string,definition:string,british:string,american:string,sound:string};
-export const wordList15000=(count:number,rawData:any =RawData)=>{
+export const wordList15000=(count:number=2**16,rawData:any =RawData)=>{
     let i =0;
     const arr : WordRowNames[]=[];
     for (const it in RawData) {
         let word=  rawData[it].word;
         let sound = 'http://dict.youdao.com/dictvoice?audio='+ word;
-          let definition = rawData[it].definition;
-          let british = (en.exec(definition)) as unknown as string
-          let american =  mei.exec(definition) as unknown as string
+        let definition = rawData[it].definition;
+        let british =  en.exec(definition) as unknown as string
+        let american =  mei.exec(definition) as unknown as string
          arr.push({word,definition,british,american,sound})
          i++;
         if(i>=count)
@@ -40,6 +40,7 @@ export const wordList15000=(count:number,rawData:any =RawData)=>{
     return arr;
 }
 
+ 
 
 export const randomPickWords=(count:number)=>{
     let words=15000

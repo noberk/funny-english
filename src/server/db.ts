@@ -1,12 +1,11 @@
-import { MongoClient, MongoError } from "mongodb";
+import { MongoClient, MongoError, InsertWriteOpResult } from "mongodb";
 
 
 export const Tables = { Student: "student" }
-type TableName = "student";
+type TableName = "student"|"word";
 type Nullable<T> = { [P in keyof T]: T[P] | null }
 type Partial<T> = { [P in keyof T]?: T[P] }
 type Action = (mongoClient: MongoClient) => void;
-
 export class DBConnetion {
     constructor(public tableName: TableName) {
 
@@ -15,6 +14,10 @@ export class DBConnetion {
     private db = "admin";
     private client: typeof MongoClient = require("mongodb").MongoClient;
     er = (e: MongoError) => { if (e) { console.error(e.message) } }
+    /**
+     * This function will help you to open and close the connection automatically when you have been operated.
+     * @param action 
+     */
     open(action: Action) {
         this.client.connect(this.url, { useNewUrlParser: true }, (e, r) => {
             if (e) {
@@ -24,24 +27,24 @@ export class DBConnetion {
             r.close();
         })
     }
-    test(): boolean {
-        let success = false;
-        this.client.connect(this.url, { useNewUrlParser: true }, (e, r) => {
-            if (e) {
-                console.log(e.message);
-            }
-            r.close();
-            success = true;
-        })
-        return success;
-    }
+
     insert<T>(obj: T): void {
         this.open(mongoClient => {
             let dbo = mongoClient.db(this.db);
             dbo.collection(this.tableName).insertOne(obj, (e, r) => {
                 this.er(e);
                 console.log(" 😄📦 A record has been inserted");
-                mongoClient.close();
+            })
+        })
+    }
+    insertMany<T>(many: Array<T>):Promise<InsertWriteOpResult>{
+        return new Promise((resolve,reject)=>{
+            this.open(mongoClient=>{
+                let dbo = mongoClient.db(this.db);
+                dbo.collection(this.tableName).insertMany(many,(e,r)=>{
+                    this.er(e);      
+                    resolve(r);
+                })
             })
         })
     }
@@ -52,7 +55,6 @@ export class DBConnetion {
                 this.er(e);
                 console.log("🔖A record has been deleted");
             })
-            mongoClient.close();
         })
     }
     findAll<T>() : Promise<T[]>{
@@ -63,7 +65,6 @@ export class DBConnetion {
                     this.er(e);
                     resolve(r);
                 });
-                mongoClient.close();
             })
         })
     }
