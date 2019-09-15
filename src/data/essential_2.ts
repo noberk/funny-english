@@ -1,5 +1,5 @@
-type WordList = Array<[string,string,string,string,string,string]>
-export const essential4000_2 : WordList=
+type WordList = Array<[string,string,"adj."|"v."|"n."|"adv.",string,string,string]>
+export const essential4000_2_1 : WordList=
 [
     [
         "anxious",
@@ -82,7 +82,176 @@ export const essential4000_2 : WordList=
         "",
     ]
 
-    
+    ,
+    [
+        "lung",
+        "/lʌŋ/ ",
+        "n.",
+        "A lung is the organ in the body that fills with air when breathing.",
+        "having strong lungs is necessary for a healthy life",
+        "",
+    ]
+    ,
+    [
+        "motion",
+        "/'məʊʃ(ə)n/ ",
+        "n.",
+        "A motion is a movement that someone makes.",
+        "The molice officer made a motion with his hand.",
+        "",
+    ]
+    ,
+    [
+        "pace",
+        "/peɪs/ ",
+        "n.",
+        "The pace of something is the speed at which it happens",
+        "I ran the race at a slower pace than my friend.",
+        "",
+    ]
+    ,
+    [
+        "polite",
+        "/pə'laɪt/ ",
+        "adj.",
+        "When someone is polite, they are acting in a thoughtful way.",
+        "The boy was very polite: he behaved very thoughtfully.",
+        "",
+    ]
+    ,
+    [
+        "possess",
+        "/pəˈzes/ ",
+        "v.",
+        "To possess something is to have it or own it.",
+        "My uncle possesses three sheep, a chicken, a cow and a dog.",
+        "",
+    ]
+    ,
+    [
+        "rapidly",
+        "/ræpɪdlɪ/ ",
+        "adv.",
+        "When something happens rapidly, it happens very fast.",
+        "The train moved rapidly on the tracks.",
+        "",
+    ]
+    ,
+    [
+        "remark",
+        "/rɪ'mɑːk/ ",
+        "v.",
+        "To remark is to say something.",
+        "The teacher remarked on how quickly the students were learning.",
+        "",
+    ]
+    ,
+    [
+        "seek",
+        "/siːk/ ",
+        "v.",
+        "To seek is to look for something.",
+        "if I have a problem, I seek my sister's advice.",
+        "",
+    ]
+    ,
+    [
+        "shine",
+        "/ʃaɪn/ ",
+        "v.",
+        "To shine is to make a bright light.",
+        "The candles are shining in the dark room.",
+        "",
+    ]
+    ,
+    [
+        "spill",
+        "/spɪl/ ",
+        "v.",
+        "To spill is to have something fall out of its container.",
+        "I spilled the coffee on the table.",
+        "",
+    ],
+    [
+        "bring",
+        "/brɪŋ/",
+        "v.",
+        "To bring means to take someone or something to a person or place",
+        "Oscar will bring in all the boxes.",
+        "",
+    ],
+    [
+        "castle",
+        "/'kɑːs(ə)l/ ",
+        "n.",
+        "A castle is a building with strong walls where royalty usually lives.",
+        "the castle was built many years ago.",
+        "",
+    ],
+    [
+        "command",
+        "/kə'mɑːnd/ ",
+        "v.",
+        "To command someone is to tell them to do something",
+        "The general commanded his army to attack.",
+        "",
+    ],
+    [
+        "counsel",
+        "/'kaʊns(ə)/ ",
+        "v.",
+        "To counsel someone is to listen and give advice about a problem.",
+        "The teather counseled the girl about her troubles",
+        "",
+    ],
+    [
+        "ensure",
+        "/ɪn'ʃɔː; -'ʃʊə; en-/ ",
+        "v.",
+        "To ensure is to make certain that something happens.",
+        "Eating good food ensures that we stay healthy.",
+        "",
+    ],
+    [
+        "explosion",
+        "/ɪk'spləʊʒ(ə)n; ek-/ ",
+        "n.",
+        "An explosion is a violent burst, usually with a loud sound.",
+        "A nuclear explosion can cause great damage.",
+        "",
+    ],
+    [
+        "jewelry",
+        "/'dʒuːəlrɪ/ ",
+        "v.",
+        "Jewelry is omething that people wear like earrings or necklaces.",
+        "The woman looked beautiful with her nice dress and jewelry.",
+        "",
+    ],
+    [
+        "land",
+        "/lænd/ ",
+        "v.",
+        "To land means to come to the ground usually from a ship or aircraft.",
+        "The parachutist landed safely on the gorund.",
+        "",
+    ],
+    [
+        "meteor",
+        "/ˈmiːtiə(r)/ ",
+        "n.",
+        "A meteor is a rock from outer space that falls to Earth.",
+        "We saw a meteor in the sky last night.",
+        "",
+    ],
+    [
+        "monster",
+        "/ˈmɒnstə/ ",
+        "n.",
+        "A monster is any imaginary frightening creature that looks strange.",
+        "The monster scared everyone in the village.",
+        "",
+    ]
 
 ]
 

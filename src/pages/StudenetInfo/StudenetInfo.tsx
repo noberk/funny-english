@@ -16,12 +16,12 @@ export default class StudenetInfo extends React.Component<any,StudenetInfoState>
             {  
                 _id : "10",
                 key: 0,
-                account:"胜多负少东方闪电",
-                password:"胜多负少东方闪电",
-                nickname: "胜多负少东方闪电",
+                account:"Donald John Trump",
+                password:"*****",
+                nickname: "Trump",
                 age: 520,
-                job : "胜多负少东方闪电",
-                hobby :"胜多负少东方闪电",
+                job : "National affair",
+                hobby :"blua blua",
                 phone:123
             }
         )} columns={[

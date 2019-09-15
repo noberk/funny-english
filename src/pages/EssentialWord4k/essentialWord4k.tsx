@@ -1,7 +1,9 @@
 import React from "react";
-import { essential4000_2 } from "../../data/essential_2";
+import { essential4000_2_1 } from "../../data/essential_2";
 import "./index.css";
-import { Sound } from "../../components/common";
+import { Sound, playSound } from "../../components/common";
+import { Button } from "antd";
+import { gradientColor } from "../../commom/colors";
 
 export default class Essential4K extends React.Component<any,any>{
    highlight=(text:string,word:string)=>{
@@ -15,13 +17,22 @@ export default class Essential4K extends React.Component<any,any>{
         return <>{start}<i className="essentialWord4k_highlight">{word}</i>{end}</>;
    }
    render(){
+      
        return (
        <>
         <h1 className="essentialWord4k_h1"> 🎊The key Essential words that you have to know🎊</h1>
         <h2>In this series of courses 
         </h2>
+        <div>
+            {essential4000_2_1.map((item,index)=>
+                <Button onClick={()=>{playSound(item[0])}} size="large" style={{backgroundColor: gradientColor("#7bbfea","#2585a6",essential4000_2_1.length)[index]}} type="primary">
+                {item[0]}  &nbsp;
+                <Sound word={item[0]}/>
+                </Button>
+                )}
+        </div>
         <div className="essentialWord4k">
-            {essential4000_2.map(item=>
+            {essential4000_2_1.map(item=>
                 <>
                 <div  key={item[0]}>
                     <span className="img3" >{item[0]} </span>

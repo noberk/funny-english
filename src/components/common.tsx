@@ -1,6 +1,6 @@
 import React from "react";
 
-const playSound = (word:string="yes")=>{
+export const playSound = (word:string="yes")=>{
     let audio= document.createElement("audio");
     audio.src=  'http://dict.youdao.com/dictvoice?audio='+word;
     audio.play();
