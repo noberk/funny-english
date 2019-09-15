@@ -33,3 +33,27 @@
     transform: rotate(360deg);
   }
 }
+
+ 
+@font-face {
+  font-family: 'Righteous';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Righteous-Regular.ttf');
+  src: local('Righteous'), local('Righteous'),
+}
+
+@font-face {
+  font-family: 'Modak';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Modak-Regular.ttf');
+  src: local('Modak'), local('Modak'),
+}
+body {
+  background: rgb(23, 28, 48);
+  margin: 0;
+  font-family: "Righteous";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

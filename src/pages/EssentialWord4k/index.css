@@ -1,0 +1,15 @@
+.essentialWord4k{
+    font-size: 1.2rem;
+}
+
+.essentialWord4k  div{ }
+
+.essentialWord4k div span:nth-child(1){
+    color: aquamarine;
+}
+.essentialWord4k div span:nth-child(2){
+    color: gray;
+}
+.essentialWord4k div span:nth-child(3){
+    color: gray;
+}

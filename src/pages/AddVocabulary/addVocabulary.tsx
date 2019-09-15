@@ -4,8 +4,6 @@ import { take } from "../../commom/fetch";
 import {
     Form,
     Input,
-    Tooltip,
-    Icon,
     Select,
     Button,
   } from 'antd';

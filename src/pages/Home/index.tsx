@@ -3,6 +3,7 @@ import StudenetInfo from "../StudenetInfo/StudenetInfo";
 import addVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
 import Login from "../Login/login";
+import EssentialWord4k from "../EssentialWord4k/essentialWord4k";
 import GWeAreCouple from "../GWeAreCouple/gWeAreCouple";
 import {WrappedDemo} from "../AddArticle/addArticle";
 import "./home.css"
@@ -59,6 +60,7 @@ export class Home extends React.Component<any,HomeState> {
             </span>
             }>
            <Menu.Item key="301"><Link to="/WordList">Word List</Link></Menu.Item>
+           <Menu.Item key="302"><Link to="/EssentialWord4k">EssentialWord4k</Link></Menu.Item>
             </SubMenu>
             
             <SubMenu key="sub4" title={  
@@ -99,6 +101,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/WordList" component={WordList} />
         <Route path="/amuse" component={Login} />
         <Route path="/GWeAreCouple" component={GWeAreCouple} />
+        <Route path="/EssentialWord4k" component={EssentialWord4k} />
         
           </Content>
           <Footer style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
