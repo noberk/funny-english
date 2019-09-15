@@ -3,7 +3,7 @@ type Transformat = "text" | "image" | undefined;
 export async function takeText(path: string, transformat: Transformat): Promise<string> {
 
     var myHeaders = new Headers();
-    if (transformat == "text") {
+    if (transformat === "text") {
         myHeaders.append('Content-Type', 'text/plain');
         var myInit: RequestInit = {
             method: 'GET',
@@ -23,9 +23,9 @@ export async function takeText(path: string, transformat: Transformat): Promise<
 
 export async function take<T>(path: string): Promise<T>;
 export async function take<T>(path: string, types?: string): Promise<T> {
-    if (types != undefined) {
+    if (types !== undefined) {
         var myHeaders = new Headers();
-        if (types == "text") {
+        if (types === "text") {
             myHeaders.append('Content-Type', 'text/plain');
             var myInit: RequestInit = {
                 method: 'post',
@@ -36,7 +36,7 @@ export async function take<T>(path: string, types?: string): Promise<T> {
                   'Content-Type': 'application/x-www-form-urlencoded'
                 },
             };
-            var response = await fetch(path, myInit);
+            let response = await fetch(path, myInit);
             return await response.json() as Promise<T>
         } else {
             return new Promise<T>((resovle) => {
@@ -47,7 +47,7 @@ export async function take<T>(path: string, types?: string): Promise<T> {
 
     } else {
         try {
-            var response = await fetch(path);
+            let response = await fetch(path);
             return await response.json() as Promise<T>
         } catch (e) {
             return new Promise<T>((resovle) => {

@@ -106,7 +106,7 @@ export class Tile implements TileInfo {
     }
     //更新
     update(): void {
-        if (this.own != undefined) {
+        if (this.own !== undefined) {
             if (this.own.style.left)
                 this.left = parseInt(this.own.style.left);
             if (this.own.style.top)

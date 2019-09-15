@@ -53,10 +53,10 @@ export function randomRangeIndexs(count: number, maxRangeValue: number): number[
         throw "參數錯誤 至少生成一個";
     }
     var reuslt: number[] = [];
-    while (reuslt.length != count) {
+    while (reuslt.length !== count) {
         var index = randomNum(maxRangeValue);
 
-        var exist = reuslt.filter(p => p === index).length != 0
+        var exist = reuslt.filter(p => p === index).length !== 0
         if (!exist) {
             reuslt.push(index)
         }
@@ -155,7 +155,7 @@ export function combineTilesRows(table: TileInfo[][], dir: System.Direction): Ti
             vaildRow(vaildDataCache);
 
             //如果有效數據數組中的數據長度大於0,那麼就無限循環下去
-            while (vaildDataCache.length != 0) {
+            while (vaildDataCache.length !== 0) {
                 var targetIndex: number = vaildDataCache.length - 1 //從右開始
                 if (vaildDataCache.length === 1) {
                     finalCache.push(vaildDataCache[targetIndex]);
@@ -205,7 +205,7 @@ export function combineTilesRows(table: TileInfo[][], dir: System.Direction): Ti
 
 
             //如果有效數據數組中的數據長度大於0,那麼就無限循環下去
-            while (vaildDataCache.length != 0) {
+            while (vaildDataCache.length !== 0) {
                 var targetIndex: number = 0;  //從左開始
                 if (vaildDataCache.length === 1) {
                     finalCache.push(vaildDataCache[targetIndex]);
@@ -277,7 +277,7 @@ export function combineTilesColumns(table: TileInfo[][], dir: System.Direction):
             // 每个拿到的元素会和它自身右边的元素相乘
             vaildCol(c, vaildDataCache);
             //如果有效數據數組中的數據長度大於0,那麼就無限循環下去
-            while (vaildDataCache.length != 0) {
+            while (vaildDataCache.length !== 0) {
                 var targetIndex: number = 0;  //從左開始
                 if (vaildDataCache.length === 1) {
                     finalCache.push(vaildDataCache[targetIndex]);
@@ -320,7 +320,7 @@ export function combineTilesColumns(table: TileInfo[][], dir: System.Direction):
             // 每个拿到的元素会和它自身右边的元素相乘
             vaildCol(c, vaildDataCache);
             //如果有效數據數組中的數據長度大於0,那麼就無限循環下去
-            while (vaildDataCache.length != 0) {
+            while (vaildDataCache.length !== 0) {
                 var targetIndex: number = vaildDataCache.length - 1 //從右開始
                 if (vaildDataCache.length === 1) {
                     finalCache.push(vaildDataCache[targetIndex]);

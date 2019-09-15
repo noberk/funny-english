@@ -137,7 +137,7 @@ export class Main {
 
         let array = new Array<Tile>();
         for (let i = 0, k = -1; i < cur.length; i++) {
-            if (i % GCC.tableSize.rows == 0) {
+            if (i % GCC.tableSize.rows === 0) {
                 array = new Array<Tile>();
                 k++;
             }
@@ -165,7 +165,7 @@ export class Main {
     */
     createNumber2or4(): number {
         var ran = randomNum(10);
-        var beginRan = ran % 2 == 0 ? 2 : 4;
+        var beginRan = ran % 2 === 0 ? 2 : 4;
         return beginRan;
     }
 }

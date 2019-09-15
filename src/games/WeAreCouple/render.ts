@@ -2,7 +2,7 @@ import { GCC } from './main';
 import { ColorPan } from './colors';
 import { combineTilesRows, combineTilesColumns, aid, value2emoji, value2word } from "./tools";
 import * as  System from "./types";
-import { Tile, TileSquare, TileInfo } from "./types";
+import { Tile, TileInfo } from "./types";
 import { convertD2, convertD1 } from './convert';
 import { Sound } from './sound';
 import { Option, TileRepresent } from './option';
@@ -153,10 +153,10 @@ export class UserInterface {
     public move(event: KeyboardEvent) {
         const keyCode = event.keyCode;
         if (
-            keyCode == System.Direction.Left ||
-            keyCode == System.Direction.Up ||
-            keyCode == System.Direction.Right ||
-            keyCode == System.Direction.Down) {
+            keyCode === System.Direction.Left ||
+            keyCode === System.Direction.Up ||
+            keyCode === System.Direction.Right ||
+            keyCode === System.Direction.Down) {
         } else
             return;
 
@@ -222,7 +222,6 @@ export class UserInterface {
     
         let width = (GCC.canvasWidth() - borderWidth) / col;
         let height = (GCC.canvasHeight() - borderHeight) / row;
-        let pieceOfRectangle = row * col;
         let singleborderWidth = borderWidth / (col + 1);
         let singleborderHeight = borderHeight / (row + 1);
         let eleDiv = document.createElement("div");
@@ -279,7 +278,7 @@ export class UserInterface {
         let frameRate: number = 60;
 
         if (dir != null) {
-            if (dir == System.Direction.Left) {
+            if (dir === System.Direction.Left) {
 
                 this.doPromise(
                     async () => {
@@ -289,7 +288,7 @@ export class UserInterface {
                     }
                 )
             }
-            if (dir == System.Direction.Right) {
+            if (dir === System.Direction.Right) {
 
                 // var tileWidth = tile.width + tile.borderWidth;
                 // Animation.BeginAnim(0, tile.left, (tileWidth * (GCC.tableSize.rows - 1)) - (tileWidth * tile.currentColIndex()), frameRate, System.AnimationType.linear, tile.own);
@@ -304,15 +303,15 @@ export class UserInterface {
     moveTile(tile: Tile, dir: System.Direction): void {
         let frameRate: number = 60;
 
-        if (dir != null) {
-            if (dir == System.Direction.Left) {
+        if (dir !== null) {
+            if (dir === System.Direction.Left) {
 
                 Animation.BeginAnim(0, tile.left, tile.borderWidth - tile.left, frameRate, System.AnimationType.linear, tile.own);
                 setTimeout(() => {
                     tile.update();
                 }, GCC.animDuration);
             }
-            if (dir == System.Direction.Right) {
+            if (dir === System.Direction.Right) {
 
                 var tileWidth = tile.width + tile.borderWidth;
                 Animation.BeginAnim(0, tile.left, (tileWidth * (GCC.tableSize.rows - 1)) - (tileWidth * tile.currentColIndex()), frameRate, System.AnimationType.linear, tile.own);
@@ -370,7 +369,7 @@ class Animation {
                         }
                     }
                     currentTime++;
-                    if (currentTime == duration) {
+                    if (currentTime === duration) {
                         //  divElement.style.left = str;
                     }
 

@@ -13,6 +13,7 @@ export interface IStudent extends _id{
 }
 export interface IAddVocabulary extends _id{
     word:string
+    definition?:string
     pronunciationAmerica?:string
     pronunciationEnglish?:string
     sound?:string
