@@ -17,7 +17,9 @@ export default class Essential4K extends React.Component<any,any>{
    render(){
        return (
        <>
-       
+        <h1 className="essentialWord4k_h1"> 🎊The key Essential words that you have to know🎊</h1>
+        <h2>In this series of courses 
+        </h2>
         <div className="essentialWord4k">
             {essential4000_2.map(item=>
                 <>

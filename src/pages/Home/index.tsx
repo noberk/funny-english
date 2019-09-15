@@ -60,7 +60,7 @@ export class Home extends React.Component<any,HomeState> {
             </span>
             }>
            <Menu.Item key="301"><Link to="/WordList">Word List</Link></Menu.Item>
-           <Menu.Item key="302"><Link to="/EssentialWord4k">EssentialWord4k</Link></Menu.Item>
+      
             </SubMenu>
             
             <SubMenu key="sub4" title={  
@@ -83,6 +83,14 @@ export class Home extends React.Component<any,HomeState> {
               <Menu.Item key="502"><Link to="/GWeAreCouple">GWeAreCouple</Link></Menu.Item>
               <Menu.Item key="503"><Link to="/amuse">Amuse</Link></Menu.Item>
             </SubMenu>
+            <SubMenu key="sub6" title={  
+            <span>
+              <Icon component={()=> emoji("📚") }  />
+              <span className="emojiSize">Study</span>
+            </span>
+            }>
+               <Menu.Item key="601"><Link to="/EssentialWord4k">EssentialWord4k</Link></Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout style={{background: 'white'}}>
@@ -104,7 +112,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/EssentialWord4k" component={EssentialWord4k} />
         
           </Content>
-          <Footer style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
+          <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
         </Layout>
       </Layout>
       </Router>

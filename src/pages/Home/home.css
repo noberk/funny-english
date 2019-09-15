@@ -1,3 +1,14 @@
 .emojiSize{
     font-size: 20px;
 }
+.home_grass{
+    background-image: url("../../assets//images/grass-confetti-2x.png") !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    font-family: "modak";
+ 
+}
+#homeFooter{
+    background: #f0f2f500;
+    font-size: 2.5rem;
+}

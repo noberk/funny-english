@@ -14,9 +14,23 @@ export class GCC {
     /**画板上内边距 */
     static readonly canvasPaddingTop: number = 0
     /**画板宽度 */
-    static readonly canvasWidth: ()=> number = ()=> (<HTMLDivElement>document.getElementById(Option.canvasId)).clientWidth;
+    static readonly canvasWidth: ()=> number = ()=> {
+        try {
+            return (<HTMLDivElement>document.getElementById(Option.canvasId)).clientWidth;   
+        } catch (error) {
+            console.log(error)
+            return 0
+        }
+    }
     /**画板高度 */
-    static readonly canvasHeight:()=> number =  ()=>(<HTMLDivElement>document.getElementById(Option.canvasId)).clientHeight;
+    static readonly canvasHeight:()=> number =  ()=>    {
+     try {
+       return (<HTMLDivElement>document.getElementById(Option.canvasId)).clientHeight;
+     } catch (error) {
+        console.log(error)
+        return 0
+     }
+    }
     /**动画持续时间 */
     static readonly animDuration: number = 100
     /**棋盘格 */

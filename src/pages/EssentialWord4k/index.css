@@ -36,7 +36,11 @@ transition: all 300ms linear;
     font-style:normal;
 }
 
- 
+.essentialWord4k_h1{
+    text-align: center;
+    font-family: modak;
+    font-size: 3rem;;
+}
 
  
 @-webkit-keyframes Scale150 /*Safari and Chrome*/
