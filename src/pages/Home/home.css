@@ -12,3 +12,18 @@
     background: #f0f2f500;
     font-size: 2.5rem;
 }
+#homeHeader{
+  padding: 0 ;
+  color: aliceblue;
+}
+.homeUlLeft{
+    display: flex;
+    width: 1280px;
+    margin: auto;
+}
+
+.homeUlLeft li{
+    flex: content;
+    list-style: none;
+    width: 120px;
+}

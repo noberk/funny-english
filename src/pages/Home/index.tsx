@@ -94,8 +94,15 @@ export class Home extends React.Component<any,HomeState> {
           </Menu>
         </Sider>
         <Layout style={{background: 'white'}}>
-          <Header style={{ padding: 0 }} >
-            Funny English
+          <Header id="homeHeader" >
+           <div className="homeUlLeft">
+             <li>Exam</li>
+             <li>Home</li>
+             <li>Help</li>
+             <li>Privacy</li>
+             <li>Support</li>
+             <li>Sign On</li> 
+           </div>
           </Header>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
