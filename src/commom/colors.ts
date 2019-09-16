@@ -1,10 +1,10 @@
-export function gradientColor(startColor :string, endColor:string, step:number):string[] {
-    let startRGB = colorRgb(startColor);
+export function gradientColor(colors:string[], step:number):string[] {
+    let startRGB = colorRgb(colors[0]);
     let  startR = startRGB[0];
     let  startG = startRGB[1];
     let  startB = startRGB[2];
 
-    let endRGB = colorRgb(endColor);
+    let endRGB = colorRgb(colors[1]);
     let   endR = endRGB[0];
     let endG = endRGB[1];
     let  endB = endRGB[2];

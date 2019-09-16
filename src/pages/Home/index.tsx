@@ -69,7 +69,7 @@ export class Home extends React.Component<any,HomeState> {
               <span className="emojiSize">Charts</span>
             </span>
             }>
-              <Menu.Item key="401">Age(coming soon)</Menu.Item>
+              <Menu.Item key="401">Popularity words(coming soon)</Menu.Item>
               
             </SubMenu>
 
