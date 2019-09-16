@@ -2,9 +2,9 @@ import React from "react";
 import { IWordList } from "../../types";
 import { Table, Input, Button, Row, Col } from 'antd';
 import {  wordList15000 } from "../../commom/monk";
-import { Beam } from "../styled";
 import { Link } from "react-router-dom";
 import { Nav } from "../../commom/nav";
+import { Beam } from "../../components/styled";
 
 const { Search } = Input;
 

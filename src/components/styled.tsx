@@ -57,4 +57,4 @@ export const StyDiv = styled.div.attrs<Position>({}) `
     line-height:${(p: any) => p.lt};
  `;
 
- 
+ export const Center= styled.div`margin:auto`

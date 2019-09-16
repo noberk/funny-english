@@ -30,11 +30,20 @@ transition: all 300ms linear;
     color: gray;
 }
 
-.essentialWord4k_highlight{
-    color: #648daf;
-    font-family: "modak";
-    font-style:normal;
+.essentialWord4k_highlight{}
+
+.essentialWord4k_highlight s{
+color: #648daf;
+font-family: "modak";
+font-style:normal;
+text-decoration: none;
 }
+.essentialWord4k_highlight i{
+    color: black;
+ 
+    font-style:normal;
+    }
+
 
 .essentialWord4k_h1{
     text-align: center;

@@ -1,5 +1,5 @@
 type WordList = Array<[string,string,"adj."|"v."|"n."|"adv.",string,string,string]>
-export const essential4000_2_1 : WordList=
+export const essential4k_2_1 : WordList=
 [
     [
         "anxious",
@@ -251,8 +251,109 @@ export const essential4000_2_1 : WordList=
         "A monster is any imaginary frightening creature that looks strange.",
         "The monster scared everyone in the village.",
         "",
+    ],
+    [
+        "northern",
+        "/'nɔːð(ə)n/ ",
+        "adj.",
+        "If something is norther, it is in the direction of north.",
+        "It is much colder in northern countries than it is here.",
+        "",
+    ],
+    [
+        "remote",
+        "/rɪ'məʊt/ ",
+        "adj.",
+        "If something is remote, it is very far away and difficult to get to.",
+        "It took many days to get to the remote island.",
+        "",
+    ],
+    [
+        "southern",
+        "/'sʌð(ə)n/ ",
+        "adj.",
+        "If something is southern, it is in the direction of south.",
+        "Taegu is located in the southern part of the Korean peninsula",
+        "",
+    ],
+    [
+        "statue",
+        "/ˈstætʃu:/ ",
+        "n.",
+        "A statue is a image of a person or animal made of stone or metal.",
+        "I saw a beautiful statue of a lion today.",
+        "",
+    ],
+    [
+        "steam",
+        "/stiːm/ ",
+        "n.",
+        "Steam is water that has become hot and has turned into a misty gas.",
+        "We could see the steam rise from the boiling water.",
+        "",
+    ],
+    [
+        "submit",
+        "/səb'mɪt/ ",
+        "v.",
+        "To submit to someone is to agree to do what they tell you to do.",
+        "She submited to her mother's wishes and did her homework.",
+        "",
+    ],
+    [
+        "temple",
+        "/ˈtempl/ ",
+        "n.",
+        "A temple is a building that is used for religious purposes",
+        "The people visited the temple to pray.",
+        "",
+    ],
+    [
+        "upper",
+        "/ˈʌpə/ ",
+        "adj.",
+        "Upper means higher in position or place",
+        "A home's attic is at the upper part of the structure",
+        "",
+    ],
+    [
+        "wing",
+        "/wɪŋ/ ",
+        "n.",
+        "A wing is the part of an animial that lets it fly.",
+        "the bird used its wings to fly across the water.",
+        "",
+    ],
+    [
+        "weed",
+        "/wiːd/ ",
+        "n.",
+        "A weed is a plant, especially one that is not useful or wanted.",
+        "the yard of the house was full of ugly weeds.",
+        "",
     ]
-
+            
 ]
-
-export {} 
+type WordArticle= Array<[string,string[]]>
+export const essential4k_article_2 : WordArticle =[
+  [
+      "The Twelve Months",
+      [
+      `
+      An awful woman lived with her daughter and stepdaughter in her household. She possessed feelings of hate for her stepdaughter, Anna. Anna worked while her stepsister did nothing. On a cold january night, 
+      Anna's stepmother remarked, "Your stempsister desires flowers. Go and find some."
+      `,
+      `
+      Anna wasn't anxious to walk through the chilled landscale. The cold air made her lungs burn. She walked at a slow pace bacause of the snow. Soon she saw a group of the man said they were
+      the twelve months and that they would help Anna. January walked to her and made a motion with his hand. The days of the moth passed rapidly until it was February's turn. February also made the 
+      month speed up. Then March made the sun shine and flowers grew in the field.
+      `,
+      `
+      Anna loaded her basket with so many flowers that she could hardly lift it. Then she gave a quick but polite "thank you" to the twelve men and returned home. 
+      She was very eager to show her stepmother all the flowers. Back at the house, she spilled the flowers onto the table. Then she told her stepmother about the twelve men.
+      Anna's stepmother and stepsister went to seek the twelve months. their intent was to ask for gifts. They looked and looked. They became very lost and never found their way home. 
+      Anna lived happily by herself.
+      `
+      ]
+  ]
+]
