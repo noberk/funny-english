@@ -15,7 +15,7 @@ export async function takeText(path: string, transformat: Transformat): Promise<
         return await response.text();
     }else{
         return new Promise<string>((resovle) => {
-            console.log('调用接口失败')
+            
         });
     }
 
@@ -40,7 +40,7 @@ export async function take<T>(path: string, types?: string): Promise<T> {
             return await response.json() as Promise<T>
         } else {
             return new Promise<T>((resovle) => {
-                console.log('调用接口失败')
+                     
             });
 
         }
@@ -51,7 +51,6 @@ export async function take<T>(path: string, types?: string): Promise<T> {
             return await response.json() as Promise<T>
         } catch (e) {
             return new Promise<T>((resovle) => {
-                console.log('调用接口失败')
                 console.log(e.stack)
             });
         }
