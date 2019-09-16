@@ -40,9 +40,8 @@ text-decoration: none;
 }
 .essentialWord4k_highlight i{
     color: black;
- 
     font-style:normal;
-    }
+}
 
 
 .essentialWord4k_h1{
@@ -50,8 +49,12 @@ text-decoration: none;
     font-family: modak;
     font-size: 3rem;;
 }
+.essentialWord4k_container{
+    width:1280px;
+    margin:auto;
+     
+}
 
- 
 @-webkit-keyframes Scale150 /*Safari and Chrome*/
 {
     0%{
@@ -71,3 +74,10 @@ text-decoration: none;
     }
 }
 
+@media only screen and (min-width: 1px) and (max-width:1279px){
+    .essentialWord4k_container{
+        width:100%;
+        margin:auto;
+    }
+    
+}

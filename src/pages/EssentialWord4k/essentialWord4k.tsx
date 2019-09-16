@@ -55,7 +55,7 @@ export default class Essential4K extends React.Component<any,any>{
    render(){
       
        return (
-       <div style={{width:1280, margin:"auto"}}>
+       <div className="essentialWord4k_container">
         <h1 className="essentialWord4k_h1"> 🎊The key Essential words that you have to know🎊</h1>
         <h2>In this series of courses which contains 100 words and four stories below. We hope what you can follow this page to learn step by step. this is a beginning. I will see again!
         </h2>
