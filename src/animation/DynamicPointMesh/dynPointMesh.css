@@ -1,0 +1,14 @@
+body {
+	background: #222;
+	margin: 0rem;
+	min-height: 100vh;
+	font-family: Futura, sans-serif;
+}
+#canvas {
+	position: fixed;
+	display: block;
+	top: 0;
+	left: 0;
+  z-index:0;
+  pointer-events: none;
+}
