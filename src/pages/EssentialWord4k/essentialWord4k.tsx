@@ -5,30 +5,42 @@ import { Sound, playSound } from "../../components/common";
 import { Button } from "antd";
 import { gradientColor } from "../../commom/colors";
 import { guidGenerator } from "../../commom/id";
-import { Center } from "../../components/styled";
+import { CenterTitle, CenterParagraph } from "../../components/styled";
 
 export default class Essential4K extends React.Component<any,any>{
    highlight=(text:string,word:string)=>{
- 
         let words= text.split(" ");
-       return words.map(w=> w.toUpperCase().includes(word.toUpperCase())?  <s>{w} </s>:<i>{w} </i>);
-        // let startIndex =  text.indexOf(word);
-        
-        // let start= text.slice(0,startIndex);
-        // let end= text.slice(startIndex + word.length , text.length);
-        // if(word === "Steam"){
-        // console.log(start);
-        // console.log(end);
-        // }
-    
-        // return <>{start}<i className="essentialWord4k_highlight">{word}</i>{end}</>;
+       return words.map(w=> w.toUpperCase().includes(word.toUpperCase())?  <s key={guidGenerator()}>{w} </s>:<i key={guidGenerator()}>{w} </i>);
+   }
+   highLightArticle= (paragraph:string, plainWord:string[] =essential4k_2_1.map(item => item[0])) =>{
+
+       let words= paragraph.split(" ");
+       let arr=[];
+       return words.map( w=> {
+        console.log(w.toString())
+        console.log(plainWord.toString()) 
+        words.forEach(w=>{
+            plainWord.forEach(pw=>{
+                 if(w!==" " && w!==""){
+                     if(w.includes(pw)){
+                         arr.push(<s key={guidGenerator()}>{w} </s>);
+                     }else{
+                        arr.push(<i key={guidGenerator()}>{w} </i>);
+                     }
+                 }
+            })
+        })
+     
+       }
+        );
+       return arr;
    }
    render(){
       
        return (
        <div style={{width:1280, margin:"auto"}}>
         <h1 className="essentialWord4k_h1"> 🎊The key Essential words that you have to know🎊</h1>
-        <h2>In this series of courses which contains 120 words and four stories below. we hope what you can follow this page to learn step by step. this is a beginning. I will see again!
+        <h2>In this series of courses which contains 100 words and four stories below. we hope what you can follow this page to learn step by step. this is a beginning. I will see again!
         </h2>
         {/* here is words button list */}
         <div style={{marginBottom:"1rem"}}>
@@ -56,18 +68,18 @@ export default class Essential4K extends React.Component<any,any>{
             )}
         </div>
 
-        <div>
+        {/* <div>
             {
-                essential4k_article_2.map(a=>
+                essential4k_article_2.map(article=>
                     <div key={guidGenerator()}>
-                       <Center>{a[0]}></Center>
+                       <CenterTitle style={{fontSize: "2rem"}}>{article[0]}</CenterTitle>
                         <article  >
-                            {a[1].map(p=> <p key={guidGenerator()}>{p}</p> )}
+                            {article[1].map(paragraph=> <CenterParagraph key={guidGenerator()}>{paragraph}</CenterParagraph> )}
                         </article>
                     </div>
                 )
             }
-        </div>
+        </div> */}
        </div>
        )
        
