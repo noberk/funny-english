@@ -52,7 +52,18 @@ text-decoration: none;
 .essentialWord4k_container{
     width:1280px;
     margin:auto;
+    display:flex;
+    display: -webkit-flex;
+    -webkit-flex-direction:row;
+
      
+}
+
+.essentialWord4k_aside{
+   width: 300px;
+}
+.essentialWord4k_right{
+    flex:1;
 }
 
 @-webkit-keyframes Scale150 /*Safari and Chrome*/
@@ -81,3 +92,70 @@ text-decoration: none;
     }
     
 }
+
+
+
+
+
+/* left panel */
+
+.box {
+    width: 15%;
+    min-width: 150px;
+    display: block;
+    height: 50px;
+    position: relative;
+    border-radius: 5px;
+    background: linear-gradient(to right, #abbd73 35%, #d6e2ad 100%);
+    margin-bottom: 5px;
+    padding: 15px 25px 0 40px;
+    color: darkslategray;
+    box-shadow: 1px 2px 1px -1px #777;
+    transition: background 200ms ease-in-out;
+    text-align:right;
+    /* font-family: "modak"; */
+  }
+  
+  .box a{color:#fff;text-decoration:none;}
+  
+  .shadow {
+    position: relative;
+  }
+  .shadow:before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 13px;
+    right: 7px;
+    width: 75%;
+    top: 0;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
+    transition: all 150ms ease-in-out;
+  }
+  
+  .box:hover {
+    background: linear-gradient(to right, #abbd73 0%, #abbd73 100%);
+  }
+  
+  .shadow:hover::before {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    bottom: 20px;
+    z-index: -10;
+  }
+  
+  .circle {
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    border-radius: 50%;
+    box-shadow: inset -1px -1px 3px 0px rgba(0, 0, 0, 0.5), inset 0 0 0 25px #f3f3f3;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align:right;
+    padding:0 20px 0 0;
+  }
+ 

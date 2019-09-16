@@ -32,7 +32,7 @@ export class Home extends React.Component<any,HomeState> {
     return (
       <Router>
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider style={{width:20}} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+        <Sider width={250} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultOpenKeys={['sub1','sub2']}  mode="inline">
 
@@ -89,7 +89,7 @@ export class Home extends React.Component<any,HomeState> {
               <span className="emojiSize">Study</span>
             </span>
             }>
-               <Menu.Item key="601"><Link to="/EssentialWord4k">EssentialWord4k</Link></Menu.Item>
+               <Menu.Item key="601"><Link to="/EssentialWord4k/default">EssentialWord4k</Link></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>
@@ -116,7 +116,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/WordList" component={WordList} />
         <Route path="/amuse" component={Login} />
         <Route path="/GWeAreCouple" component={GWeAreCouple} />
-        <Route path="/EssentialWord4k" component={EssentialWord4k} />
+        <Route path="/EssentialWord4k/:id" component={EssentialWord4k} />
         
           </Content>
           <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
