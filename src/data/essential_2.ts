@@ -1630,12 +1630,12 @@ export const essential4k_2_200 : TWordList=
     ],
     [
         "violent",
-        "// ",
-        "n.",
+        "/'vaɪəl(ə)nt/",
+        "adj.",
+        "When people are violent, they want to hurt someone.",
+        "The man was put into jail because he was violent.",
         "",
-        "",
-        "",
-    ],
+    ]
 ]
 export const essential4k_2_300 : TWordList=
 [
@@ -2131,7 +2131,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "valley",
+        "apparent",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2140,7 +2140,7 @@ export const essential4k_2_300 : TWordList=
     ],
 
     [
-        "admire",
+        "blind",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2148,7 +2148,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "aid",
+        "calculate",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2156,7 +2156,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "attempt",
+        "chat",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2164,7 +2164,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "authority",
+        "commit",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2172,7 +2172,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "capital",
+        "compose",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2180,7 +2180,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "cooperate",
+        "morminory",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2188,7 +2188,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "defend",
+        "exhaust",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2196,7 +2196,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "destruction",
+        "greenhouse",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2204,7 +2204,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "disorder",
+        "ignore",
         "/wiːd/ ",
         "n.",
         "A weed is a plant, especially one that is not useful or wanted.",
@@ -2212,7 +2212,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "division",
+        "obvious",
         "/wiːd/ ",
         "n.",
         "",
@@ -2220,7 +2220,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "enable",
+        "physics",
         "/wiːd/ ",
         "n.",
         "",
@@ -2228,7 +2228,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "frustrate",
+        "portion",
         "/wiːd/ ",
         "n.",
         "",
@@ -2236,7 +2236,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "govern",
+        "remind",
         "/wiːd/ ",
         "n.",
         "",
@@ -2244,7 +2244,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "plenty",
+        "secretary",
         "/wiːd/ ",
         "n.",
         "",
@@ -2252,7 +2252,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "relieve",
+        "severe",
         "/wiːd/ ",
         "n.",
         "",
@@ -2260,7 +2260,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "reputation",
+        "talent",
         "/wiːd/ ",
         "n.",
         "",
@@ -2268,7 +2268,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "royal",
+        "thesis",
         "/wiːd/ ",
         "n.",
         "",
@@ -2276,7 +2276,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "slave",
+        "uniform",
         "/wiːd/ ",
         "n.",
         "",
@@ -2284,7 +2284,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "struggle",
+        "vision",
         "/wiːd/ ",
         "n.",
         "",
@@ -2292,7 +2292,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "stupid",
+        "absorb",
         "/wiːd/ ",
         "n.",
         "",
@@ -2300,7 +2300,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "citizen",
+        "boss",
         "// ",
         "n.",
         "",
@@ -2308,7 +2308,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "council",
+        "committee",
         "// ",
         "n.",
         "",
@@ -2316,7 +2316,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "declare",
+        "contract",
         "// ",
         "n.",
         "",
@@ -2324,7 +2324,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "enormous",
+        "crew",
         "// ",
         "n.",
         "",
@@ -2332,7 +2332,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "extraordinary",
+        "devote",
         "// ",
         "n.",
         "",
@@ -2340,7 +2340,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "fog",
+        "dig",
         "// ",
         "n.",
         "",
@@ -2348,7 +2348,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "funeral",
+        "dine",
         "// ",
         "n.",
         "",
@@ -2356,7 +2356,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "giant",
+        "donate",
         "// ",
         "n.",
         "",
@@ -2364,7 +2364,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "impression",
+        "double",
         "// ",
         "n.",
         "",
@@ -2372,7 +2372,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "income",
+        "elevate",
         "// ",
         "n.",
         "",
@@ -2380,7 +2380,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "mad",
+        "flavor",
         "// ",
         "n.",
         "",
@@ -2388,7 +2388,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "ought",
+        "foundation",
         "// ",
         "n.",
         "",
@@ -2396,7 +2396,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "resist",
+        "generation",
         "// ",
         "n.",
         "",
@@ -2404,7 +2404,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "reveal",
+        "handle",
         "// ",
         "n.",
         "",
@@ -2412,7 +2412,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "rid",
+        "layer",
         "// ",
         "n.",
         "",
@@ -2420,7 +2420,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "sword",
+        "mud",
         "// ",
         "n.",
         "",
@@ -2428,7 +2428,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "tale",
+        "smooth",
         "// ",
         "n.",
         "",
@@ -2436,7 +2436,7 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "trap",
+        "soil",
         "// ",
         "n.",
         "",
@@ -2444,21 +2444,13 @@ export const essential4k_2_300 : TWordList=
         "",
     ],
     [
-        "trial",
+        "unique",
         "// ",
         "n.",
         "",
         "",
         "",
-    ],
-    [
-        "violent",
-        "// ",
-        "n.",
-        "",
-        "",
-        "",
-    ],
+    ]
 ]
 type WordArticle= Array<[string,string[]]>
 export const essential4k_article_2 : WordArticle =[
