@@ -18,8 +18,6 @@ function getScrollbarWidth() {
 const resizeReset = () => {
   w = canvasBody.width = window.innerWidth - getScrollbarWidth();
   h = canvasBody.height = window.innerHeight;
-  console.log(window.innerWidth);
-  console.log(window.innerHeight);
 };
 
 const opts = {

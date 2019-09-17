@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  essential4k_2_100,
-  essential4k_2_200,
-  TWordList
-} from "../../data/essential_2";
+import {TWordList} from "../../data/essential_2";
 import "./index.css";
 import { Sound, playSound } from "../../components/common";
 import { Button } from "antd";
@@ -14,6 +10,7 @@ import { Link } from "react-router-dom";
 import "../../animation/DynamicPointMesh/dynPointMesh";
 import "../../animation/DynamicPointMesh/dynPointMesh.css"
 import { MeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
+import { async } from "q";
 
 
 const Level: any = {
@@ -27,11 +24,37 @@ const Level: any = {
   8: ["#1de5e2", "#b588f7", "#7a21b9"], //mistery purple
   9: ["#ffe324", "#ffb553", "#bd8c2d"] //mistery purple
 };
-
-export default class Essential4K extends React.Component<any, any> {
-  componentDidMount=()=>{
-    MeshRun();
+interface IEssential4KState{
+data :TWordList;
+intId:number;
+}
+export default class Essential4K extends React.Component<any, IEssential4KState> {
+  constructor(props:any){
+    super(props)
+    this.state={
+      data : [],
+      intId:1
+    }
   }
+  componentDidMount= async ()=>{
+    MeshRun();
+
+    let id: string = this.props.match.params.id;
+    let intId = Number.parseInt(id);
+    if (Number.isNaN(intId) || intId > 9) intId = 1;
+    const ess =await import("../../data/essential_2");
+    eval(
+      `const {essential4k_2_${intId}00} = ess;
+      this.setState({data : essential4k_2_${intId}00});  
+      `  
+    );
+    
+    console.log("componentDidMount");
+    
+  } 
+  componentWillUnmount(){
+    console.log('Page1 Unmount')
+ }
   highlight = (text: string, word: string) => {
     let words = text.split(" ");
     return words.map(w =>
@@ -62,25 +85,19 @@ export default class Essential4K extends React.Component<any, any> {
     });
     return arr;
   };
+  loadword=async (page:number)=>{
+    
+    const ess =await import("../../data/essential_2");
+    eval(
+      `const {essential4k_2_${page}00} = ess;
+      this.setState({data : essential4k_2_${page}00 , intId: ${page}});  
+      `  
+    );
+  }
+  
   render() {
-    let id: string = this.props.match.params.id;
-    let intId = Number.parseInt(id);
-    if (Number.isNaN(intId) || intId > 9) intId = 1;
-
-    let essential4k_list: TWordList = [];
-    console.log(id);
-    switch (id) {
-      case "1":
-        essential4k_list = essential4k_2_100;
-        console.log(essential4k_list);
-        break;
-      case "2":
-        essential4k_list = essential4k_2_200;
-        console.log(essential4k_list);
-        break;
-      default:
-        essential4k_list = essential4k_2_100;
-    }
+    let { data ,intId } = this.state;
+ 
 
     return (
       <div className="essentialWord4k_container">
@@ -90,7 +107,7 @@ export default class Essential4K extends React.Component<any, any> {
             <div style={{ boxSizing: "border-box" }}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
                 <div key={guidGenerator()} className="box shadow">
-                  <Link to={`./${item}`}>
+                  <Link to={`./${item}`}  onClick={()=>{this.loadword(item)}} >
                     {(item - 1) * 100 + 1}~{item * 100}
                   </Link>
                   <div className="circle"></div>
@@ -111,7 +128,7 @@ export default class Essential4K extends React.Component<any, any> {
             </h2>
             {/* here is words button list */}
             <div style={{ marginBottom: "1rem" }}>
-              {essential4k_list.map((item, index) => (
+              {data.map((item, index) => (
                 <Button
                   key={guidGenerator()}
                   onClick={() => {
@@ -119,10 +136,10 @@ export default class Essential4K extends React.Component<any, any> {
                   }}
                   size="large"
                   style={{
-                    borderColor: `${Level[1][2]}`,
+                    borderColor: `${Level[intId][2]}`,
                     backgroundColor: gradientColor(
                       Level[intId],
-                      essential4k_list.length
+                      data.length
                     )[index]
                   }}
                   type="primary"
@@ -135,7 +152,7 @@ export default class Essential4K extends React.Component<any, any> {
 
             {/* here is definition of word list */}
             <div className="essentialWord4k">
-              {essential4k_list.map(item => (
+              {data.map(item => (
                 <div key={guidGenerator()}>
                   <div>
                     <span className="img3">{item[0]} </span>
