@@ -86,10 +86,12 @@ export class Home extends React.Component<any,HomeState> {
             <SubMenu key="sub6" title={  
             <span>
               <Icon component={()=> emoji("📚") }  />
-              <span className="emojiSize">Study</span>
+              <span className="emojiSize">EssentialWord</span>
             </span>
             }>
-               <Menu.Item key="601"><Link to="/EssentialWord4k/default">EssentialWord4k</Link></Menu.Item>
+               <Menu.Item key="601"><Link to="/EssentialWord4k/default">WordList</Link></Menu.Item>
+               <Menu.Item key="602"><Link to="/EssentialWord4k/memory">memory</Link></Menu.Item>
+               <Menu.Item key="603"><Link to="/EssentialWord4k/article">Article</Link></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>

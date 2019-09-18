@@ -1,4 +1,4 @@
-export const word=`
+const word=`
 chamber, deny, document, emphasize, fever, flu, freeze, gesture, interrupt, last, 
 likeness , moreover, perspective, rational, recover, rely, shock, shy, stare,thus,
 aim, attach, bet, carriage, classic, commute, confirm, criticize, differ, expense, 
@@ -31,5 +31,21 @@ appeal, assume, borrow, client, downtown, dull, embarrass, fare, former, formula
 found, invest, loan, practical, quarter, salary, scholarship, temporary, treasure, urge
 `
 let res = word.split(",");
-res = res.map(r=>r.trim())
-console.log(res);
+res = res.map(r=>r.trim());
+let es = ""
+
+es+="["
+res.map(s => {
+    es+="["
+    es+=`"${s}",`
+    es+=`"/'æŋ(k)ʃəs/",`
+    es+=`"adj.",`
+    es+=`"",`
+    es+=`"",`
+    es+=`"",`
+    es+="],"
+})
+es+="]"
+
+document.body.innerText = es;
+
