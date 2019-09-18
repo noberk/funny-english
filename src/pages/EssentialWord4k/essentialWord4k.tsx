@@ -6,7 +6,7 @@ import { Button } from "antd";
 import { gradientColor } from "../../commom/colors";
 import { guidGenerator } from "../../commom/id";
 import { Link } from "react-router-dom";
-
+import * as _ from 'lodash';
 import "../../animation/DynamicPointMesh/dynPointMesh";
 import "../../animation/DynamicPointMesh/dynPointMesh.css"
 import { MeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
@@ -26,14 +26,24 @@ const Level: any = {
 interface IEssential4KState{
 data :TWordList;
 intId:number;
+linkButtonCount : number[];
 }
-export default class Essential4K extends React.Component<any, IEssential4KState> {
+interface IEssential4KProps{
+ pageSize :number
+ match?:any
+}
+export default class Essential4K extends React.Component<IEssential4KProps, IEssential4KState> {
+  static defaultProps ={
+    pageSize :100
+  }
   constructor(props:any){
     super(props)
     this.state={
       data : [],
-      intId:1
+      intId:1,
+      linkButtonCount:[]
     }
+     
   }
   componentDidMount= async ()=>{
     MeshRun();
@@ -42,18 +52,19 @@ export default class Essential4K extends React.Component<any, IEssential4KState>
     let intId = Number.parseInt(id);
     if (Number.isNaN(intId) || intId > 9) intId = 1;
     const ess =await import("../../data/essential_2");
-    eval(
-      `const {essential4k_2_${intId}00} = ess;
-      this.setState({data : essential4k_2_${intId}00});  
-      `  
-    );
+
+    let lbCount = ess.essential4k.length/this.props.pageSize;
+    let lbCountArr:number[]=[];
+    console.log(lbCount);
     
+    for (let i = 1; i <= lbCount; i++) {
+       lbCountArr.push(i);
+    }
+    this.setState({linkButtonCount: lbCountArr,data: _.cloneDeep(ess.essential4k).splice(0,this.props.pageSize) })
     console.log("componentDidMount");
     
   } 
-  componentWillUnmount(){
-    console.log('Page1 Unmount')
- }
+ 
   highlight = (text: string, word: string) => {
     let words = text.split(" ");
     return words.map(w =>
@@ -87,15 +98,18 @@ export default class Essential4K extends React.Component<any, IEssential4KState>
   loadword=async (page:number)=>{
     
     const ess =await import("../../data/essential_2");
-    eval(
-      `const {essential4k_2_${page}00} = ess;
-      this.setState({data : essential4k_2_${page}00 , intId: ${page}});  
-      `  
-    );
+    this.setState({data :   _.cloneDeep(ess.essential4k).splice((page-1)*this.props.pageSize,this.props.pageSize)});
+    // console.log(ess.essential4k.length);
+    
+    // eval(
+    //   `const {essential4k_2_${page}00} = ess;
+    //   this.setState({data : essential4k_2_${page}00 , intId: ${page}});  
+    //   `  
+    // );
   }
   
   render() {
-    let { data ,intId } = this.state;
+    let { data ,intId,linkButtonCount } = this.state;
  
 
     return (
@@ -104,7 +118,7 @@ export default class Essential4K extends React.Component<any, IEssential4KState>
           <div className="essentialWord4k_aside">
             <h1>Word List 4000</h1>
             <div style={{ boxSizing: "border-box" }}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
+              {linkButtonCount.map(item => (
                 <div key={guidGenerator()} className="box shadow">
                   <Link to={`./${item}`}  onClick={()=>{this.loadword(item)}} >
                     {(item - 1) * 100 + 1}~{item * 100}
