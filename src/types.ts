@@ -34,3 +34,4 @@ export interface ISentence extends _id{
 export interface IWordList extends _id{
      
 }
+

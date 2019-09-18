@@ -1,16 +1,15 @@
 import React from "react";
-import {TWordList} from "../../data/essential_2";
+import { TWordList } from "../../data/essential_2";
 import "./index.css";
 import { Sound, playSound } from "../../components/common";
-import { Button } from "antd";
+import { Button, Popover } from "antd";
 import { gradientColor } from "../../commom/colors";
 import { guidGenerator } from "../../commom/id";
 import { Link } from "react-router-dom";
-import * as _ from 'lodash';
+import * as _ from "lodash";
 import "../../animation/DynamicPointMesh/dynPointMesh";
-import "../../animation/DynamicPointMesh/dynPointMesh.css"
+import "../../animation/DynamicPointMesh/dynPointMesh.css";
 import { MeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
-
 
 const Level: any = {
   1: ["#7bbfea", "#2585a6", "#40a9ff"], //iceberg  🥶
@@ -24,48 +23,52 @@ const Level: any = {
   9: ["#ffe324", "#ffb553", "#bd8c2d"] //mistery purple
 };
 const LevelLength = Object.getOwnPropertyNames(Level).length;
-interface IEssential4KState{
-data :TWordList;
-intId:number;
-linkButtonCount : number[];
+interface IEssential4KState {
+  data: TWordList;
+  intId: number;
+  linkButtonCount: number[];
 }
-interface IEssential4KProps{
- pageSize :number
- match?:any
+interface IEssential4KProps {
+  pageSize: number;
+  match?: any;
 }
-export default class Essential4K extends React.Component<IEssential4KProps, IEssential4KState> {
-  static defaultProps ={
-    pageSize :100
+export default class Essential4K extends React.Component<
+  IEssential4KProps,
+  IEssential4KState
+> {
+  static defaultProps = {
+    pageSize: 100
+  };
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      data: [],
+      intId: 1,
+      linkButtonCount: []
+    };
   }
-  constructor(props:any){
-    super(props)
-    this.state={
-      data : [],
-      intId:1,
-      linkButtonCount:[]
-    }
-     
-  }
-  componentDidMount= async ()=>{
+  componentDidMount = async () => {
     MeshRun();
 
     let id: string = this.props.match.params.id;
     let intId = Number.parseInt(id);
     if (Number.isNaN(intId) || intId > 9) intId = 1;
-    const ess =await import("../../data/essential_2");
+    const ess = await import("../../data/essential_2");
 
-    let lbCount = ess.essential4k.length/this.props.pageSize;
-    let lbCountArr:number[]=[];
+    let lbCount = ess.essential4k.length / this.props.pageSize;
+    let lbCountArr: number[] = [];
     console.log(lbCount);
-    
+
     for (let i = 1; i <= lbCount; i++) {
-       lbCountArr.push(i);
+      lbCountArr.push(i);
     }
-    this.setState({linkButtonCount: lbCountArr,data: _.cloneDeep(ess.essential4k).splice(0,this.props.pageSize) })
+    this.setState({
+      linkButtonCount: lbCountArr,
+      data: _.cloneDeep(ess.essential4k).splice(0, this.props.pageSize)
+    });
     console.log("componentDidMount");
-    
-  } 
- 
+  };
+
   highlight = (text: string, word: string) => {
     let words = text.split(" ");
     return words.map(w =>
@@ -96,63 +99,89 @@ export default class Essential4K extends React.Component<IEssential4KProps, IEss
     });
     return arr;
   };
-  loadword=async (page:number)=>{
-    
-    const ess =await import("../../data/essential_2");
-    this.setState({data :   _.cloneDeep(ess.essential4k).splice((page-1)*this.props.pageSize,this.props.pageSize), intId: page});
+  confirm = (e: any) => {
+    console.log(e);
+  };
+  cancel = (e: any) => {
+    console.log(e);
+  };
+  loadword = async (page: number) => {
+    const ess = await import("../../data/essential_2");
+    this.setState({
+      data: _.cloneDeep(ess.essential4k).splice(
+        (page - 1) * this.props.pageSize,
+        this.props.pageSize
+      ),
+      intId: page
+    });
     // console.log(ess.essential4k.length);
-    
+
     // eval(
     //   `const {essential4k_2_${page}00} = ess;
-    //   this.setState({data : essential4k_2_${page}00 , intId: ${page}});  
-    //   `  
+    //   this.setState({data : essential4k_2_${page}00 , intId: ${page}});
+    //   `
     // );
-  }
-  
+  };
+
   render() {
-    let { data ,intId,linkButtonCount } = this.state;
- 
+    let { data, intId, linkButtonCount } = this.state;
 
     return (
       <div className="essentialWord4k_container">
         <canvas id="canvas"></canvas>
-          <div className="essentialWord4k_aside">
-            <h1>Word List 4000</h1>
-            <div style={{ boxSizing: "border-box" }}>
-              {linkButtonCount.map(item => (
-                <div key={guidGenerator()} className="box shadow">
-                  <Link to={`./${item}`}  onClick={()=>{this.loadword(item)}} >
-                    {(item - 1) * 100 + 1}~{item * 100}
-                  </Link>
-                  <div className="circle"></div>
-                </div>
-              ))}
-            </div>
+        <div className="essentialWord4k_aside">
+          <h1>Word List 4000</h1>
+          <div style={{ boxSizing: "border-box" }}>
+            {linkButtonCount.map(item => (
+              <div key={guidGenerator()} className="box shadow">
+                <Link
+                  to={`./${item}`}
+                  onClick={() => {
+                    this.loadword(item);
+                  }}
+                >
+                  {(item - 1) * 100 + 1}~{item * 100}
+                </Link>
+                <div className="circle"></div>
+              </div>
+            ))}
           </div>
+        </div>
 
-          <div className="essentialWord4k_right">
-            <h1 className="essentialWord4k_h1">
-              {" "}
-              🎊The key Essential words that you have to know🎊
-            </h1>
-            <h2>
-              In this series of courses which contains 100 words and four
-              stories below. We hope what you can follow this page to learn step
-              by step. this is a beginning. I will see again!
-            </h2>
-            {/* here is words button list */}
-            <div style={{ marginBottom: "1rem" }}>
-              {data.map((item, index) => (
+        <div className="essentialWord4k_right">
+          <h1 className="essentialWord4k_h1">
+            {" "}
+            🎊The key Essential words that you have to know🎊
+          </h1>
+          <h2>
+            In this series of courses which contains 100 words and four stories
+            below. We hope what you can follow this page to learn step by step.
+            this is a beginning. I will see again!
+          </h2>
+          {/* here is words button list */}
+          <div style={{ marginBottom: "1rem" }}>
+            {data.map((item, index) => (
+              <Popover
+                key={guidGenerator()}
+                title={`Word => ${item[0]}`}
+                content={
+                  <>
+                <p>pron : {item[1]}</p>
+                <p>type :{item[2]}</p>
+                <p>definition : {item[3]}</p>
+                <p>example : {item[4]}</p>
+                </>
+              }
+              >
                 <Button
-                  key={guidGenerator()}
                   onClick={() => {
                     playSound(item[0]);
                   }}
                   size="large"
                   style={{
-                    borderColor: `${Level[intId%LevelLength+1][2]}`,
+                    borderColor: `${Level[(intId % LevelLength) + 1][2]}`,
                     backgroundColor: gradientColor(
-                      Level[intId%LevelLength+1],
+                      Level[(intId % LevelLength) + 1],
                       data.length
                     )[index]
                   }}
@@ -161,29 +190,30 @@ export default class Essential4K extends React.Component<IEssential4KProps, IEss
                   {item[0]} &nbsp;
                   <Sound word={item[0]} />
                 </Button>
-              ))}
-            </div>
+              </Popover>
+            ))}
+          </div>
 
-            {/* here is definition of word list */}
-            <div className="essentialWord4k">
-              {data.map(item => (
-                <div key={guidGenerator()}>
-                  <div>
-                    <span className="img3">{item[0]} </span>
-                    <span>{item[1]} </span>
-                    <span>{item[2]} </span>
-                    <Sound word={item[0]} />
-                  </div>
-                  <div className="essentialWord4k_highlight">
-                    {" "}
-                    {this.highlight(item[3], item[0])}{" "}
-                  </div>
-                  <div style={{ marginBottom: "20px" }}>{item[4]} </div>
+          {/* here is definition of word list */}
+          <div className="essentialWord4k">
+            {data.map(item => (
+              <div key={guidGenerator()}>
+                <div>
+                  <span className="img3">{item[0]} </span>
+                  <span>{item[1]} </span>
+                  <span>{item[2]} </span>
+                  <Sound word={item[0]} />
                 </div>
-              ))}
-            </div>
+                <div className="essentialWord4k_highlight">
+                  {" "}
+                  {this.highlight(item[3], item[0])}{" "}
+                </div>
+                <div style={{ marginBottom: "20px" }}>{item[4]} </div>
+              </div>
+            ))}
+          </div>
 
-            {/* <div>
+          {/* <div>
             {
                 essential4k_article_2.map(article=>
                     <div key={guidGenerator()}>
@@ -195,8 +225,7 @@ export default class Essential4K extends React.Component<IEssential4KProps, IEss
                 )
             }
         </div> */}
-          </div>
-        
+        </div>
       </div>
     );
   }
