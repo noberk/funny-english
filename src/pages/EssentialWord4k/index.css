@@ -159,3 +159,46 @@ text-decoration: none;
     padding:0 20px 0 0;
   }
  
+
+.e_span{
+    width: 50px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+}
+ .e_noun {
+  background-color: #99cc66;
+  box-shadow: 2px 2px 2px 1px #99cc66;
+ }
+.e_adj {
+  background-color: rgb(66, 174, 252);
+  box-shadow: 2px 2px 2px 1px #42aefc;
+}
+.e_conj {
+  background-color: #ff99cc;
+  box-shadow: 2px 2px 2px 1px #ff99cc;
+}
+.e_pron {
+  background-color: #6666cc;
+  box-shadow: 2px 2px 2px 1px #6666cc;
+}
+.e_verb {
+  background-color: #ff9900;
+  box-shadow: 2px 2px 2px 1px #ff9900;
+}
+.e_adv {
+  background-color: #ff6666;
+  box-shadow: 2px 2px 2px 1px #ff6666;
+}
+.e_art {
+  background-color: #006699;
+  box-shadow: 2px 2px 2px 1px #006699;
+}
+ .e_prep{  
+  background-color: #000;
+  box-shadow: 2px 2px 2px 1px #000;
+}

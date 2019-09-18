@@ -1,5 +1,5 @@
 import React from "react";
-import { TWordList } from "../../data/essential_2";
+import { TWordList, wordPropertyType } from "../../data/essential_2";
 import "./index.css";
 import { Sound, playSound } from "../../components/common";
 import { Button, Popover } from "antd";
@@ -10,6 +10,21 @@ import * as _ from "lodash";
 import "../../animation/DynamicPointMesh/dynPointMesh";
 import "../../animation/DynamicPointMesh/dynPointMesh.css";
 import { MeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
+
+
+function getWordPropertyCssName(type: wordPropertyType){
+     switch (type) {
+       case "adj": return "e_adj";
+       case "verb": return "e_adj";
+       case "noun": return "e_noun";
+       case "adv": return "e_adv";
+       case "pron": return "e_pron";
+       case "conj": return "e_conj";
+       case "art": return "e_art";
+       case "prep": return "e_adj";
+        
+     }
+}
 
 const Level: any = {
   1: ["#7bbfea", "#2585a6", "#40a9ff"], //iceberg  🥶
@@ -163,11 +178,11 @@ export default class Essential4K extends React.Component<
             {data.map((item, index) => (
               <Popover
                 key={guidGenerator()}
-                title={`Word => ${item[0]}`}
+                title={`${item[0]}`}
                 content={
                   <>
                 <p>pron : {item[1]}</p>
-                <p>type :{item[2]}</p>
+                <p>type : <span className={`e_${item[2]} e_span`}>{`${item[2]}.`}</span></p>
                 <p>definition : {item[3]}</p>
                 <p>example : {item[4]}</p>
                 </>
