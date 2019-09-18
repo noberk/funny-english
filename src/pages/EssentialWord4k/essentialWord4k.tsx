@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import "../../animation/DynamicPointMesh/dynPointMesh";
 import "../../animation/DynamicPointMesh/dynPointMesh.css"
 import { MeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
-import { async } from "q";
 
 
 const Level: any = {
