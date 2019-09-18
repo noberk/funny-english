@@ -23,6 +23,7 @@ const Level: any = {
   8: ["#1de5e2", "#b588f7", "#7a21b9"], //mistery purple
   9: ["#ffe324", "#ffb553", "#bd8c2d"] //mistery purple
 };
+const LevelLength = Object.getOwnPropertyNames(Level).length;
 interface IEssential4KState{
 data :TWordList;
 intId:number;
@@ -98,7 +99,7 @@ export default class Essential4K extends React.Component<IEssential4KProps, IEss
   loadword=async (page:number)=>{
     
     const ess =await import("../../data/essential_2");
-    this.setState({data :   _.cloneDeep(ess.essential4k).splice((page-1)*this.props.pageSize,this.props.pageSize)});
+    this.setState({data :   _.cloneDeep(ess.essential4k).splice((page-1)*this.props.pageSize,this.props.pageSize), intId: page});
     // console.log(ess.essential4k.length);
     
     // eval(
@@ -149,9 +150,9 @@ export default class Essential4K extends React.Component<IEssential4KProps, IEss
                   }}
                   size="large"
                   style={{
-                    borderColor: `${Level[intId][2]}`,
+                    borderColor: `${Level[intId%LevelLength+1][2]}`,
                     backgroundColor: gradientColor(
-                      Level[intId],
+                      Level[intId%LevelLength+1],
                       data.length
                     )[index]
                   }}
