@@ -1,11 +1,14 @@
 import { MongoClient, MongoError, InsertWriteOpResult } from "mongodb";
 
 
-export const Tables = { Student: "student" }
+
 type TableName = "student"|"word";
 type Nullable<T> = { [P in keyof T]: T[P] | null }
 type Partial<T> = { [P in keyof T]?: T[P] }
 type Action = (mongoClient: MongoClient) => void;
+
+
+export const Tables = { Student: "student" }
 export class DBConnetion {
     constructor(public tableName: TableName) {
 
