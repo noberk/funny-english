@@ -4,8 +4,10 @@ import addVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
 import Login from "../Login/login";
 import EssentialWord4k from "../EssentialWord4k/essentialWord4k";
+import IELTS from "../IELTS/ielts";
 import GWeAreCouple from "../GWeAreCouple/gWeAreCouple";
 import {WrappedDemo} from "../AddArticle/addArticle";
+
 import "./home.css"
 import { Layout, Menu, Breadcrumb,Icon } from 'antd';
 import React from "react";
@@ -16,9 +18,9 @@ const { SubMenu } = Menu;
 interface HomeState{
   collapsed:boolean;
 }
-const PandaSvg = () => (<span className="emojiSize">✍️</span>)
+
 const emoji = (emoji:string) => (<span className="emojiSize">{emoji}️</span>)
-const myEmoji2 = () => (<span className="emojiSize">✍</span>)
+
 export class Home extends React.Component<any,HomeState> {
   state = {
     collapsed: false,
@@ -90,7 +92,7 @@ export class Home extends React.Component<any,HomeState> {
             </span>
             }>
                <Menu.Item key="601"><Link to="/EssentialWord4k/default">EssentialWord</Link></Menu.Item>
-               <Menu.Item key="602"><Link to="/EssentialWord4k/memory">IELTS</Link></Menu.Item>
+               <Menu.Item key="602"><Link to="/ielts/a">IELTS</Link></Menu.Item>
                <Menu.Item key="603"><Link to="/EssentialWord4k/article">Article</Link></Menu.Item>
             </SubMenu>
           </Menu>
@@ -119,6 +121,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/amuse" component={Login} />
         <Route path="/GWeAreCouple" component={GWeAreCouple} />
         <Route path="/EssentialWord4k/:id" component={EssentialWord4k} />
+        <Route path="/ielts/:id" component={IELTS} />
         
           </Content>
           <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>🚀 All CopyRight Reserved Andrew Lee  ©2019 🚀</Footer>

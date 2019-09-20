@@ -1,6 +1,5 @@
 import {RawData} from "../data/wordlist";
 import {en,mei} from "./reg"
-import { randomRangeIndexs } from "./arr";
 export const createMockData= <T extends object|any>(time:number,entity:T)=>{
     const arr : T[]= [];
     for (let i = 0; i < time; i++)    
@@ -40,9 +39,7 @@ export const wordList15000=(count:number=2**16,rawData:any =RawData)=>{
     return arr;
 }
 
- 
-
-export const randomPickWords=(count:number)=>{
+ export const randomPickWords=(count:number)=>{
     let words=15000
     const rawData= wordList15000(words);
     const indexs :number[]=[];
@@ -51,16 +48,8 @@ export const randomPickWords=(count:number)=>{
        indexs.push(x);
     }
     console.log(indexs);
-    
-    
-    
     return indexs.map(i=>rawData[i]);
-    
 }
-const range= (range:number,count:number)=>{
-    // var res: string[] = [];
-    // while (res.length===count) {
-        
-    // }
-}
+
+
 

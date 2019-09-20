@@ -515,9 +515,3 @@ hysteria
 n.
 behavior exhibiting excessive or uncontrollable emotion, such as fear or panic; mental disorder
 `;
-let res = [];
-const arr = H.split("\n").forEach(line => {
-  if (line.length>1){
-    res.push(line);
-  } 
-});

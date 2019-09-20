@@ -13,6 +13,7 @@ import * as p from "./P"
 import * as qr from "./QR"
 import * as s from "./S"
 import * as t from "./T"
+import * as on from "./ON"
 import * as uvwyz from "./UVWYZ"
 
 const A = a.A;
@@ -30,6 +31,16 @@ const S = s.S;
 const T = t.T;
 const JKL = jkl.JKL;
 const QR = qr.QR;
+const NO =on.NO;
 const UVWYZ = uvwyz.UVWYZ
+const IELTSString = A+B+C+D+E+F+G+H+I+JKL+M+NO+P+QR+S+T+UVWYZ;
 
-export {A,B,C,D,E,F,G,I,H,M,P,S,T,JKL,QR,UVWYZ};
+ 
+
+
+export {A,B,C,D,E,F,G,I,H,M,P,S,T,JKL,NO,QR,UVWYZ,IELTSString};
+
+
+
+
+

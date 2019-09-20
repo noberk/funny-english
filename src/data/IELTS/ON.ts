@@ -1,4 +1,4 @@
-export const ON=`
+export const NO=`
 naked
 a. Syn. nude; bare
 bare and pure; completely unclothed
