@@ -27,8 +27,8 @@ function getWordPropertyCssName(type: wordPropertyType){
 }
 
 const Level: any = {
-  1: ["#7bbfea", "#2585a6", "#40a9ff"], //iceberg  🥶
-  2: ["#ffcb52", "#ff7b02", "#da7c14"], //sweet orange 🍊
+  1: ["#ffcb52", "#ff7b02", "#da7c14"], //sweet orange 🍊
+  2: ["#7bbfea", "#2585a6", "#40a9ff"], //iceberg  🥶
   3: ["#c165dd", "#5c27f1", "#7a21b9"], //mistery purple
   4: ["#2afeb7", "#08c792", "#28a98d"], //mistery purple
   5: ["#5581f1", "#1153fc", "#295bda"], //mistery purple

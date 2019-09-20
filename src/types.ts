@@ -12,13 +12,21 @@ export interface IStudent extends _id{
     phone:number
 }
 export interface IAddVocabulary extends _id{
+    /**The name of this vocabulary */
     word:string
+    /**The meaning of this vocab */
     definition?:string
+    /**accent from usa */
     pronunciationAmerica?:string
+    /**accent from british */
     pronunciationEnglish?:string
+    /** network or local path of this word sound */
     sound?:string
+    /** base64 type string of this Image */
     base64PNG?:string[]
+    /** base64 type string of this Image */
     base64JPG?:string[]
+    syn?: string[]
     v?:string
     n?:string
     vt?:string

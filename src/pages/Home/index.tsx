@@ -86,11 +86,11 @@ export class Home extends React.Component<any,HomeState> {
             <SubMenu key="sub6" title={  
             <span>
               <Icon component={()=> emoji("📚") }  />
-              <span className="emojiSize">EssentialWord</span>
+              <span className="emojiSize">Vocabulary</span>
             </span>
             }>
-               <Menu.Item key="601"><Link to="/EssentialWord4k/default">WordList</Link></Menu.Item>
-               <Menu.Item key="602"><Link to="/EssentialWord4k/memory">memory</Link></Menu.Item>
+               <Menu.Item key="601"><Link to="/EssentialWord4k/default">EssentialWord</Link></Menu.Item>
+               <Menu.Item key="602"><Link to="/EssentialWord4k/memory">IELTS</Link></Menu.Item>
                <Menu.Item key="603"><Link to="/EssentialWord4k/article">Article</Link></Menu.Item>
             </SubMenu>
           </Menu>
@@ -121,7 +121,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/EssentialWord4k/:id" component={EssentialWord4k} />
         
           </Content>
-          <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>😍 Funny English ©2019 😍</Footer>
+          <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>🚀 All CopyRight Reserved Andrew Lee  ©2019 🚀</Footer>
         </Layout>
       </Layout>
       </Router>
