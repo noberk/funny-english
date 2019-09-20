@@ -17,6 +17,9 @@ http://www.chiptune.com/kaleidoscope/
 
 
 
+1. debug typescript in ts-node
+https://medium.com/@dupski/debug-typescript-in-vs-code-without-compiling-using-ts-node-9d1f4f9a94a  
+
 
 
 
