@@ -181,10 +181,10 @@ export default class Essential4K extends React.Component<
                 title={`${item[0]}`}
                 content={
                   <>
-                <p>pron : {item[1]}</p>
-                <p>type : <span className={`e_${item[2]} e_span`}>{`${item[2]}.`}</span></p>
-                <p>definition : {item[3]}</p>
-                <p>example : {item[4]}</p>
+                <p>Pron : {item[1]}</p>
+                <p>Attr : <span className={`e_${item[2]} e_span`}>{`${item[2]}.`}</span></p>
+                <p>Definition : {item[3]}</p>
+                <p>Example : {item[4]}</p>
                 </>
               }
               >

@@ -1,5 +1,4 @@
 import React from "react";
-import { IELTSString } from "../../data/IELTS";
 import "./index.css";
 import { Sound, playSound } from "../../components/common";
 import { Button, Popover } from "antd";
@@ -7,7 +6,7 @@ import { gradientColor } from "../../commom/colors";
 import { guidGenerator } from "../../commom/id";
 import { Link } from "react-router-dom";
 import * as _ from "lodash";
-import { TWordList } from "../../data/essential_2";
+import { Stronger } from "../../components/styled";
 
 const Level: any = {
   1: ["#ffcb52", "#ff7b02", "#da7c14"], //sweet orange 🍊
@@ -20,9 +19,16 @@ const Level: any = {
   8: ["#1de5e2", "#b588f7", "#7a21b9"], //mistery purple
   9: ["#ffe324", "#ffb553", "#bd8c2d"] //mistery purple
 };
+type IELTSWordType = {
+  word: string;
+  attr: string;
+  syn: string[];
+  definition: string[];
+};
+
 const LevelLength = Object.getOwnPropertyNames(Level).length;
 interface IIELTEState {
-  data: TWordList;
+  data: IELTSWordType[];
   intId: number;
   LinkButtonNames: string[];
 }
@@ -64,18 +70,6 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
     let id: string = this.props.match.params.id;
     let intId = Number.parseInt(id);
     if (Number.isNaN(intId) || intId > 9) intId = 1;
-    const ess = await import("../../data/essential_2");
-
-    let lbCount = ess.essential4k.length / this.props.pageSize;
-    let lbCountArr: number[] = [];
-    console.log(lbCount);
-
-    for (let i = 1; i <= lbCount; i++) {
-      lbCountArr.push(i);
-    }
-    this.setState({
-      data: _.cloneDeep(ess.essential4k).splice(0, this.props.pageSize)
-    });
   };
 
   highlight = (text: string, word: string) => {
@@ -88,31 +82,23 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
       )
     );
   };
-  highLightArticle = (paragraph: string, plainWord: string[]) => {
-    let words = paragraph.split(" ");
-    let arr = [];
-    return words.map(w => {
-      console.log(w.toString());
-      console.log(plainWord.toString());
-      words.forEach(w => {
-        plainWord.forEach(pw => {
-          if (w !== " " && w !== "") {
-            if (w.includes(pw)) {
-              arr.push(<s key={guidGenerator()}>{w} </s>);
-            } else {
-              arr.push(<i key={guidGenerator()}>{w} </i>);
-            }
-          }
-        });
-      });
-    });
-    return arr;
+  convertAttr = (attr: string) => {
+    switch (attr) {
+      case "n.":
+        return "noun";
+      case "a.":
+        return "adj";
+      case "ad.":
+        return "adv";
+      case "v.":
+        return "verb";
+      default:
+        return attr;
+    }
   };
-
-  loadword = async (letter: string) => {
-    const { A } = await import(`../../data/IELTS/A`);
+  decompose = (s: string) => {
     let res: string[] = [];
-    A.split("\n").forEach(line => {
+    s.split("\n").forEach(line => {
       if (line.length > 1) {
         res.push(line);
       }
@@ -120,9 +106,7 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
     let arr = [];
     for (let i = 0; i < res.length / 3; i++) {
       arr.push(res.slice(i * 3, (i + 1) * 3));
-      // arr.push(res.slice(i*3+1,(i+1)*3-1))
     }
-    console.log(arr);
     let Obj = [];
     for (let i = 0; i < arr.length; i++) {
       let wordObj: any = Object.create(null);
@@ -130,28 +114,46 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
       wordObj.word = arr[i][0];
       if (arr[i][1].includes("Syn.")) {
         let cixingAndSyn = arr[i][1].split("Syn.");
-        wordObj.cixing = cixingAndSyn[0].trim();
+        wordObj.attr = this.convertAttr(cixingAndSyn[0].trim());
         if (cixingAndSyn[1].includes(";")) {
-          wordObj.syn = cixingAndSyn[1].split(";").map(i=>i.trim());
+          wordObj.syn = cixingAndSyn[1].split(";").map(i => i.trim());
         } else {
           wordObj.syn = [];
           wordObj.syn.push(cixingAndSyn[1]);
         }
       } else {
-        wordObj.cixing = arr[i][1];
+        wordObj.attr = this.convertAttr(arr[i][1].trim());
         wordObj.syn = [];
       }
       if (arr[i][2].includes(";")) {
-        wordObj.definition = arr[i][2].split(";").map(i=>i.trim());;
+        wordObj.definition = arr[i][2].split(";").map(i => i.trim());
       } else {
         wordObj.definition = [];
         wordObj.definition.push(arr[i][2]);
       }
     }
 
-    console.log(Obj);
+    return Obj;
+  };
+  loadword = async (letters: string) => {
+    const { pureData } = await import(`../../data/IELTS/pure`);
+    let filteredData: Array<{
+      word: string;
+      attr: string;
+      syn: string[];
+      definition: string[];
+    }> = [];
+    
+    for (let letter of letters) {
+      let d = pureData.filter(w => w.word.startsWith(letter.toLowerCase()));
+      filteredData = filteredData.concat(d);
+    }
+
+    // let list = this.decompose(IELTSString);
+    // console.log(JSON.stringify(list));
+
     this.setState({
-      data: []
+      data: filteredData
     });
   };
 
@@ -160,7 +162,6 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
 
     return (
       <div className="essentialWord4k_container">
-        <canvas id="canvas"></canvas>
         <div className="essentialWord4k_aside">
           <h1>IELTS WORDS</h1>
           <div style={{ boxSizing: "border-box" }}>
@@ -196,24 +197,30 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
             {data.map((item, index) => (
               <Popover
                 key={guidGenerator()}
-                title={`${item[0]}`}
+                title={`${item.word}`}
                 content={
                   <>
-                    <p>pron : {item[1]}</p>
                     <p>
-                      type :{" "}
+                      <Stronger>Attr</Stronger> :{" "}
                       <span
-                        className={`e_${item[2]} e_span`}
-                      >{`${item[2]}.`}</span>
+                        className={`e_${item.attr} e_span`}
+                      >{`${item.attr}.`}</span>
                     </p>
-                    <p>definition : {item[3]}</p>
-                    <p>example : {item[4]}</p>
+                    <div>
+                      <Stronger>definition</Stronger> :{" "}
+                      {item.definition.map(d => (
+                        <p key={guidGenerator()}>{d}</p>
+                      ))}
+                    </div>
+                    <p>
+                      <Stronger>syn</Stronger> : {item.syn}
+                    </p>
                   </>
                 }
               >
                 <Button
                   onClick={() => {
-                    playSound(item[0]);
+                    playSound(item.word);
                   }}
                   size="large"
                   style={{
@@ -225,8 +232,8 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
                   }}
                   type="primary"
                 >
-                  {item[0]} &nbsp;
-                  <Sound word={item[0]} />
+                  {item.word} &nbsp;
+                  <Sound word={item.word} />
                 </Button>
               </Popover>
             ))}
@@ -237,16 +244,16 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
             {data.map(item => (
               <div key={guidGenerator()}>
                 <div>
-                  <span className="img3">{item[0]} </span>
-                  <span>{item[1]} </span>
-                  <span>{item[2]} </span>
-                  <Sound word={item[0]} />
+                  <span className="img3">{item.word} </span>
+                  <span>"wwwwww" </span>
+                  <span>{item.definition} </span>
+                  <Sound word={item.word} />
                 </div>
                 <div className="essentialWord4k_highlight">
                   {" "}
-                  {this.highlight(item[3], item[0])}{" "}
+                  {this.highlight(item.definition[0], item.word)}{" "}
                 </div>
-                <div style={{ marginBottom: "20px" }}>{item[4]} </div>
+                <div style={{ marginBottom: "20px" }}>{`2131231`} </div>
               </div>
             ))}
           </div>

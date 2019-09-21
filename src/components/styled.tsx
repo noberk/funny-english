@@ -113,3 +113,7 @@ export const prep = styled(xing)`
   background-color: #000;
   box-shadow: 2px 2px 2px 1px #000;
 `;
+
+export const Stronger = styled.strong`
+font-size:1.25rem;
+`
