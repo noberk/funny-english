@@ -117,3 +117,7 @@ export const prep = styled(xing)`
 export const Stronger = styled.strong`
 font-size:1.1rem;
 `
+
+export const MarginBottom20 = styled.div`
+margin-bottom: 20px;
+`

@@ -27,3 +27,11 @@ https://medium.com/@dupski/debug-typescript-in-vs-code-without-compiling-using-t
 
  1) 提供默写功能, 根据音标默写,  根据英文注释 默写
  
+https://codepen.io/aecend/pen/WbONyK  wheel
+https://codepen.io/deanwagman/pen/EjLBdQ bloom
+https://codepen.io/n-sayenko/pen/qOXKVr  snow
+https://codepen.io/sschepis/pen/ErFen glaxary 
+
+
+ 
+ 

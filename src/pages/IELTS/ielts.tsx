@@ -6,7 +6,7 @@ import { gradientColor } from "../../commom/colors";
 import { guidGenerator } from "../../commom/id";
 import { Link } from "react-router-dom";
 import * as _ from "lodash";
-import { Stronger } from "../../components/styled";
+import { Stronger, MarginBottom20 } from "../../components/styled";
 
 const Level: any = {
   1: ["#ffcb52", "#ff7b02", "#da7c14"], //sweet orange 🍊
@@ -162,8 +162,8 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
     } else {
       return(<div>
         <Stronger>syn : </Stronger>
-        {syn.map(synonmy => (
-          <div style={{marginRight : 10}}>{synonmy}</div>
+        {syn.map((synonmy,i) => (
+          <div style={{marginRight : 10}}>{`${++i}. `}{synonmy}</div>
         ))}
       </div>)
     }
@@ -172,8 +172,8 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
     let { data, intId, LinkButtonNames } = this.state;
 
     return (
-      <div className="essentialWord4k_container">
-        <div className="essentialWord4k_aside">
+      <div className="ielts_container">
+        <div className="ielts_aside">
           <h1>IELTS WORDS</h1>
           <div style={{ boxSizing: "border-box" }}>
             {LinkButtonNames.map(item => (
@@ -192,8 +192,8 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
           </div>
         </div>
 
-        <div className="essentialWord4k_right">
-          <h1 className="essentialWord4k_h1">
+        <div className="ielts_right">
+          <h1 className="ielts_h1">
             {" "}
             🎊The Essential 4000 IETLS Word🎊
           </h1>
@@ -248,20 +248,19 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
           </div>
 
           {/* here is definition of word list */}
-          <div className="essentialWord4k">
+          <div className="ielts">
             {data.map(item => (
               <div key={guidGenerator()}>
                 <div>
-                  <span className="img3">{item.word} </span>
-                  <span>"wwwwww" </span>
-                  <span>{item.definition} </span>
+                  <span className="">{item.word} </span>
+                  <div className={`e_${item.attr} e_span`}>{`${item.attr}.`}</div>
+                  <span> &nbsp;</span>
                   <Sound word={item.word} />
                 </div>
-                <div className="essentialWord4k_highlight">
-                  {" "}
-                  {this.highlight(item.definition[0], item.word)}{" "}
-                </div>
-                <div style={{ marginBottom: "20px" }}>{`2131231`} </div>
+                <div><Stronger>definition : </Stronger></div>
+                  {item.definition.map((d,i)=> <div>{`${i+1}. ` }{d}</div>)} 
+                  {this.syn(item.syn)}
+                  <MarginBottom20/>
               </div>
             ))}
           </div>
