@@ -195,7 +195,7 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
         <div className="ielts_right">
           <h1 className="ielts_h1">
             {" "}
-            🎊The Essential 4000 IETLS Word🎊
+            🔥The 4000 Essential IETLS Word🔥
           </h1>
           <h2>
             IELTS academic test is widely accepted in English countries. Its

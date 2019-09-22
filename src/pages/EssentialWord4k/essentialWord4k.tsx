@@ -166,7 +166,7 @@ export default class Essential4K extends React.Component<
         <div className="essentialWord4k_right">
           <h1 className="essentialWord4k_h1">
             {" "}
-            🎊The 4000 Essential words🎊
+            🌴The 4000 Essential words🌴
           </h1>
           <h2>
             In this series of courses which contains 100 words below. We hope what you can follow this page to learn step by step that aid you to build your vocabularies!
