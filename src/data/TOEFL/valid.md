@@ -144,8 +144,6 @@ advisory adj. Not mandatory.
 advocacy n. The act of pleading a cause.
 advocate n. One who pleads the cause of another, as in a legal or ecclesiastical court.
 aerial adj. Of, pertaining to, or like the air. 
-
-
 aeronaut n. One who navigates the air, a balloonist.
 aeronautics n. the art or practice of flying aircraft
 aerostat n. A balloon or other apparatus floating in or sustained by the air.
@@ -283,7 +281,6 @@ annihilate v. To destroy absolutely.
 annotate v. To make explanatory or critical notes on or upon.
 annual adj. Occurring every year.
 annuity n. An annual allowance, payment, or income. 
-
 annunciation n. Proclamation.
 anode n. The point where or path by which a voltaic current enters an electrolyte or the like.
 anonymous adj. Of unknown authorship.
@@ -419,7 +416,6 @@ assiduous adj. Diligent.
 assignee n. One who is appointed to act for another in the management of certain property and interests.
 assimilate v. To adapt.
 assonance n. Resemblance or correspondence in sound. 
-
 assonant adj. Having resemblance of sound.
 assonate v. To accord in sound, especially vowel sound.
 assuage v. To cause to be less harsh, violent, or severe, as excitement, appetite, pain, or disease.
@@ -556,7 +552,6 @@ bevel n. Any inclination of two surfaces other than 90 degrees.
 bewilder v. To confuse the perceptions or judgment of.
 bibliomania n. The passion for collecting books.
 bibliography n. A list of the words of an author, or the literature bearing on a particular subject. 
-
 bibliophile n. One who loves books.
 bibulous adj. Fond of drinking.
 bide v. To await.
@@ -835,7 +830,6 @@ commingle v. To blend.
 commissariat n. The department of an army charged with the provision of its food and water and daily needs.
 commission v. To empower.
 commitment n. The act or process of entrusting or consigning for safe-keeping. 
-
 committal n. The act, fact, or result of committing, or the state of being
 commodity n. Something that is bought and sold.
 commotion n. A disturbance or violent agitation.
@@ -978,13 +972,6 @@ contender n. One who exerts oneself in opposition or rivalry.
 contiguity n. Proximity.
 contiguous adj. Touching or joining at the edge or boundary.
 continence n. Self-restraint with respect to desires, appetites, and passion. 
-
-
-
-
-
-
-
 contingency n. Possibility of happening.
 contingent adj. Not predictable.
 continuance n. Permanence.
@@ -1499,7 +1486,6 @@ dutiable adj. Subject to a duty, especially a customs duty.
 dutiful adj. Obedient.
 dwindle v. To diminish or become less.
 dyne n. The force which, applied to a mass of one gram for 1 second, would give it a velocity of 1 cm/s.
-
 earnest adj. Ardent in spirit and speech.
 earthenware n. Anything made of clay and baked in a kiln or dried in the sun.
 eatable adj. Edible.
@@ -1804,7 +1790,6 @@ extricate v. Disentangle.
 extrude v. To drive out or away.
 exuberance n. Rich supply.
 exuberant adj. Marked by great plentifulness.
-
 fabricate v. To invent fancifully or falsely.
 fabulous adj. Incredible.
 facet n. One of the small triangular plane surfaces of a diamond or other gem.
@@ -1995,9 +1980,6 @@ fuse v. To unite or blend as by melting together.
 fusible adj. Capable of being melted by heat.
 futile adj. Of no avail or effect.
 futurist n. A person of expectant temperament.
-
-
-
 gauge n. An instrument for measuring.
 gaiety n. Festivity.
 gaily adv. Merrily.
@@ -2211,7 +2193,6 @@ hypodermic adj. Pertaining to the area under the skin.
 hypotenuse n. The side of a right-angled triangle opposite the right angle.
 hypothesis n. A proposition taken for granted as a premise from which to reach a conclusion.
 hysteria n. A nervous affection occurring typically in paroxysms of laughing and crying.
-
 ichthyic adj. Fish-like.
 ichthyology n. The branch of zoology that treats of fishes.
 ichthyosaurs n. A fossil reptile.
@@ -2260,7 +2241,6 @@ immigrate v. To come into a country or region from a former habitat.
 imminence n. Impending evil or danger.
 imminent adj. Dangerous and close at hand.
 immiscible adj. Separating, as oil and water. 
-
 immoral adj. Habitually engaged in licentious or lewd practices.
 immortalize v. To cause to last or to be known or remembered throughout a great or
 indefinite length of time.
@@ -2651,7 +2631,6 @@ isothermal adj. Having or marking equality of temperature.
 itinerant adj. Wandering.
 itinerary n. A detailed account or diary of a journey.
 itinerate v. To wander from place to place.
-
 jargon n. Confused, unintelligible speech or highly technical speech.
 jaundice n. A morbid condition, due to obstructed excretion of bile or characterized by yellowing of the skin.
 jeopardize v. To imperil.
@@ -2682,7 +2661,6 @@ joust v. To engage in a tilt with lances on horseback.
 justification n. Vindication.
 juvenile adj. Characteristic of youth.
 juxtapose v. To place close together.
-
 keepsake n. Anything kept or given to be kept for the sake of the giver.
 kerchief n. A square of linen, silk, or other material, used as a covering for the head or neck.
 kernel n. A grain or seed.
@@ -2700,7 +2678,6 @@ knead v. To mix and work into a homogeneous mass, especially with the hands.
 knickknack n. A small article, more for ornament that use.
 knight errant n. One of the wandering knights who in the middle ages went forth in search of adventure.
 knighthood n. Chivalry.
-
 laborious adj. Toilsome.
 labyrinth n. A maze.
 lacerate v. To tear rudely or raggedly.
@@ -2857,7 +2834,6 @@ luxuriate v. To live sumptuously.
 lying n. Untruthfulness.
 lyre n. One of the most ancient of stringed instruments of the harp class.
 lyric adj. Fitted for expression in song.
-
 macadamize v. To cover or pave, as a path or roadway, with small broken stone.
 machinery n. The parts of a machine or engine, taken collectively.
 machinist n. One who makes or repairs machines, or uses metal-working tools.
@@ -3229,7 +3205,6 @@ nuptial adj. Of or pertaining to marriage, especially to the marriage ceremony.
 nurture n. The process of fostering or promoting growth.
 nutriment n. That which nourishes.
 nutritive adj. Having nutritious properties.
-
 oaken adj. Made of or from oak.
 oakum n. Hemp-fiber obtained by untwisting and picking out loosely the yarns of old hemp rope.
 obdurate adj. Impassive to feelings of humanity or pity.
@@ -3944,8 +3919,6 @@ pyre n. A heap of combustibles arranged for burning a dead body.
 pyromania n. An insane propensity to set things on fire.
 pyrotechnic adj. Pertaining to fireworks or their manufacture. 
 pyx n. A vessel or casket, usually of precious metal, in which the host is preserved.
-
-
 quackery n. Charlatanry
 quadrate v. To divide into quarters.
 quadruple v. To multiply by four.
@@ -3973,7 +3946,6 @@ quintessence n. The most essential part of anything.
 quintet n. Musical composition arranged for five voices or instruments.
 quite adv. Fully.
 Quixotic adj. Chivalrous or romantic to a ridiculous or extravagant degree.
-
 rabid adj. Affected with rabies or hydrophobia.
 racy adj. Exciting or exhilarating to the mind.
 radiance n. Brilliant or sparkling luster.
@@ -4248,7 +4220,6 @@ ruminate v. To chew over again, as food previously swallowed and regurgitated.
 rupture v. To separate the parts of by violence.
 rustic adj. Characteristic of dwelling in the country.
 ruth n. Sorrow for another's misery.
-
 sacrifice v. To make an offering of to deity, especially by presenting on an altar.
 sacrificial adj. Offering or offered as an atonement for sin.
 sacrilege n. The act of violating or profaning anything sacred.
@@ -4620,8 +4591,6 @@ synod n. An ecclesiastical council.
 synonym n. A word having the same or almost the same meaning as some other.
 synopsis n. A syllabus or summary.
 systematic adj. Methodical.
-
-
 tableau n. An arrangement of inanimate figures representing a scene from real life.
 tacit adj. Understood.
 taciturn adj. Disinclined to conversation.
