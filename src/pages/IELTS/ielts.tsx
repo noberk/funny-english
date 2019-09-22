@@ -71,7 +71,6 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
     let intId = Number.parseInt(id);
     if (Number.isNaN(intId) || intId > 9) intId = 1;
   };
-
   highlight = (text: string, word: string) => {
     let words = text.split(" ");
     return words.map(w =>
@@ -142,9 +141,9 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
       attr: string;
       syn: string[];
       definition: string[];
-      type?:string[];
+      type?: string[];
     }> = [];
-    
+
     for (let letter of letters) {
       let d = pureData.filter(w => w.word.startsWith(letter.toLowerCase()));
       filteredData = filteredData.concat(d);
@@ -157,7 +156,18 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
       data: filteredData
     });
   };
-
+  syn = (syn: string[]) => {
+    if (syn.length === 0) {
+      return undefined;
+    } else {
+      return(<div>
+        <Stronger>syn : </Stronger>
+        {syn.map(synonmy => (
+          <div style={{marginRight : 10}}>{synonmy}</div>
+        ))}
+      </div>)
+    }
+  };
   render() {
     let { data, intId, LinkButtonNames } = this.state;
 
@@ -185,7 +195,7 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
         <div className="essentialWord4k_right">
           <h1 className="essentialWord4k_h1">
             {" "}
-            🎊The key Essential words that you have to know🎊
+            🎊The Essential 4000 IETLS Word🎊
           </h1>
           <h2>
             IELTS academic test is widely accepted in English countries. Its
@@ -198,24 +208,21 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
             {data.map((item, index) => (
               <Popover
                 key={guidGenerator()}
-                title={`${item.word}`}
                 content={
                   <>
+                    <h1> {item.word}</h1>
                     <p>
-                      <Stronger>Attr</Stronger> :{" "}
                       <span
                         className={`e_${item.attr} e_span`}
                       >{`${item.attr}.`}</span>
                     </p>
                     <div>
                       <Stronger>definition</Stronger> :{" "}
-                      {item.definition.map(d => (
-                        <p key={guidGenerator()}>{d}</p>
+                      {item.definition.map((d,i) => (
+                        <div key={guidGenerator()}>{`${i+1}. `}{d}</div>
                       ))}
                     </div>
-                    <p>
-                      <Stronger>syn</Stronger> : {item.syn}
-                    </p>
+                    {this.syn(item.syn)}
                   </>
                 }
               >

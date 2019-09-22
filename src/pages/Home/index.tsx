@@ -93,7 +93,7 @@ export class Home extends React.Component<any,HomeState> {
             }>
                <Menu.Item key="601"><Link to="/EssentialWord4k/default">EssentialWord</Link></Menu.Item>
                <Menu.Item key="602"><Link to="/ielts/a">IELTS</Link></Menu.Item>
-               <Menu.Item key="603"><Link to="/EssentialWord4k/article">Article</Link></Menu.Item>
+               <Menu.Item key="603"><Link to="/TOEFL/a">TOEFL</Link></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>

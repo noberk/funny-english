@@ -115,5 +115,5 @@ export const prep = styled(xing)`
 `;
 
 export const Stronger = styled.strong`
-font-size:1.25rem;
+font-size:1.1rem;
 `
