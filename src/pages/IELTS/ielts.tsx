@@ -142,6 +142,7 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
       attr: string;
       syn: string[];
       definition: string[];
+      type?:string[];
     }> = [];
     
     for (let letter of letters) {
