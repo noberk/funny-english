@@ -72,7 +72,7 @@ export class DataUrl {
 export async function infiniteTake<T1>(path: string): Promise<{ first: T1 }>;
 export async function infiniteTake<T1, T2>(path: string, path2?: string): Promise<{ first: T1, second: T2 }>;
 export async function infiniteTake<T1, T2, T3>(path: string, path2?: string, path3?: string): Promise<{ first: T1, second: T2, third: T3 }>
-export async function infiniteTake<T1, T2, T3, T4>(path: string, path2?: string, path3?: string, path4?: string): Promise<{ first: T1, second: T2, third: T3, forth: T4 }>
+export async function infiniteTake<T1, T2, T3, T4>(path: string, path2?: string, path3?: string, path4?: string): Promise<{ first: T1, second: T2, third: T3, fourth: T4 }>
 export async function infiniteTake<T1, T2, T3, T4, T5>(path: string, path2?: string, path3?: string, path4?: string) {
     var response1, response2, response3, response4;
     var t1, t2, t3, t4;

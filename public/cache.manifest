@@ -1,0 +1,18 @@
+CACHE MANIFEST
+#v0.1
+
+CACHE:
+
+static/js/0.30a424b8.chunk.js
+static/js/3.b2a7facc.chunk.js
+static/js/4.dfe8c725.chunk.js
+static/js/main.9d98fd5e.chunk.js
+static/js/runtime~main.d1366898.js
+static/css/3.8c467cd4.chunk.css
+static/css/main.1cb8e28e.chunk.css
+
+NETWORK:
+resourse/logo.png
+
+FALLBACK:
+/ /offline.html
