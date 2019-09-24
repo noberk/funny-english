@@ -63,7 +63,7 @@ export default class Essential4K extends React.Component<
     };
   }
   componentDidMount = async () => {
-    MeshRun();
+    // MeshRun();
 
     let id: string = this.props.match.params.id;
     let intId = Number.parseInt(id);

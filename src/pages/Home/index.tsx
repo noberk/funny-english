@@ -3,6 +3,7 @@ import StudenetInfo from "../StudenetInfo/StudenetInfo";
 import addVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
 import Login from "../Login/login";
+import TOEFL from "../TOEFL/toelf";
 import EssentialWord4k from "../EssentialWord4k/essentialWord4k";
 import IELTS from "../IELTS/ielts";
 import GWeAreCouple from "../GWeAreCouple/gWeAreCouple";
@@ -12,6 +13,7 @@ import "./home.css"
 import { Layout, Menu, Breadcrumb,Icon } from 'antd';
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -93,7 +95,7 @@ export class Home extends React.Component<any,HomeState> {
             }>
                <Menu.Item key="601"><Link to="/EssentialWord4k/default">EssentialWord</Link></Menu.Item>
                <Menu.Item key="602"><Link to="/ielts/a">IELTS</Link></Menu.Item>
-               <Menu.Item key="603"><Link to="/TOEFL/a">TOEFL</Link></Menu.Item>
+               <Menu.Item key="603"><Link to="/TOEFL">TOEFL</Link></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>
@@ -122,6 +124,7 @@ export class Home extends React.Component<any,HomeState> {
         <Route path="/GWeAreCouple" component={GWeAreCouple} />
         <Route path="/EssentialWord4k/:id" component={EssentialWord4k} />
         <Route path="/ielts/:id" component={IELTS} />
+        <Route path="/TOEFL" component={TOEFL} />
         
           </Content>
           <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>🚀 All CopyRight Reserved Andrew Lee  ©2019 🚀</Footer>

@@ -52,4 +52,60 @@ export const wordList15000=(count:number=2**16,rawData:any =RawData)=>{
 }
 
 
+/**
+ *  this function is for ietls data convertion
+ * @param s 
+ */
+export const decompose = (s: string) => {
+    let res: string[] = [];
+    s.split("\n").forEach(line => {
+      if (line.length > 1) {
+        res.push(line);
+      }
+    });
+    let arr = [];
+    for (let i = 0; i < res.length / 3; i++) {
+      arr.push(res.slice(i * 3, (i + 1) * 3));
+    }
+    let Obj = [];
+    for (let i = 0; i < arr.length; i++) {
+      let wordObj: any = Object.create(null);
+      Obj.push(wordObj);
+      wordObj.word = arr[i][0];
+      if (arr[i][1].includes("Syn.")) {
+        let cixingAndSyn = arr[i][1].split("Syn.");
+        wordObj.attr = convertAttr(cixingAndSyn[0].trim());
+        if (cixingAndSyn[1].includes(";")) {
+          wordObj.syn = cixingAndSyn[1].split(";").map(i => i.trim());
+        } else {
+          wordObj.syn = [];
+          wordObj.syn.push(cixingAndSyn[1]);
+        }
+      } else {
+        wordObj.attr = convertAttr(arr[i][1].trim());
+        wordObj.syn = [];
+      }
+      if (arr[i][2].includes(";")) {
+        wordObj.definition = arr[i][2].split(";").map(i => i.trim());
+      } else {
+        wordObj.definition = [];
+        wordObj.definition.push(arr[i][2]);
+      }
+    }
 
+    return Obj;
+  };
+  export const convertAttr = (attr: string) => {
+    switch (attr) {
+      case "n.":
+        return "noun";
+      case "a.":
+        return "adj";
+      case "ad.":
+        return "adv";
+      case "v.":
+        return "verb";
+      default:
+        return attr;
+    }
+  };

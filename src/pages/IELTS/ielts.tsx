@@ -24,7 +24,8 @@ type IELTSWordType = {
   attr: string;
   syn: string[];
   definition: string[];
-};
+}
+type IELTSIDType =   "A"|"B"|"C"|"D"| "E"|  "F"| "G"|"H"|"I"|"JKL"|"M"|"NO"|"P"|"QR"|"S"|"T"|"UVWYZ";
 
 const LevelLength = Object.getOwnPropertyNames(Level).length;
 interface IIELTEState {
@@ -67,74 +68,16 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
     };
   }
   componentDidMount = async () => {
-    let id: string = this.props.match.params.id;
+    let id: IELTSIDType = this.props.match.params.id;
     let intId = Number.parseInt(id);
     if (Number.isNaN(intId) || intId > 9) intId = 1;
+    this.loaddata(id);
   };
-  highlight = (text: string, word: string) => {
-    let words = text.split(" ");
-    return words.map(w =>
-      w.toUpperCase().includes(word.toUpperCase()) ? (
-        <s key={guidGenerator()}>{w} </s>
-      ) : (
-        <i key={guidGenerator()}>{w} </i>
-      )
-    );
+  
+  loadword =  (letters: IELTSIDType) => {
+    this.loaddata(letters);
   };
-  convertAttr = (attr: string) => {
-    switch (attr) {
-      case "n.":
-        return "noun";
-      case "a.":
-        return "adj";
-      case "ad.":
-        return "adv";
-      case "v.":
-        return "verb";
-      default:
-        return attr;
-    }
-  };
-  decompose = (s: string) => {
-    let res: string[] = [];
-    s.split("\n").forEach(line => {
-      if (line.length > 1) {
-        res.push(line);
-      }
-    });
-    let arr = [];
-    for (let i = 0; i < res.length / 3; i++) {
-      arr.push(res.slice(i * 3, (i + 1) * 3));
-    }
-    let Obj = [];
-    for (let i = 0; i < arr.length; i++) {
-      let wordObj: any = Object.create(null);
-      Obj.push(wordObj);
-      wordObj.word = arr[i][0];
-      if (arr[i][1].includes("Syn.")) {
-        let cixingAndSyn = arr[i][1].split("Syn.");
-        wordObj.attr = this.convertAttr(cixingAndSyn[0].trim());
-        if (cixingAndSyn[1].includes(";")) {
-          wordObj.syn = cixingAndSyn[1].split(";").map(i => i.trim());
-        } else {
-          wordObj.syn = [];
-          wordObj.syn.push(cixingAndSyn[1]);
-        }
-      } else {
-        wordObj.attr = this.convertAttr(arr[i][1].trim());
-        wordObj.syn = [];
-      }
-      if (arr[i][2].includes(";")) {
-        wordObj.definition = arr[i][2].split(";").map(i => i.trim());
-      } else {
-        wordObj.definition = [];
-        wordObj.definition.push(arr[i][2]);
-      }
-    }
-
-    return Obj;
-  };
-  loadword = async (letters: string) => {
+  loaddata = async (letters:IELTSIDType)=>{
     const { pureData } = await import(`../../data/IELTS/pure`);
     let filteredData: Array<{
       word: string;
@@ -148,14 +91,10 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
       let d = pureData.filter(w => w.word.startsWith(letter.toLowerCase()));
       filteredData = filteredData.concat(d);
     }
-
-    // let list = this.decompose(IELTSString);
-    // console.log(JSON.stringify(list));
-
     this.setState({
       data: filteredData
     });
-  };
+  }
   syn = (syn: string[]) => {
     if (syn.length === 0) {
       return undefined;
@@ -181,7 +120,7 @@ export default class IELTS extends React.Component<IIELTEProps, IIELTEState> {
                 <Link
                   to={`./${item}`}
                   onClick={() => {
-                    this.loadword(item);
+                    this.loadword(item as IELTSIDType);
                   }}
                 >
                   {item}
