@@ -2,7 +2,7 @@ import StudentList from "../StudentList/Student";
 import StudenetInfo from "../StudenetInfo/StudenetInfo";
 import addVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
-import Login from "../Login/login";
+import Login from "../Aumsement/aumsement";
 import TOEFL from "../TOEFL/toelf";
 import EssentialWord4k from "../EssentialWord4k/essentialWord4k";
 import IELTS from "../IELTS/ielts";
@@ -109,6 +109,10 @@ export class Home extends React.Component<any,HomeState> {
              <li>Support</li>
              <li>Sign On</li> 
            </div>
+           <div  className="homeUIRight">
+           <Icon type="user" theme="outlined" className="homeIconStyle" /> 
+    
+           </div> 
           </Header>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>

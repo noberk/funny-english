@@ -3,7 +3,9 @@ import React from "react";
 const TOEFL: React.FC = () => (
   <div className="ielts_container">
   <div className="ielts_aside">
-    <h1>IELTS WORDS</h1>
+    <h1>This page is maintaining now🧱🧱🧱 
+      word list will be coming soon
+    </h1>
  
   </div>
 

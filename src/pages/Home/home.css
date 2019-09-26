@@ -15,13 +15,26 @@
 #homeHeader{
   padding: 0 ;
   color: aliceblue;
+  display: flex;
 }
 .homeUlLeft{
-    display: flex;
     width: 1280px;
-    margin: auto;
+    display: flex;
 }
+.homeUIRight{
 
+}
+.homeIconStyle{
+    top: 0.2rem;
+    font-size: 1.8rem;
+    position: relative;
+    transition: all 150ms ease-in-out;
+    transform: scale(1);
+}
+.homeIconStyle:hover{
+    transition: all 150ms ease-in-out;
+    transform: scale(1.3);
+}
 
 .homeUlLeft li{
     flex: content;
