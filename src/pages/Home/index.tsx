@@ -13,6 +13,7 @@ import "./home.css"
 import { Layout, Menu, Breadcrumb,Icon } from 'antd';
 import React from "react";
 import {  Route, Link } from "react-router-dom";
+import { checkMonkUser } from "../Login/login";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -23,15 +24,20 @@ const onlineStyle= ["#30da30","gray"];
 
 const emoji = (emoji:string) => (<span className="emojiSize">{emoji}️</span>)
 
-export class Home extends React.Component<any,{collapsed:boolean}> {
+export class Home extends React.Component<any,{collapsed:boolean,isLogin:boolean}> {
   state = {
     collapsed: false,
+    isLogin:false
   };
-
+  componentDidMount(){
+     if(checkMonkUser()){
+        this.setState({isLogin: checkMonkUser()})
+     }
+  }
   onCollapse = () => {
     this.setState({ collapsed: this.state.collapsed===false ? true: false });
   };
-
+  
   render() {
     return (
       
@@ -111,7 +117,7 @@ export class Home extends React.Component<any,{collapsed:boolean}> {
            </div>
            <div  className="homeUIRight">
            
-          <Link to="login"><Icon type="user" theme="outlined" className="homeIconStyle" /></Link> 
+          <Link to="/login"><Icon type="user" theme="outlined" className="homeIconStyle" style={this.state.isLogin?{ color:onlineStyle[0]}:{}} /></Link> 
     
            </div> 
           </Header>

@@ -91,9 +91,6 @@ class Particle {
     this.border();
     this.x += this.vector.x;
     this.y += this.vector.y;
-  console.log(this.vector);
- 
-  
   };
   border = () => {
     if (this.x >= w || this.x <= 0) {
@@ -149,23 +146,33 @@ let w = 0;
 let h = 0;
 let animNumber= 0;
 export const MeshRun = () => {
-  canvasBody = document.getElementById("canvas") as HTMLCanvasElement;
-  drawArea = canvasBody.getContext("2d") as CanvasRenderingContext2D;
-  delay = 200;
-  tid = 0;
-  rgb = opts.lineColor.match(/\d+/g);
-  
-  setup();
+  try {
+    canvasBody = document.getElementById("canvas") as HTMLCanvasElement;
+    drawArea = canvasBody.getContext("2d") as CanvasRenderingContext2D;
+    delay = 200;
+    tid = 0;
+    rgb = opts.lineColor.match(/\d+/g);
+    setup();
+  } catch {
+      console.log("start MeshRun on Error");
+      
+  }
+
 };
 export const unMeshRun= ()=>{
-   drawArea= undefined;
-   canvasBody=undefined;
-   delay=0;
-   tid=0;
-   w=0;
-   h=0;
-   window.removeEventListener("reset",windowResize);
-   window.cancelAnimationFrame(animNumber)
+  try {
+    drawArea= undefined;
+    canvasBody=undefined;
+    delay=0;
+    tid=0;
+    w=0;
+    h=0;
+    window.removeEventListener("reset",windowResize);
+    window.cancelAnimationFrame(animNumber)
+  } catch  {
+    console.log("  unMeshRun  on Error");
+  }
+  
 }
 
  

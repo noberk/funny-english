@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BodyWhite } from "../../components/styled";
-import { Link } from "react-router-dom";
-import { Form,  Input, Button } from "antd";
+import { Link, Redirect } from "react-router-dom";
+import { Form,  Input, Button,message  } from "antd";
 import "./index.css";
 import { MeshRun, unMeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
 const clientId =
@@ -19,26 +19,44 @@ function useLogin(account:any,password:any) {
         if(account=== intrinsic.account && password=== intrinsic.password){
             setOnline(true);
         }else{
-            console.log("incorrent");
+          message.warning("incorrent")
         }
           return ()=>{setOnline(false);}
     });   
     return cur;
   }
-
+export function checkMonkUser(){
+  if(localStorage.getItem("account")=== intrinsic.account && localStorage.getItem("password")=== intrinsic.password)
+    return true
+  else
+  return false
+}
 const Login: React.FC = (props: any) => {
-    const [account,setAccount] =useState("");
-    const [password,setPassword] =useState("");
-    const isOnline =useLogin(localStorage.getItem("account"), localStorage.getItem("password"))
 
+  let onSubmitClicked= (e:any)=>{
+    if(checkMonkUser()){
+      message.success("corrent")
+      unMeshRun();
+      setValid(true);
+    }else
+      message.warning("incorrent")
+    
+  }
+
+
+    const isOnline =useLogin(localStorage.getItem("account"), localStorage.getItem("password"))
+    const [valid,setValid] =  useState(false);
+   
     useEffect(()=>{
-        MeshRun();
+      MeshRun()
         return ()=>{
             unMeshRun()
-            console.log("clear");
-            
+            console.log("clear");   
         }
     })
+
+    if(valid)
+    return (<Redirect to="/" />)
 
   return (
     <BodyWhite>
@@ -61,18 +79,16 @@ const Login: React.FC = (props: any) => {
         </p>
 
         <Form layout="inline">
-      ACCOUNT  <Input onChange={e=>{
-          setAccount(e.target.value);
-          localStorage.setItem("account",e.target.value);
+      ACCOUNT  <Input placeholder="noberk" onChange={e=>{
+             localStorage.setItem("account",e.target.value);
       }} />
-      passwrod <Input onChange={
+      passwrod <Input placeholder="123" onChange={
           e=> {
-              setPassword(e.target.value)
               localStorage.setItem("password",e.target.value);
           }
       } />
         </Form>
-         <Button type={isOnline? "primary" :"danger" }  className="login-btn" >
+         <Button type={isOnline? "primary" :"danger"} onClick={onSubmitClicked}  className="login-btn" >
          {isOnline? "Success": "Log in"}
       </Button>
       </div>
