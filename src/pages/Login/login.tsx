@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BodyWhite } from "../../components/styled";
 import { Link } from "react-router-dom";
-import { Form, Icon, Input, Button } from "antd";
+import { Form,  Input, Button } from "antd";
 import "./index.css";
+import { MeshRun, unMeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
 const clientId =
   "656701571546-e9k0u6ujehdbhe1sijbpbjqevfotfisb.apps.googleusercontent.com";
 const clientCesret = "PN1bawLOwKjHI5EpOHO23DSV";
@@ -20,10 +21,7 @@ function useLogin(account:any,password:any) {
         }else{
             console.log("incorrent");
         }
-          return ()=>{
-            setOnline(false);
-            console.log("I will exited");   
-          }
+          return ()=>{setOnline(false);}
     });   
     return cur;
   }
@@ -33,8 +31,18 @@ const Login: React.FC = (props: any) => {
     const [password,setPassword] =useState("");
     const isOnline =useLogin(localStorage.getItem("account"), localStorage.getItem("password"))
 
+    useEffect(()=>{
+        MeshRun();
+        return ()=>{
+            unMeshRun()
+            console.log("clear");
+            
+        }
+    })
+
   return (
     <BodyWhite>
+      <canvas id="canvas" style={{background:"#2c364e"}}></canvas>
       <div className="login_header_project">
         <Link to="/">🚀 Back to Home to Study 🚀</Link>
       </div>

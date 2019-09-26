@@ -1,5 +1,5 @@
 function getScrollbarWidth() {
-  var oP :any= document.createElement("p"),
+  let oP :any= document.createElement("p"),
     styles: any = {
       width: "100px",
       height: "100px",
@@ -35,10 +35,10 @@ const opts = {
   variantRadius: 2,
   linkRadius: 200
 };
-
-window.addEventListener("resize", function() {
+const windowResize=()=>{
   deBouncer();
-});
+}
+window.addEventListener("resize", windowResize);
 
 let deBouncer = function() {
   clearTimeout(tid);
@@ -91,6 +91,9 @@ class Particle {
     this.border();
     this.x += this.vector.x;
     this.y += this.vector.y;
+  console.log(this.vector);
+ 
+  
   };
   border = () => {
     if (this.x >= w || this.x <= 0) {
@@ -115,16 +118,18 @@ class Particle {
 
 let particles: any[] = [];
 function setup() {
-  particles = [];
   resizeReset();
+  particles = [];
+  
+  
   for (let i = 0; i < opts.particleAmount; i++) {
     particles.push(new Particle());
   }
-  window.requestAnimationFrame(loop);
+  console.log(particles.length);
+  animNumber=window.requestAnimationFrame(loop);
 }
 
 function loop() {
-  window.requestAnimationFrame(loop);
   drawArea.clearRect(0, 0, w, h);
   for (let i = 0; i < particles.length; i++) {
     particles[i].update();
@@ -133,22 +138,34 @@ function loop() {
   for (let i = 0; i < particles.length; i++) {
     linkPoints(particles[i], particles);
   }
+  animNumber=window.requestAnimationFrame(loop);
 }
-let drawArea: CanvasRenderingContext2D;
-let canvasBody: HTMLCanvasElement;
+let drawArea:any // CanvasRenderingContext2D;
+let canvasBody: any// HTMLCanvasElement;
 let delay: number;
 let tid: number;
 let rgb: any;
 let w = 0;
 let h = 0;
+let animNumber= 0;
 export const MeshRun = () => {
   canvasBody = document.getElementById("canvas") as HTMLCanvasElement;
   drawArea = canvasBody.getContext("2d") as CanvasRenderingContext2D;
   delay = 200;
   tid = 0;
   rgb = opts.lineColor.match(/\d+/g);
-  resizeReset();
+  
   setup();
 };
+export const unMeshRun= ()=>{
+   drawArea= undefined;
+   canvasBody=undefined;
+   delay=0;
+   tid=0;
+   w=0;
+   h=0;
+   window.removeEventListener("reset",windowResize);
+   window.cancelAnimationFrame(animNumber)
+}
 
-export {};
+ 
