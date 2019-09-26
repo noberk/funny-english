@@ -121,3 +121,9 @@ font-size:1.1rem;
 export const MarginBottom20 = styled.div`
 margin-bottom: 20px;
 `
+
+export const BodyWhite = styled.div`
+width:100%;
+height:100%;
+background:white;
+`

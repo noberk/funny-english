@@ -12,18 +12,18 @@ import {WrappedDemo} from "../AddArticle/addArticle";
 import "./home.css"
 import { Layout, Menu, Breadcrumb,Icon } from 'antd';
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {  Route, Link } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-interface HomeState{
-  collapsed:boolean;
-}
+const onlineStyle= ["#30da30","gray"];
+
+ 
 
 const emoji = (emoji:string) => (<span className="emojiSize">{emoji}️</span>)
 
-export class Home extends React.Component<any,HomeState> {
+export class Home extends React.Component<any,{collapsed:boolean}> {
   state = {
     collapsed: false,
   };
@@ -34,7 +34,7 @@ export class Home extends React.Component<any,HomeState> {
 
   render() {
     return (
-      <Router>
+      
       <Layout style={{ minHeight: '100vh' }}>
         <Sider width={250} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
@@ -110,7 +110,8 @@ export class Home extends React.Component<any,HomeState> {
              <li>Sign On</li> 
            </div>
            <div  className="homeUIRight">
-           <Icon type="user" theme="outlined" className="homeIconStyle" /> 
+           
+          <Link to="./login"><Icon type="user" theme="outlined" className="homeIconStyle" /></Link> 
     
            </div> 
           </Header>
@@ -134,7 +135,6 @@ export class Home extends React.Component<any,HomeState> {
           <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>🚀 All CopyRight Reserved Andrew Lee  ©2019 🚀</Footer>
         </Layout>
       </Layout>
-      </Router>
     );
   }
 }

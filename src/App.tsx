@@ -1,7 +1,17 @@
-import React from "react"
-import { Home} from "./pages/Home";
-import './App.css'
+import React from "react";
+import { Home } from "./pages/Home";
+import Login from "./pages/Login/login";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const App: React.FC = () =><div><Home></Home></div>
+import "./App.css";
+
+const App: React.FC = () => (
+  <div>
+    <Router>
+      <Route path="/" exact component={Home} />
+      <Route path="/login" exact component={Login} />
+    </Router>
+  </div>
+);
 
 export default App;
