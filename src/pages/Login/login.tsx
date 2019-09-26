@@ -6,31 +6,38 @@ import "./index.css";
 const clientId =
   "656701571546-e9k0u6ujehdbhe1sijbpbjqevfotfisb.apps.googleusercontent.com";
 const clientCesret = "PN1bawLOwKjHI5EpOHO23DSV";
- 
-function useCheckOnline() {
+const intrinsic= {
+    account: "noberk",
+    password: "123"
+}
+
+function useLogin(account:any,password:any) {
     const [cur, setOnline] = useState(false);
     useEffect(() => { 
-          setOnline(true);
-          console.log(cur);
-          
+
+        if(account=== intrinsic.account && password=== intrinsic.password){
+            setOnline(true);
+        }else{
+            console.log("incorrent");
+        }
           return ()=>{
             setOnline(false);
-            console.log("I will exited");
-            
+            console.log("I will exited");   
           }
     });   
     return cur;
   }
+
 const Login: React.FC = (props: any) => {
-      
-    const isOnline = useCheckOnline();
+    const [account,setAccount] =useState("");
+    const [password,setPassword] =useState("");
+    const isOnline =useLogin(localStorage.getItem("account"), localStorage.getItem("password"))
 
   return (
     <BodyWhite>
       <div className="login_header_project">
         <Link to="/">🚀 Back to Home to Study 🚀</Link>
       </div>
-
       <div className="loginbox">
         <h1 className="login_header">Sign in</h1>
         <p className="login_small_header">strength your English </p>
@@ -45,11 +52,23 @@ const Login: React.FC = (props: any) => {
           <span>or</span>
         </p>
 
-        <Form layout="inline"></Form>
-      </div>
-      <Button type={isOnline? "primary" :"danger" } htmlType="submit">
-        Log in{" "}
+        <Form layout="inline">
+      ACCOUNT  <Input onChange={e=>{
+          setAccount(e.target.value);
+          localStorage.setItem("account",e.target.value);
+      }} />
+      passwrod <Input onChange={
+          e=> {
+              setPassword(e.target.value)
+              localStorage.setItem("password",e.target.value);
+          }
+      } />
+        </Form>
+         <Button type={isOnline? "primary" :"danger" }  className="login-btn" >
+         {isOnline? "Success": "Log in"}
       </Button>
+      </div>
+     
     </BodyWhite>
   );
 };

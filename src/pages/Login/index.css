@@ -9,6 +9,7 @@
     text-align: left;
     top:200px;
     position: relative;
+    overflow: hidden;
 }
 .login_header{
     color: #1d262d;
@@ -72,82 +73,9 @@ left: 0;
 }
 
 
-span.input-group {
-    position: relative;
-    display: block;
-    clear: both
-}
-
-span.input-group label {
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    position: absolute;
-    top: 50%;
-    left: 1em;
-    background-color: #fff;
-    color: #b3b3b3;
-    font-weight: 400;
-    cursor: text;
-    pointer-events: none
-}
-
-span.input-group input.hascontent~label,span.input-group input:focus~label {
-    top: 0;
-    font-size: .8em;
-    padding: 0 .3em;
-    color: #1273eb
-}
-
-span.input-group .reset-input {
-    position: absolute;
-    top: 50%;
-    right: 1em;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    opacity: 0;
-    color: #b3b3b3;
-    z-index: 9999
-}
-
-span.input-group input:focus~.reset-input {
-    opacity: 1
-}
-
-span.input-group .input-addon {
-    background-color: #f5f8f9;
-    border-radius: 3px 0 0 3px;
-    box-shadow: inset 0 0 1px #222;
-    font-family: Proxima Nova,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
-    font-size: 1em;
-    padding: 1em;
-    position: absolute;
-    z-index: 1;
-    width: 50px;
-    height: 100%;
-    text-align: center
-}
-
-span.input-group .input-addon~input {
-    padding-left: 3.8em
-}
-
-span.input-group .input-addon~input~label {
-    left: 3.8em
-}
-
-span.input-group .input-addon~input.hascontent~label,span.input-group .input-addon~input:focus~label {
-    left: 4.5em
-}
-
-span.input-group[class*=" col-"] .reset-input,span.input-group[class*=" col-"] label {
-    top: 42%
+.login-btn{
+    margin-top: 20px;
+    width: 33%;
+    float: right;
+    clear: both;
 }
