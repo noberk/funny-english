@@ -111,7 +111,7 @@ export class Home extends React.Component<any,{collapsed:boolean}> {
            </div>
            <div  className="homeUIRight">
            
-          <Link to="./login"><Icon type="user" theme="outlined" className="homeIconStyle" /></Link> 
+          <Link to="login"><Icon type="user" theme="outlined" className="homeIconStyle" /></Link> 
     
            </div> 
           </Header>
@@ -121,15 +121,15 @@ export class Home extends React.Component<any,{collapsed:boolean}> {
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
         <Route path="/" exact component={StudentList} />
-        <Route path="/StudentInfo" component={StudenetInfo} />
-        <Route path="/addVocabulary" component={addVocabulary} />
-        <Route path="/addArticle" component={WrappedDemo} />
-        <Route path="/WordList" component={WordList} />
-        <Route path="/amuse" component={Login} />
-        <Route path="/GWeAreCouple" component={GWeAreCouple} />
-        <Route path="/EssentialWord4k/:id" component={EssentialWord4k} />
-        <Route path="/ielts/:id" component={IELTS} />
-        <Route path="/TOEFL" component={TOEFL} />
+        <Route path="/StudentInfo" exact component={StudenetInfo} />
+        <Route path="/addVocabulary" exact component={addVocabulary} />
+        <Route path="/addArticle" exact component={WrappedDemo} />
+        <Route path="/WordList" exact component={WordList} />
+        <Route path="/amuse" exact component={Login} />
+        <Route path="/GWeAreCouple" exact component={GWeAreCouple} />
+        <Route path="/EssentialWord4k/:id" exact component={EssentialWord4k} />
+        <Route path="/ielts/:id" exact component={IELTS} />
+        <Route path="/TOEFL" exact component={TOEFL} />
         
           </Content>
           <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>🚀 All CopyRight Reserved Andrew Lee  ©2019 🚀</Footer>
