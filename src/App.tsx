@@ -3,7 +3,7 @@ import { Home } from "./pages/Home";
 import Login from "./pages/Login/login";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import "./App.css";
+import "./App.scss";
 
 const App: React.FC = () => (
   <div>
