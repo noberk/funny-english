@@ -40,10 +40,7 @@ const Login: React.FC = (props: any) => {
       setValid(true);
     }else
       message.warning("incorrent")
-    
   }
-
-
     const isOnline =useLogin(localStorage.getItem("account"), localStorage.getItem("password"))
     const [valid,setValid] =  useState(false);
    

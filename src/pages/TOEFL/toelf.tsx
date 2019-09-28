@@ -1,11 +1,39 @@
 import React from "react";
 
+const makeBlue = (BaseComponent:any) => (props:any)=>{
+    const addBlue ={
+        style:{
+          color :"blue"
+        }
+    }
+    const  newProps={
+       ...addBlue,
+       ...props
+    }
+    return <BaseComponent {...newProps} ></BaseComponent>
+}
+const makeNoStyle = (BaseComponent:any) => (props:any)=>{
+  delete props.style;
+  const  newProps={
+    ...props
+ }
+  return <BaseComponent {...newProps} ></BaseComponent>
+}
+const NameTag = ({title, ...rest}:any)=>{
+  return (
+    <h1 {...rest} >
+  {title}
+    </h1>
+  )
+}
+const BlueTag = makeBlue(NameTag)
+
 const TOEFL: React.FC = () => (
   <div className="ielts_container">
   <div className="ielts_aside">
-    <h1>This page is maintaining now🧱🧱🧱 
-      word list will be coming soon
-    </h1>
+    <BlueTag title="This page is maintaining now🧱🧱🧱 
+      word list will be coming soon" >
+    </BlueTag>
  
   </div>
 
