@@ -1,0 +1,26 @@
+#wordlistenning-header{
+    margin: auto;
+    width: 900px;
+}
+.wordlistenning-article{
+    width: 900px;
+    border: 1px gray solid;
+    border-radius: 10px;
+    >div:nth-child(1){
+        line-height: 30px;
+        text-align: left;
+        text-indent: 20px;
+        border-radius: 10px;
+        background: #f7f7f7;
+    }
+    >div:nth-child(2){
+        margin-top: 30px;
+    }
+
+}
+.wordlistenning-pageCard{
+    margin-top: 20px;
+    width: 900px;
+    border: 1px gray solid;
+    border-radius: 10px;
+}

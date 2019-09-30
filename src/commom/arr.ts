@@ -17,3 +17,13 @@ export function randomRangeIndexs(count: number, maxRangeValue: number): number[
 export function randomNum(n: number): number {
     return Math.floor(Math.random() * n);
 }
+
+export function range(number:number){
+    let arr= [];
+    for (let i = 0; i < number; i++) {
+        arr.push(i+1);
+    }
+    return arr;
+}
+
+ 

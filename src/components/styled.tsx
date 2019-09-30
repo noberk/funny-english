@@ -127,3 +127,6 @@ width:100%;
 height:100%;
 background:white;
 `
+export const H1=styled.h1`
+text-align:center;
+`

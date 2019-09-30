@@ -1,9 +1,10 @@
 import StudentList from "../StudentList/Student";
 import StudenetInfo from "../StudenetInfo/StudenetInfo";
-import addVocabulary from "../AddVocabulary/addVocabulary";
+import AddVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
 import Login from "../Aumsement/aumsement";
 import TOEFL from "../TOEFL/toelf";
+import WordListening from "../WordListening/wordListening";
 import EssentialWord4k from "../EssentialWord4k/essentialWord4k";
 import IELTS from "../IELTS/ielts";
 import GWeAreCouple from "../GWeAreCouple/gWeAreCouple";
@@ -102,6 +103,7 @@ export class Home extends React.Component<any,{collapsed:boolean,isLogin:boolean
                <Menu.Item key="601"><Link to="/EssentialWord4k/default">EssentialWord</Link></Menu.Item>
                <Menu.Item key="602"><Link to="/ielts/a">IELTS</Link></Menu.Item>
                <Menu.Item key="603"><Link to="/TOEFL">TOEFL</Link></Menu.Item>
+               <Menu.Item key="604"><Link to="/WordListening">Dictation</Link></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>
@@ -128,7 +130,7 @@ export class Home extends React.Component<any,{collapsed:boolean,isLogin:boolean
             </Breadcrumb>
         <Route path="/" exact component={StudentList} />
         <Route path="/StudentInfo" exact component={StudenetInfo} />
-        <Route path="/addVocabulary" exact component={addVocabulary} />
+        <Route path="/addVocabulary" exact component={AddVocabulary} />
         <Route path="/addArticle" exact component={WrappedDemo} />
         <Route path="/WordList" exact component={WordList} />
         <Route path="/amuse" exact component={Login} />
@@ -136,6 +138,8 @@ export class Home extends React.Component<any,{collapsed:boolean,isLogin:boolean
         <Route path="/EssentialWord4k/:id" exact component={EssentialWord4k} />
         <Route path="/ielts/:id" exact component={IELTS} />
         <Route path="/TOEFL" exact component={TOEFL} />
+        <Route path="/WordListening" exact component={WordListening} />
+        
         
           </Content>
           <Footer id="homeFooter"  className="home_grass" style={{ textAlign: 'center' }}>🚀 All CopyRight Reserved Andrew Lee  ©2019 🚀</Footer>
