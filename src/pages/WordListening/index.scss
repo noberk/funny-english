@@ -1,12 +1,14 @@
+$wordlistenning_width:900px;
+
 #wordlistenning-header{
     margin: auto;
-    width: 900px;
+    width: $wordlistenning_width;
 }
 .margintop20{
     margin-top: 20px;
 }
 .wordlistenning-article{
-    width: 900px;
+    width: $wordlistenning_width;
     border: 1px gray solid;
     border-radius: 10px;
     margin-top: 20px;
@@ -26,7 +28,26 @@
 }
 .wordlistenning-pageCard{
     margin-top: 20px;
-    width: 900px;
+    width: $wordlistenning_width;
     border: 1px gray solid;
     border-radius: 10px;
+}
+.wordlistenning-arrow{
+  font-size: 4rem;   
+  color: #62859a !important;
+}
+.wordlistenning-input{
+    text-align: center;
+}
+.wordlistenning-definition{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.wordlistenning-submit{
+    >button{
+        margin-top: 20px;
+    }
+    width: $wordlistenning_width;
 }

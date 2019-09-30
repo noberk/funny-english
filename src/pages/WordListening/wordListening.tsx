@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input } from "antd";
+import { Button, Input, Icon } from "antd";
 import ButtonGroup from "antd/lib/button/button-group";
 import { guidGenerator } from "../../commom/id";
 import { H1, Center } from "../../components/styled";
@@ -23,24 +23,25 @@ const bookList = [
   { name: "📘IELTS", type: BookNumber.IELTS },
   { name: "📙TOEFL", type: BookNumber.TOEFL }
 ];
+const userInput = [];
 const WordListenning: React.FC = () => {
   const [wCountArrary, setWCountArray] = useState(wordCountArray); // total count of word of each will be displayed
   const [pickedWordCount, setPickedWordCount] = useState(5); // hou many word examer will be picked
-  const [filteredWList] = useState(wordList.slice(0, 10)); // This is for testing purpose.
+  const [filteredWList] = useState(wordList); // This is for testing purpose.
   const [book, setBook] = useState(BookNumber.ES4000); // Which book you are going to study.
   const [cur, setCur] = useState(1); //set which number of card now is displaying.
 
-  const onCardFlip= (e: any)=>{
+  const onCardFlip = (e: any) => {
     let pickedCard = Number.parseInt(e.target.name);
     setCur(pickedCard);
-  }
+  };
   const createPageCard = (number: number) => {
     return range(number);
   };
   const onWordSizeChanged = (e: any) => {
     let pickedCount = Number.parseInt(e.target.name);
     setPickedWordCount(pickedCount);
-    setCur(1)
+    setCur(1);
   };
   const onSelectBook = (e: any) => {
     switch (e.target.name) {
@@ -97,11 +98,18 @@ const WordListenning: React.FC = () => {
       </header>
       <br />
       <Center className="wordlistenning-article">
-        <div>🔊 (press key = to play sound again)</div>
+        <div>🔊 (press key “=” to play sound again)</div>
         <div>
-          <Input style={{ width: 400, height: 100, fontSize: "3rem" }} />
+          <Icon type="caret-left" className="wordlistenning-arrow" />
+          <Input
+            className="wordlistenning-input"
+            style={{ width: 400, height: 100, fontSize: "3rem" }}
+          />
+          <Icon type="caret-right" className="wordlistenning-arrow" />
         </div>
-        <div>this is a definition of this word.</div>
+        <div className="wordlistenning-definition">
+          {filteredWList[cur].definition}
+        </div>
       </Center>
 
       <Center className="wordlistenning-pageCard">
@@ -110,11 +118,15 @@ const WordListenning: React.FC = () => {
             key={guidGenerator()}
             name={i.toString()}
             type={i === cur ? "primary" : "default"}
-          onClick={onCardFlip}
+            onClick={onCardFlip}
           >
             {i}
           </Button>
         ))}
+      </Center>
+
+      <Center className="wordlistenning-submit">
+        <Button style={{width:"100%"}}>Submit Your Paper</Button>
       </Center>
     </>
   );
