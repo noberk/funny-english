@@ -25,8 +25,8 @@ const bookList = [
 ];
 const userInput = [];
 const WordListenning: React.FC = () => {
-  const [wCountArrary, setWCountArray] = useState(wordCountArray); // total count of word of each will be displayed
-  const [pickedWordCount, setPickedWordCount] = useState(5); // hou many word examer will be picked
+  const [wCountArrary, setWCountArray] = useState(wordCountArray); // total count of word will be examed in this page
+  const [pickedWordCount, setPickedWordCount] = useState(wordCountArray[0]); // hou many word examer will be picked
   const [filteredWList] = useState(wordList); // This is for testing purpose.
   const [book, setBook] = useState(BookNumber.ES4000); // Which book you are going to study.
   const [cur, setCur] = useState(1); //set which number of card now is displaying.
@@ -56,6 +56,20 @@ const WordListenning: React.FC = () => {
         break;
     }
   };
+  const toPre=()=>{
+    if(cur>1){
+       setCur(cur-1)
+    }else{
+      setCur(pickedWordCount)
+    }
+  }
+  const toNext=()=>{
+    if(cur+1> pickedWordCount){
+      setCur(1)
+    }else{
+      setCur(cur+1)
+    }
+  }
 
   return (
     <>
@@ -100,12 +114,12 @@ const WordListenning: React.FC = () => {
       <Center className="wordlistenning-article">
         <div>🔊 (press key “=” to play sound again)</div>
         <div>
-          <Icon type="caret-left" className="wordlistenning-arrow" />
+          <Icon type="caret-left" className="wordlistenning-arrow" onClick={toPre} />
           <Input
             className="wordlistenning-input"
             style={{ width: 400, height: 100, fontSize: "3rem" }}
           />
-          <Icon type="caret-right" className="wordlistenning-arrow" />
+          <Icon type="caret-right" className="wordlistenning-arrow" onClick={toNext} />
         </div>
         <div className="wordlistenning-definition">
           {filteredWList[cur].definition}
