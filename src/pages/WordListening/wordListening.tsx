@@ -7,6 +7,8 @@ import { H1, Center } from "../../components/styled";
 import "./index.scss";
 import { essential4k_2_100 } from "../../data/essential_2";
 import { range } from "../../commom/arr";
+import _ from "lodash";
+import { playSound } from "../../components/common";
 
 enum BookNumber {
   ES4000,
@@ -15,22 +17,21 @@ enum BookNumber {
 }
 
 const wordCountArray = [5, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100];
-const wordList = essential4k_2_100.map(item => {
-  return { word: item[0], definition: item[3] };
+const wordList = essential4k_2_100.map((item,id) => {
+  return { id:id+1, word: item[0], definition: item[3], inputWord:"" };
 });
 const bookList = [
   { name: "📗ES4000", type: BookNumber.ES4000 },
   { name: "📘IELTS", type: BookNumber.IELTS },
   { name: "📙TOEFL", type: BookNumber.TOEFL }
 ];
-const userInput = [];
+
 const WordListenning: React.FC = () => {
   const [wCountArrary, setWCountArray] = useState(wordCountArray); // total count of word will be examed in this page
   const [pickedWordCount, setPickedWordCount] = useState(wordCountArray[0]); // hou many word examer will be picked
-  const [filteredWList] = useState(wordList); // This is for testing purpose.
+  const [filteredWList,setFilteredWList] = useState(wordList.slice(0,pickedWordCount)); // This is for testing purpose.
   const [book, setBook] = useState(BookNumber.ES4000); // Which book you are going to study.
   const [cur, setCur] = useState(1); //set which number of card now is displaying.
-
   const onCardFlip = (e: any) => {
     let pickedCard = Number.parseInt(e.target.name);
     setCur(pickedCard);
@@ -58,19 +59,43 @@ const WordListenning: React.FC = () => {
   };
   const toPre=()=>{
     if(cur>1){
+      playWordSound(filteredWList[cur-2].word)      
        setCur(cur-1)
     }else{
+      playWordSound(filteredWList[pickedWordCount-1].word)      
       setCur(pickedWordCount)
     }
+    
   }
   const toNext=()=>{
     if(cur+1> pickedWordCount){
+      playWordSound(filteredWList[0].word)      
       setCur(1)
     }else{
       setCur(cur+1)
+      playWordSound(filteredWList[cur].word)
+    
     }
   }
+  const onTyping=(e:any)=>{
+        
+        
+        let val= e.target.value;
 
+        if(val.substr(val.length-1) === "="){
+          playWordSound()
+          return
+        }
+         let newList=  _.cloneDeep(filteredWList);
+         newList[cur-1].inputWord= val;
+        setFilteredWList(newList)
+  }
+  const playWordSound= (word = filteredWList[cur-1].word)=>{
+      playSound(word);
+  }
+  const onSubmit=(e:any)=>{
+
+  }
   return (
     <>
       <header id="wordlistenning-header">
@@ -112,17 +137,19 @@ const WordListenning: React.FC = () => {
       </header>
       <br />
       <Center className="wordlistenning-article">
-        <div>🔊 (press key “=” to play sound again)</div>
+        <div onClick={()=>{playWordSound()}}>🔊 (press key “=” to play sound again) 💡💡💡</div>
         <div>
           <Icon type="caret-left" className="wordlistenning-arrow" onClick={toPre} />
           <Input
             className="wordlistenning-input"
             style={{ width: 400, height: 100, fontSize: "3rem" }}
+            onChange={ onTyping}
+            value={filteredWList[cur-1].inputWord}
           />
           <Icon type="caret-right" className="wordlistenning-arrow" onClick={toNext} />
         </div>
         <div className="wordlistenning-definition">
-          {filteredWList[cur].definition}
+          {filteredWList[cur-1].definition}
         </div>
       </Center>
 
@@ -140,7 +167,7 @@ const WordListenning: React.FC = () => {
       </Center>
 
       <Center className="wordlistenning-submit">
-        <Button style={{width:"100%"}}>Submit Your Paper</Button>
+        <Button style={{width:"100%"}}  onClick={onSubmit} >Submit Your Paper</Button>
       </Center>
     </>
   );
