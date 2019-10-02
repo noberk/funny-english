@@ -13,18 +13,19 @@
     font-size: 2.5rem;
 }
 #homeHeader{
-  padding: 0 ;
+   
   color: aliceblue;
-  display: flex;
+  
 }
 .homeUlLeft{
-    width: 1280px;
+    
     display: flex;
 }
 .homeUIRight{
-
+    text-align: right;
 }
 .homeIconStyle{
+    margin-left: 20px;
     top: 0.2rem;
     font-size: 1.8rem;
     position: relative;

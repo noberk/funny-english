@@ -1,5 +1,5 @@
 import React from "react";
-import { TWordList, wordPropertyType } from "../../data/essential_2";
+import { TWordList, wordPropertyType } from "../../data/ES4K/essential_2";
 import "./index.css";
 import { Sound, playSound } from "../../components/common";
 import { Button, Popover } from "antd";
@@ -68,7 +68,7 @@ export default class Essential4K extends React.Component<
     let id: string = this.props.match.params.id;
     let intId = Number.parseInt(id);
     if (Number.isNaN(intId) || intId > 9) intId = 1;
-    const ess = await import("../../data/essential_2");
+    const ess = await import("../../data/ES4K/essential_2");
 
     let lbCount = ess.essential4k.length / this.props.pageSize;
     let lbCountArr: number[] = [];
@@ -121,7 +121,7 @@ export default class Essential4K extends React.Component<
     console.log(e);
   };
   loadword = async (page: number) => {
-    const ess = await import("../../data/essential_2");
+    const ess = await import("../../data/ES4K/essential_2");
     this.setState({
       data: _.cloneDeep(ess.essential4k).splice(
         (page - 1) * this.props.pageSize,

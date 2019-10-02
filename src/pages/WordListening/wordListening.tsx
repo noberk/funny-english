@@ -5,7 +5,7 @@ import { guidGenerator } from "../../commom/id";
 import { H1, Center } from "../../components/styled";
 
 import "./index.scss";
-import { essential4k_2_100 } from "../../data/essential_2";
+import { essential4k_2_100 } from "../../data/ES4K/essential_2";
 import { range } from "../../commom/arr";
 import _ from "lodash";
 import { playSound } from "../../components/common";
