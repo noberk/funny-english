@@ -51,3 +51,9 @@ $wordlistenning_width:900px;
     }
     width: $wordlistenning_width;
 }
+
+#wordlistenning-user-input{
+    &::placeholder{
+        font-size: 2rem;
+    }
+}

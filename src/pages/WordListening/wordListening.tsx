@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input, Icon } from "antd";
+import { Button, Input, Icon,message } from "antd";
 import ButtonGroup from "antd/lib/button/button-group";
 import { guidGenerator } from "../../commom/id";
 import { H1, Center } from "../../components/styled";
@@ -21,15 +21,15 @@ const wordList = essential4k_2_100.map((item,id) => {
   return { id:id+1, word: item[0], definition: item[3], inputWord:"" };
 });
 const bookList = [
-  { name: "📗ES4000", type: BookNumber.ES4000 },
-  { name: "📘IELTS", type: BookNumber.IELTS },
-  { name: "📙TOEFL", type: BookNumber.TOEFL }
+  { name: "📗 ES4000", type: BookNumber.ES4000 },
+  { name: "📘 IELTS", type: BookNumber.IELTS },
+  { name: "📙 TOEFL", type: BookNumber.TOEFL }
 ];
 
 const WordListenning: React.FC = () => {
   const [wCountArrary, setWCountArray] = useState(wordCountArray); // total count of word will be examed in this page
   const [pickedWordCount, setPickedWordCount] = useState(wordCountArray[0]); // hou many word examer will be picked
-  const [filteredWList,setFilteredWList] = useState(wordList.slice(0,pickedWordCount)); // This is for testing purpose.
+  const [filteredWList,setFilteredWList] = useState(wordList); // This is for testing purpose.
   const [book, setBook] = useState(BookNumber.ES4000); // Which book you are going to study.
   const [cur, setCur] = useState(1); //set which number of card now is displaying.
   const onCardFlip = (e: any) => {
@@ -94,7 +94,18 @@ const WordListenning: React.FC = () => {
       playSound(word);
   }
   const onSubmit=(e:any)=>{
-
+      let evaluateYourScorePoint = filteredWList.slice(0,pickedWordCount);
+      let correntWordCount = evaluateYourScorePoint.filter(i=> i .inputWord === i.word).length
+      let yourScore = correntWordCount/pickedWordCount;
+      if(yourScore<0.6){
+        message.error(` Your corrent rate is ${correntWordCount}/${pickedWordCount} `)
+      }
+      if(yourScore>=0.6&& yourScore<0.8){
+        message.info(` Your corrent rate is ${correntWordCount}/${pickedWordCount} `)
+      }
+      if(yourScore>=0.8){
+        message.success(` Your corrent rate is ${correntWordCount}/${pickedWordCount}  excellent! 🎀🎀🎀 `)
+      }
   }
   return (
     <>
@@ -118,9 +129,9 @@ const WordListenning: React.FC = () => {
 
         <div>
           <h1 className="margintop20">
-            {" "}
             To Set how many words you want to test in this paper.
           </h1>
+          
           <ButtonGroup>
             {wCountArrary.map(count => (
               <Button
@@ -134,6 +145,16 @@ const WordListenning: React.FC = () => {
             ))}
           </ButtonGroup>
         </div>
+        <div>
+        <h1 className="margintop20">
+              Give me aid
+          </h1>
+          <ButtonGroup>
+              <Button>🔮 Crystal Ball</Button>
+              <Button>💊 嗑药</Button>
+          </ButtonGroup>
+        </div>
+        <H1 className="margintop20">Your have chosen this book "{bookList[book].name}". The total words are {pickedWordCount}.</H1>
       </header>
       <br />
       <Center className="wordlistenning-article">
@@ -141,10 +162,12 @@ const WordListenning: React.FC = () => {
         <div>
           <Icon type="caret-left" className="wordlistenning-arrow" onClick={toPre} />
           <Input
+            id="wordlistenning-user-input"
             className="wordlistenning-input"
             style={{ width: 400, height: 100, fontSize: "3rem" }}
             onChange={ onTyping}
             value={filteredWList[cur-1].inputWord}
+            placeholder="Typing which you heard"
           />
           <Icon type="caret-right" className="wordlistenning-arrow" onClick={toNext} />
         </div>
