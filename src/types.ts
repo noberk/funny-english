@@ -43,3 +43,6 @@ export interface IWordList extends _id{
      
 }
 
+export interface RootState{
+    balance:number;
+}
