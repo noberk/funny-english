@@ -11,10 +11,11 @@ import GWeAreCouple from "../GWeAreCouple/gWeAreCouple";
 import { WrappedDemo } from "../AddArticle/addArticle";
 
 import "./home.css";
-import { Layout, Menu, Breadcrumb, Icon, Row, Col } from "antd";
+import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown } from "antd";
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import { checkMonkUser } from "../Login/login";
+import { IconLanguage } from "../../components/svg";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -22,7 +23,14 @@ const { SubMenu } = Menu;
 const onlineStyle = ["#30da30", "gray"];
 
 const emoji = (emoji: string) => <span className="emojiSize">{emoji}️</span>;
-
+const langMenu = () => {
+  return (
+    <Menu>
+      <Menu.Item>简体中文</Menu.Item>
+      <Menu.Item>English</Menu.Item>
+    </Menu>
+  );
+};
 export class Home extends React.Component<
   any,
   { collapsed: boolean; isLogin: boolean }
@@ -175,13 +183,17 @@ export class Home extends React.Component<
                       }
                     />
                   </Link>
-                  <Link to="">
-                  <Icon
+                  <Dropdown overlay={langMenu}>
+                    <Icon component={IconLanguage} className="homeIconStyle" />
+                  </Dropdown>
+                  <a target="blank" href="https://github.com/noberk/funny-english">
+                    <Icon
                       type="github"
                       theme="filled"
                       className="homeIconStyle"
                     />
-                  </Link>
+                  </a>
+                
                 </div>
               </Col>
             </Row>
