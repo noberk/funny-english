@@ -26,8 +26,8 @@ const emoji = (emoji: string) => <span className="emojiSize">{emoji}️</span>;
 const langMenu = () => {
   return (
     <Menu>
-      <Menu.Item>简体中文</Menu.Item>
-      <Menu.Item>English</Menu.Item>
+      <Menu.Item>🇨🇳 简体中文</Menu.Item>
+      <Menu.Item>🇺🇸 English</Menu.Item>
     </Menu>
   );
 };
@@ -163,12 +163,17 @@ export class Home extends React.Component<
             <Row>
               <Col span={8}>
                 <div className="homeUlLeft">
-                  <li>Exam</li>
+                  <li>
+                    <Link to="/WordListening">Exam</Link>
+                  </li>
+
                   <li>Home</li>
                   <li>Help</li>
                   <li>Privacy</li>
                   <li>Support</li>
-                  <li>Sign On</li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
                 </div>
               </Col>
               <Col span={8} offset={8}>
@@ -186,14 +191,16 @@ export class Home extends React.Component<
                   <Dropdown overlay={langMenu}>
                     <Icon component={IconLanguage} className="homeIconStyle" />
                   </Dropdown>
-                  <a target="blank" href="https://github.com/noberk/funny-english">
+                  <a
+                    target="blank"
+                    href="https://github.com/noberk/funny-english"
+                  >
                     <Icon
                       type="github"
                       theme="filled"
                       className="homeIconStyle"
                     />
                   </a>
-                
                 </div>
               </Col>
             </Row>
