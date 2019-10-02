@@ -1,16 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../types";
 import { Button } from "antd";
+import { DispatchT } from "../../store/storeType";
 
 
 
 const About: React.FC = () => {
   const dispatch = useDispatch()
-  let state = useSelector((state :RootState) => state);
+  let state = useSelector((state :any) => state.balanceReducer);
 
   const deposit = ()=>{
-    dispatch({type:"deposit",payload: 10})
+    dispatch({type:DispatchT.deposit,payload: 10})
 }
   return (
     <>
