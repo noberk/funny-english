@@ -82,15 +82,15 @@ const Home: React.FC = () => {
             title={
               <span>
                 <Icon component={() => emoji("👪")} spin />
-                <span className="emojiSize">Student</span>
+                <span className="emojiSize">{Lang[state.lang].leftNav.menu1.name}</span>
               </span>
             }
           >
             <Menu.Item key="101">
-              <Link to="/">Student List</Link>
+              <Link to="/">{Lang[state.lang].leftNav.menu1.subMenu[0]}</Link>
             </Menu.Item>
             <Menu.Item key="102">
-              <Link to="/StudentInfo">Student Info</Link>
+              <Link to="/StudentInfo">{Lang[state.lang].leftNav.menu1.subMenu[1]}</Link>
             </Menu.Item>
           </SubMenu>
           <SubMenu
@@ -98,15 +98,15 @@ const Home: React.FC = () => {
             title={
               <span>
                 <Icon component={() => emoji("✍️")} />
-                <span className="emojiSize">Write</span>
+                <span className="emojiSize">{Lang[state.lang].leftNav.menu2.name}</span>
               </span>
             }
           >
             <Menu.Item key="201">
-              <Link to="/addVocabulary">Vocabulary</Link>
+              <Link to="/addVocabulary">{Lang[state.lang].leftNav.menu2.subMenu[0]}</Link>
             </Menu.Item>
             <Menu.Item key="202">
-              <Link to="/addArticle">Article</Link>
+              <Link to="/addArticle">{Lang[state.lang].leftNav.menu2.subMenu[1]}</Link>
             </Menu.Item>
           </SubMenu>
           <SubMenu
@@ -114,12 +114,12 @@ const Home: React.FC = () => {
             title={
               <span>
                 <Icon component={() => emoji("🗂️")} />
-                <span className="emojiSize">Statistic</span>
+                <span className="emojiSize">{Lang[state.lang].leftNav.menu3.name}</span>
               </span>
             }
           >
             <Menu.Item key="301">
-              <Link to="/WordList">Word List</Link>
+              <Link to="/WordList">{Lang[state.lang].leftNav.menu3.subMenu[0]}</Link>
             </Menu.Item>
           </SubMenu>
 
@@ -128,11 +128,11 @@ const Home: React.FC = () => {
             title={
               <span>
                 <Icon component={() => emoji("📈")} />
-                <span className="emojiSize">Charts</span>
+                <span className="emojiSize">{Lang[state.lang].leftNav.menu4.name}</span>
               </span>
             }
           >
-            <Menu.Item key="401">Popularity words(coming soon)</Menu.Item>
+            <Menu.Item key="401">{Lang[state.lang].leftNav.menu4.subMenu[0]}</Menu.Item>
           </SubMenu>
 
           <SubMenu
@@ -140,16 +140,16 @@ const Home: React.FC = () => {
             title={
               <span>
                 <Icon component={() => emoji("🕹️")} />
-                <span className="emojiSize">Games</span>
+                <span className="emojiSize">{Lang[state.lang].leftNav.menu5.name}</span>
               </span>
             }
           >
-            <Menu.Item key="501">2048(coming soon)</Menu.Item>
+            <Menu.Item key="501">{Lang[state.lang].leftNav.menu5.subMenu[0]}</Menu.Item>
             <Menu.Item key="502">
-              <Link to="/GWeAreCouple">GWeAreCouple</Link>
+              <Link to="/GWeAreCouple">{Lang[state.lang].leftNav.menu5.subMenu[1]}</Link>
             </Menu.Item>
             <Menu.Item key="503">
-              <Link to="/amuse">Amuse</Link>
+              <Link to="/amuse">{Lang[state.lang].leftNav.menu5.subMenu[2]}</Link>
             </Menu.Item>
           </SubMenu>
           <SubMenu
@@ -157,21 +157,21 @@ const Home: React.FC = () => {
             title={
               <span>
                 <Icon component={() => emoji("📚")} />
-                <span className="emojiSize">Vocabulary</span>
+                <span className="emojiSize">{Lang[state.lang].leftNav.menu5.name}</span>
               </span>
             }
           >
             <Menu.Item key="601">
-              <Link to="/EssentialWord4k/default">EssentialWord</Link>
+              <Link to="/EssentialWord4k/default">{Lang[state.lang].leftNav.menu6.subMenu[0]}</Link>
             </Menu.Item>
             <Menu.Item key="602">
-              <Link to="/ielts/a">IELTS</Link>
+              <Link to="/ielts/a">{Lang[state.lang].leftNav.menu6.subMenu[1]}</Link>
             </Menu.Item>
             <Menu.Item key="603">
-              <Link to="/TOEFL">TOEFL</Link>
+              <Link to="/TOEFL">{Lang[state.lang].leftNav.menu6.subMenu[2]}</Link>
             </Menu.Item>
             <Menu.Item key="604">
-              <Link to="/WordListening">Dictation</Link>
+              <Link to="/WordListening">{Lang[state.lang].leftNav.menu6.subMenu[3]}</Link>
             </Menu.Item>
           </SubMenu>
         </Menu>
