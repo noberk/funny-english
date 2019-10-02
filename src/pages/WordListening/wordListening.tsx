@@ -150,8 +150,10 @@ const WordListenning: React.FC = () => {
               Give me aid
           </h1>
           <ButtonGroup>
-              <Button>🔮 Crystal Ball</Button>
-              <Button>💊 嗑药</Button>
+              <Button>🔮 Definition Hint </Button>
+              <Button disabled >💊 Took drug [VIP Only]</Button>
+              <Button disabled>😻 Touching cat  [VIP Only]</Button>
+              <Button disabled>🧯 Full Score Sprayer [VIP Only]</Button>
           </ButtonGroup>
         </div>
         <H1 className="margintop20">Your have chosen this book "{bookList[book].name}". The total words are {pickedWordCount}.</H1>
