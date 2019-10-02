@@ -4,6 +4,8 @@ import AddVocabulary from "../AddVocabulary/addVocabulary";
 import WordList from "../WordList/WordList";
 import Login from "../Aumsement/aumsement";
 import TOEFL from "../TOEFL/toelf";
+import About  from "../About/about";
+import Help from "../Help/help";
 import WordListening from "../WordListening/wordListening";
 import EssentialWord4k from "../EssentialWord4k/essentialWord4k";
 import IELTS from "../IELTS/ielts";
@@ -26,8 +28,9 @@ const emoji = (emoji: string) => <span className="emojiSize">{emoji}️</span>;
 const langMenu = () => {
   return (
     <Menu>
-      <Menu.Item>🇨🇳 简体中文</Menu.Item>
-      <Menu.Item>🇺🇸 English</Menu.Item>
+      <Menu.Item>简体中文</Menu.Item>
+      <Menu.Item>English</Menu.Item>
+      <Menu.Item>日本語</Menu.Item>
     </Menu>
   );
 };
@@ -168,7 +171,7 @@ export class Home extends React.Component<
                   </li>
 
                   <li>Home</li>
-                  <li>Help</li>
+                  <li>   <Link to="/help">Help</Link></li>
                   <li>Privacy</li>
                   <li>Support</li>
                   <li>
@@ -224,6 +227,8 @@ export class Home extends React.Component<
             />
             <Route path="/ielts/:id" exact component={IELTS} />
             <Route path="/TOEFL" exact component={TOEFL} />
+            <Route path="/help" exact component={Help} />
+            <Route path="/about" exact component={About} />
             <Route path="/WordListening" exact component={WordListening} />
           </Content>
           <Footer
