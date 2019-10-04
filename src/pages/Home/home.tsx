@@ -157,7 +157,7 @@ const Home: React.FC = () => {
             title={
               <span>
                 <Icon component={() => emoji("📚")} />
-                <span className="emojiSize">{Lang[state.lang].leftNav.menu5.name}</span>
+                <span className="emojiSize">{Lang[state.lang].leftNav.menu6.name}</span>
               </span>
             }
           >
