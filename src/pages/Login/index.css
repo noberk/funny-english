@@ -11,6 +11,10 @@
     position: relative;
     overflow: hidden;
 }
+.login_nav_a{
+ color: #2c364e;
+}
+
 .login_header{
     color: #1d262d;
     fill: #1d262d;

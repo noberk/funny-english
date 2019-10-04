@@ -59,7 +59,7 @@ const Login: React.FC = (props: any) => {
     <BodyWhite>
       <canvas id="canvas" style={{background:"#2c364e"}}></canvas>
       <div className="login_header_project">
-        <Link to="/">🚀 Back to Home to Study 🚀</Link>
+        <Link className="login_nav_a" to="/">🚀 Back to Home to Study 🚀</Link>
       </div>
       <div className="loginbox">
         <h1 className="login_header">Sign in</h1>
