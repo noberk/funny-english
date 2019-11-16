@@ -34,7 +34,7 @@ const React = (function() {
     };
   }
   
-  
+  React.useState
   
   let App = React.render(AgeComp);
   App.ageUp();
