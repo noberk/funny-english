@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Button, Input, Icon,message } from "antd";
-import ButtonGroup from "antd/lib/button/button-group";
-import { guidGenerator } from "../../commom/id";
-import { H1, Center } from "../../components/styled";
+import React, { useState } from "react"
+import { Button, Input, Icon,message } from "antd"
+import ButtonGroup from "antd/lib/button/button-group"
+import { guidGenerator } from "../../commom/id"
+import { H1, Center } from "../../components/styled"
+import {T3} from "../../data/ES4K/b3"
+import { range } from "../../commom/arr"
+import _ from "lodash"
+import { playSound } from "../../components/common"
 
-import "./index.scss";
-import { essential4k_2_100 } from "../../data/ES4K/essential_2";
-import { range } from "../../commom/arr";
-import _ from "lodash";
-import { playSound } from "../../components/common";
+import "./index.scss"
 
 enum BookNumber {
   ES4000,
@@ -17,7 +17,7 @@ enum BookNumber {
 }
 
 const wordCountArray = [5, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100];
-const wordList = essential4k_2_100.map((item,id) => {
+const wordList = T3.map((item,id) => {
   return { id:id+1, word: item[0], definition: item[3], inputWord:"" };
 });
 const bookList = [

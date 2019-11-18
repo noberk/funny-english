@@ -1,5 +1,5 @@
 import styled, { StyledComponent } from "styled-components";
-import { wordPropertyType } from "../data/ES4K/essential_2";
+import { wordPropertyType } from "../data/ES4K";
 import React from "react";
 
 const top: string = "20px";

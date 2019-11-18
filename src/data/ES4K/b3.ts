@@ -1,6 +1,6 @@
-import { TWordList } from "./essential_2";
+import { TWordList } from ".";
 
-export let T3:TWordList = [
+export const T3:TWordList = [
   ["arise", "əˈraɪz", "adj", "To arise is to happen. ", "Difficulties arose with his computer because it was old. ", ""],
   ["benefactor", "ˈbenɪfæktə", "adj", "A benefactor is a person who gives money to help someone. ", "The student’s benefactor gave him money to spend on his studies. ", ""],
   ["blacksmith", "ˈblæksmɪθ", "adj", "A blacksmith is a person who makes things out of metal. ", "The blacksmith pounded the piece of metal until it was flat. ", ""],

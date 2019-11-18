@@ -1,4 +1,4 @@
-import { wordPropertyType } from "../data/ES4K/essential_2";
+import { wordPropertyType } from "../data/ES4K";
 
 export function getWordPropertyCssName(type: wordPropertyType){
     switch (type) {
