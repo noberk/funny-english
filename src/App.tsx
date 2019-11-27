@@ -6,7 +6,7 @@ import { createStore, combineReducers } from "redux";
 import { balanceReducer } from "./store/balanceReducer";
 import { langReducer } from "./store/langReducer";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.scss";
 
