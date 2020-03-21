@@ -51,11 +51,7 @@ const Home: React.FC = () => {
   const [isLogin] = useState(false);
   const dispatch = useDispatch();
  
-  // componentDidMount() {
-  //   if (checkMonkUser()) {
-  //     this.setState({ isLogin: checkMonkUser() });
-  //   }
-  // }
+ 
   const onCollapse = () => {
     setSideBarCollapsed(!isSideBarCollapsed);
   };
