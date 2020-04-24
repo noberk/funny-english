@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.scss";
+import { FunnyLog } from "./funny-log";
 
 const store = createStore(combineReducers({ balanceReducer, langReducer }));
 
@@ -20,6 +21,7 @@ const App: React.FC = () => (
     }}
   >
     <Provider store={store}>
+      <FunnyLog/>
       <div>
         <Router>
           <Switch>

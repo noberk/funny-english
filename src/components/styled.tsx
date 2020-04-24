@@ -1,27 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-const top: string = "20px";
+const top: string = '20px'
 // 容器
 export const Beam = styled.div`
   height: ${top};
-`;
+`
 
-const spanBase = styled.span``;
+const spanBase = styled.span``
 interface Position {
-  w?: string;
-  h?: string;
+  w?: string
+  h?: string
 
-  mt?: string;
-  ml?: string;
-  mr?: string;
-  mb?: string;
+  mt?: string
+  ml?: string
+  mr?: string
+  mb?: string
 
-  pt?: string;
-  pl?: string;
-  pr?: string;
-  pb?: string;
+  pt?: string
+  pl?: string
+  pr?: string
+  pb?: string
 
-  lt?: string;
+  lt?: string
 }
 
 export const StyDiv = styled.div.attrs<Position>({})`
@@ -39,12 +39,12 @@ export const StyDiv = styled.div.attrs<Position>({})`
   padding-bottom: ${(p: any) => p.pb};
 
   line-height: ${(p: any) => p.lt};
-`;
+`
 
 export const Center = styled.div`
   margin: auto;
   text-align: center;
-`;
+`
 
 const xing = styled.span`
   width: 50px;
@@ -55,22 +55,21 @@ const xing = styled.span`
   color: white;
   text-align: center;
   border: 1px solid white;
-`;
-
+`
 
 export const Stronger = styled.strong`
   font-size: 1.1rem;
-`;
+`
 
 export const MarginBottom20 = styled.div`
   margin-bottom: 20px;
-`;
+`
 
 export const BodyWhite = styled.div`
   width: 100%;
   height: 100%;
   background: white;
-`;
+`
 export const H1 = styled.h1`
   text-align: center;
-`;
+`
