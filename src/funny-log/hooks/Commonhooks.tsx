@@ -41,10 +41,10 @@ export function useObjectState<T extends { [key: string]: any }>(
       } else {
         shallowObject[key] = value
       }
-      if (option?.ForceCleanUp) {
+      if (option.ForceCleanUp) {
         console.clear()
       }
-      if (option?.supervise) {
+      if (option.supervise) {
         console.log(shallowObject)
       }
 

@@ -1,6 +1,5 @@
-import React, { FC, CSSProperties } from 'react'
+import React, { FC, CSSProperties, useContext } from 'react'
 import { DraggableProps } from './draggable'
-
 const STYLES: CSSProperties = {
   position: 'absolute',
 
