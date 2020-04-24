@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useObjectState } from '../hooks/Commonhooks'
+import { getWidth, getHeight } from '../../utils/browser'
 
 interface WindowProps {
   width?: number
@@ -7,10 +8,16 @@ interface WindowProps {
 }
 export const browserWindowContext = React.createContext<WindowProps>({})
 export const BrowserPropsProvider: FC<WindowProps> = (props) => {
-  const { updateParams, objectParams } = useObjectState<WindowProps>({})
+  const { updateParams, objectParams } = useObjectState<WindowProps>(
+    {},
+    { supervise: true }
+  )
   useEffect(() => {
     window.addEventListener('resize', (e) => {
-      console.log(e)
+      updateParams({
+        width: getWidth(),
+        height: getHeight(),
+      })
     })
   }, [])
   return (
