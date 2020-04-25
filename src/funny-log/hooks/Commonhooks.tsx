@@ -16,11 +16,11 @@ export function useObjectState<T extends { [key: string]: any }>(
   option: Partial<{
     supervise: boolean
     readonly maxRecord: number
-    ForceCleanUp: boolean
+    forceCleanUp: boolean
   }> = {
     supervise: false,
     maxRecord: 3,
-    ForceCleanUp: false,
+    forceCleanUp: false,
   }
 ) {
   const [objectParams, setO] = useState<T>(initO)
@@ -41,7 +41,7 @@ export function useObjectState<T extends { [key: string]: any }>(
       } else {
         shallowObject[key] = value
       }
-      if (option.ForceCleanUp) {
+      if (option.forceCleanUp) {
         console.clear()
       }
       if (option.supervise) {

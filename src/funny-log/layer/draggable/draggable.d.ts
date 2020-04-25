@@ -3,4 +3,7 @@ export interface DraggableProps {
     height?: number
     offsetTop?: number
     offsetLeft?: number
+    x?: number,
+    y?: number
+
 }

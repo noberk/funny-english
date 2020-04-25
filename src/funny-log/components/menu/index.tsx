@@ -14,7 +14,6 @@ interface MenuProps {
 }
 
 const _Menu: FC<MenuProps> = (props) => {
-  const { width = 0, height = 30 } = useContext(browserWindowContext)
   let fontSize: number = 12
 
   //default value assignment
@@ -31,8 +30,6 @@ const _Menu: FC<MenuProps> = (props) => {
       className={throb ? 'menu-icon-beat-up' : ''}
       style={{
         fontSize: scale * fontSize,
-        left: width - offsetLeft,
-        top: height - offsetTop,
       }}
     >
       {emojiIcon}
