@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 class ObjectStore {
-  private pool: {}[] = []
+  private pool: Map<string, {}> = new Map()
   get count() {
-    return this.pool.length
+    return this.pool.size
   }
-  collectObject<T extends { [key: string]: any }>(o: T) {
-    this.pool.push(o)
+  collectObject<T extends { [key: string]: any }>(key: string, value: T) {
+    this.pool.set(key, value)
   }
 }
 let os = new ObjectStore()
@@ -57,7 +57,7 @@ export function useObject<T extends { [key: string]: any }>(
 
       if (option.supervise) console.log(shallowObject, option.forceCleanUp)
 
-      os.collectObject(object)
+      os.collectObject(object.callee, object)
       console.log(os.count)
 
       setO({ ...shallowObject })
