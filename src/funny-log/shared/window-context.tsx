@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import { useObject } from '../hooks/Commonhooks'
+import { useObject } from '../hooks/useObject'
 import { getWidth, getHeight } from '../../utils/browser'
 
 interface WindowProps {
@@ -10,7 +10,7 @@ interface WindowProps {
 }
 export const browserWindowContext = React.createContext<WindowProps>({})
 export const BrowserPropsProvider: FC<WindowProps> = props => {
-  const { object, updateObject } = useObject<WindowProps>({ browserHeight: 0, browserWidth: 0, windowEv: null, callee: 'BrowserPropsProvider' }, { supervise: true ,forceCleanUp:true})
+  const { object, updateObject } = useObject<WindowProps>({ browserHeight: 0, browserWidth: 0, windowEv: null, callee: 'BrowserPropsProvider' }, { supervise: false, forceCleanUp: false })
 
   function syncBrwoserWindowInfo({ me }: { me?: MouseEvent }) {
     let empty = Object.create(null)

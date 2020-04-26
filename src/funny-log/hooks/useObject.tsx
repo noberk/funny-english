@@ -1,15 +1,5 @@
 import { useState } from 'react'
-
-class ObjectStore {
-  private pool: Map<string, {}> = new Map()
-  get count() {
-    return this.pool.size
-  }
-  collectObject<T extends { [key: string]: any }>(key: string, value: T) {
-    this.pool.set(key, value)
-  }
-}
-let os = new ObjectStore()
+import { os } from './objectStore'
 
 export function useUpdate() {
   let [update, _setUpdate] = useState(Date.now())
@@ -58,8 +48,6 @@ export function useObject<T extends { [key: string]: any }>(
       if (option.supervise) console.log(shallowObject, option.forceCleanUp)
 
       os.collectObject(object.callee, object)
-      console.log(os.count)
-
       setO({ ...shallowObject })
     } catch (error) {}
   }

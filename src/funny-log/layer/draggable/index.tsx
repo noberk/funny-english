@@ -1,7 +1,8 @@
 import React, { FC, CSSProperties, useContext, useEffect } from 'react'
 import type { DraggableProps } from './draggable'
 import { browserWindowContext, BrowserPropsProvider } from '../../shared/window-context'
-import { useObject } from '../../hooks/Commonhooks'
+import { useObject } from '../../hooks/useObject'
+import { getHeight, getWidth } from '../../../utils/browser'
 
 const STYLES: CSSProperties = {
   position: 'absolute',
@@ -13,7 +14,6 @@ const SIZE = {
 }
 
 const _Draggable: FC<DraggableProps> = props => {
-  const { browserWidth = 0, browserHeight = 0, windowEv } = useContext(browserWindowContext)
   const { object: p, updateObject } = useObject(
     {
       pressed: false,
@@ -21,15 +21,16 @@ const _Draggable: FC<DraggableProps> = props => {
       pressedY: 0,
       x: 0,
       y: 0,
+      callee: 'draggable',
     },
-    { supervise: true, forceCleanUp: true }
+    { supervise: false, forceCleanUp: false }
   )
   useEffect(() => {
     updateObject({
-      x: browserWidth - props.x!,
-      y: browserHeight - props.y!,
+      x: getWidth() - props.x!,
+      y: getHeight() - props.y!,
     })
-  }, [browserWidth, browserHeight])
+  }, [])
 
   function mouseDown(ev: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     updateObject({
@@ -39,12 +40,10 @@ const _Draggable: FC<DraggableProps> = props => {
     })
   }
   function mouseMove(ev: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    console.log(windowEv?.x, windowEv?.y)
-
     if (p.pressed) {
       let changeX = ev.clientX - p.pressedX
       let changeY = ev.clientY - p.pressedY
-      console.log(changeX, changeY)
+      console.log(ev.clientX, ev.clientY, changeX, changeY)
 
       updateObject({
         x: p.x + changeX,
