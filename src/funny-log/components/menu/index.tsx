@@ -1,9 +1,6 @@
-import React, { FC, useContext } from 'react'
+import React, { FC } from 'react'
 import './index.css'
-import {
-  BrowserPropsProvider,
-  browserWindowContext,
-} from '../../shared/window-context'
+import { BrowserPropsProvider } from '../../shared/window-context'
 
 interface MenuProps {
   emojiIcon?: string
@@ -13,17 +10,11 @@ interface MenuProps {
   throb?: boolean
 }
 
-const _Menu: FC<MenuProps> = (props) => {
+const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
 
   //default value assignment
-  let {
-    emojiIcon = '🚀',
-    scale = 2,
-    throb = true,
-    offsetTop = 0,
-    offsetLeft = 0,
-  } = props
+  let { emojiIcon = '🚀', scale = 2, throb = true, offsetTop = 0, offsetLeft = 0 } = props
 
   return (
     <div
@@ -37,7 +28,7 @@ const _Menu: FC<MenuProps> = (props) => {
   )
 }
 
-export const Menu: FC<MenuProps> = (props) => {
+export const Menu: FC<MenuProps> = props => {
   return (
     <BrowserPropsProvider>
       <_Menu {...props} />
