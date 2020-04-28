@@ -47,3 +47,8 @@
   width: 200px !important;
   transition: 0.3s width ease, 0.5s transform ease;
 }
+.menu-panel-item-span {
+}
+.menu-panel-item-span:hover {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.61);
+}

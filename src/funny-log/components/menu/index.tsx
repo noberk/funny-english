@@ -26,7 +26,7 @@ const _Menu: FC<MenuProps> = props => {
   return (
     <div
       onMouseOver={() => setSubItemVisible(true)}
-      // onMouseOut={() => setSubItemVisible(false)}
+      onMouseOut={() => setSubItemVisible(false)}
       className={throb ? 'menu-icon-beat-up' : ''}
       style={{
         fontSize: scale * fontSize,
@@ -46,7 +46,6 @@ const _Menu: FC<MenuProps> = props => {
             <span className="menu-panel-item-span ">{name}</span>
           ))}
         </div>
-        {/* <div className={`${touchedBox ? 'menu-item-touched' : 'menu-item-untouched'}`} style={{ fontSize: (scale * fontSize) / 1 }}></div> */}
       </header>
 
       <div className="menu-panel-info" style={{ width: 200, padding: 5, background: '#00235410', fontSize: 14 }}>
