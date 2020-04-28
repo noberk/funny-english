@@ -2,7 +2,6 @@ import React, { FC, useState, useEffect } from 'react'
 import './index.css'
 import { BrowserPropsProvider } from '../../shared/window-context'
 import { os } from '../../hooks/objectStore'
-import { LOADIPHLPAPI } from 'dns'
 
 interface MenuProps {
   emojiIcon?: string
@@ -15,32 +14,41 @@ interface MenuProps {
 
 const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
-
-  let [subItemVisible, setSubItemVisible] = useState(false)
-  let [curObj, setCurObj] = useState<any>({})
+  let eachIconWidth = 50
+  let [subItemVisible, setSubItemVisible] = useState(true)
+  let [touchedBox, setTouchedBox] = useState(false)
   let [curCallee, setCurCallee] = useState<string>('')
   //default value assignment
-  let { emojiIcon = '📓 ', scale = 2, throb = true, offsetTop = 0, offsetLeft = 0 } = props
+  let { emojiIcon = '📓 ', scale = 2, throb = true } = props
 
-  useEffect(() => {
-    console.log(1, os.get(curCallee))
-  }, [os.get(curCallee)])
+  useEffect(() => {}, [os.get(curCallee)])
 
   return (
     <div
       onMouseOver={() => setSubItemVisible(true)}
-      onMouseOut={() => setSubItemVisible(false)}
+      // onMouseOut={() => setSubItemVisible(false)}
       className={throb ? 'menu-icon-beat-up' : ''}
       style={{
         fontSize: scale * fontSize,
       }}
     >
-      {emojiIcon}
-      <div style={{ display: subItemVisible ? 'block' : 'none', fontSize: (scale * fontSize) / 2 }}>
-        {props.menuName.map(name => (
-          <span>{name}</span>
-        ))}
-      </div>
+      <header
+        onMouseOver={() => {
+          setTouchedBox(true)
+        }}
+        onMouseOut={() => {
+          setTouchedBox(false)
+        }}
+      >
+        <div className="menu-panel-wrapper" style={{ width: eachIconWidth }}>
+          <span>{emojiIcon}</span>
+          {props.menuName.map(name => (
+            <span className="menu-panel-item-span ">{name}</span>
+          ))}
+        </div>
+        {/* <div className={`${touchedBox ? 'menu-item-touched' : 'menu-item-untouched'}`} style={{ fontSize: (scale * fontSize) / 1 }}></div> */}
+      </header>
+
       <div className="menu-panel-info" style={{ width: 200, padding: 5, background: '#00235410', fontSize: 14 }}>
         {os.callees.map(callee => (
           <span onClick={() => setCurCallee(callee)}>
@@ -55,8 +63,6 @@ const _Menu: FC<MenuProps> = props => {
   )
   function renderState() {
     const curStateObject: any = os.get(curCallee) ?? {}
-    console.log('curstateobj', curStateObject)
-
     return Object.keys(curStateObject).map(key => {
       return (
         <p>

@@ -5,8 +5,8 @@ import { Menu } from './components/menu'
 export const FunnyLog: FC = () => {
   return (
     <>
-      <Draggable x={300} y={200}>
-        <Menu emojiIcon="📦" scale={4} throb menuName={['📜', '⚙️','🐷']} />
+      <Draggable x={500} y={700}>
+        <Menu emojiIcon="📦" scale={3} throb menuName={['📜', '⚙️', '🐷']} />
       </Draggable>
     </>
   )

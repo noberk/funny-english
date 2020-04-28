@@ -14,13 +14,36 @@
     /* rotate3d(-1, 1, 0, -90deg); */
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(1);
     /* rotate3d(-1, 1, 0, -180deg); */
     opacity: 0.85;
+  }
+}
+@keyframes menu-item-expend {
+  0% {
+    overflow: hidden;
+    width: 0%;
+  }
+  100% {
+    overflow: hidden;
+    width: 100%;
   }
 }
 
 .menu-panel-info {
   border-radius: 4px;
   box-shadow: 0 0 10px #dfd8c447;
+}
+.menu-panel-wrapper {
+  background-color: #1b1c1d;
+  height: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 50px;
+  transition: 0.3s width ease, 0.5s transform ease;
+  border-radius: 5px;
+}
+.menu-panel-wrapper:hover {
+  width: 200px !important;
+  transition: 0.3s width ease, 0.5s transform ease;
 }
