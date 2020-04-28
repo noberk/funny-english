@@ -13,7 +13,7 @@ export const BrowserPropsProvider: FC<WindowProps> = props => {
   const { object, updateObject } = useObject<WindowProps>({ browserHeight: 0, browserWidth: 0, windowEv: null, callee: 'BrowserPropsProvider' }, { supervise: false, forceCleanUp: false })
 
   function syncBrwoserWindowInfo({ me }: { me?: MouseEvent }) {
-    let empty = Object.create(null)
+    let empty = object
 
     empty.browserWidth = getWidth()
     empty.browserHeight = getHeight()
@@ -25,6 +25,8 @@ export const BrowserPropsProvider: FC<WindowProps> = props => {
 
   useEffect(() => {
     window.addEventListener('resize', e => {
+      console.log(1)
+
       syncBrwoserWindowInfo({})
     })
     window.addEventListener('load', () => {

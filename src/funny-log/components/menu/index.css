@@ -1,7 +1,7 @@
 .menu-icon-beat-up {
 }
 .menu-icon-beat-up:hover {
-  animation: flip-scale-down-diag-2 0.15s linear both;
+  animation: flip-scale-down-diag-2 0.01s linear both;
 }
 
 @keyframes flip-scale-down-diag-2 {
