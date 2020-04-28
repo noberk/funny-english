@@ -247,7 +247,7 @@ const Home: React.FC = () => {
           className="home_grass"
           style={{ textAlign: "center" }}
         >
-          🚀 All CopyRight Reserved Andrew Lee ©2019 🚀
+          🚀 All CopyRight Reserved Andrew Lee ©2020 🚀
         </Footer>
       </Layout>
     </Layout>

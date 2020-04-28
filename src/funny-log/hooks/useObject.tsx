@@ -1,17 +1,6 @@
 import { useState } from 'react'
 import { os } from './objectStore'
 
-export function useUpdate() {
-  let [update, _setUpdate] = useState(Date.now())
-  function setUpdate() {
-    _setUpdate(Date.now())
-  }
-  return {
-    update,
-    setUpdate,
-  }
-}
-
 export function useObject<T extends { [key: string]: any }>(
   initO: T & { callee?: string },
   option: Partial<{
@@ -52,6 +41,27 @@ export function useObject<T extends { [key: string]: any }>(
     } catch (error) {}
   }
 
+  /** Recover all the values of each property which you passed in at the `useObject` at the beginning.*/
+  function recover(): void
+  /**
+   * Recover all the values of each property which you passed in at the `useObject` at the beginning.
+   * @param omit Omit some of properties of those you wouldn't want to recover.
+   */
+  function recover(omit?: (keyof T)[]): void
+  function recover(omit?: (keyof T)[]): void {
+    if (omit === undefined) {
+      setO({ ...initO })
+      return
+    }
+    if (omit !== undefined && omit.length > 0) {
+      let originalObject = { ...initO }
+      omit.forEach(p => {
+        originalObject[p] = object[p]
+      })
+      setO(originalObject)
+      return
+    }
+  }
   return {
     /**创建返回的对象 */
     object,
@@ -60,8 +70,6 @@ export function useObject<T extends { [key: string]: any }>(
      *    */
     updateObject,
     /**直接还原到初始状态*/
-    recover() {
-      setO({ ...initO })
-    },
+    recover,
   }
 }

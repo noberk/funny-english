@@ -39,7 +39,7 @@ const _Menu: FC<MenuProps> = props => {
           <span>{name}</span>
         ))}
       </div>
-      <div className="menu-panel-info" style={{ width: 200, height: 200, background: '#00235410', fontSize: 14 }}>
+      <div className="menu-panel-info" style={{ width: 200, padding: 5, background: '#00235410', fontSize: 14 }}>
         {os.callees.map(p => (
           <span
             onClick={() => {
