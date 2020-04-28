@@ -20,6 +20,9 @@ class ObjectStore {
     get(key: string) {
         return this.pool.get(key)
     }
+    syncUpdate<T>(setPropFunc: (o: T) => void) {
+        // setPropFunc(o)
+    }
 }
 export const os = new ObjectStore()
 

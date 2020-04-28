@@ -18,12 +18,14 @@ const _Menu: FC<MenuProps> = props => {
 
   let [subItemVisible, setSubItemVisible] = useState(false)
   let [curObj, setCurObj] = useState<any>({})
+  let [curCallee, setCurCallee] = useState<string>('')
   //default value assignment
   let { emojiIcon = '📓 ', scale = 2, throb = true, offsetTop = 0, offsetLeft = 0 } = props
 
   useEffect(() => {
-    console.log(11)
-  }, [curObj])
+    console.log(1, os.get(curCallee))
+  }, [os.get(curCallee)])
+
   return (
     <div
       onMouseOver={() => setSubItemVisible(true)}
@@ -40,14 +42,9 @@ const _Menu: FC<MenuProps> = props => {
         ))}
       </div>
       <div className="menu-panel-info" style={{ width: 200, padding: 5, background: '#00235410', fontSize: 14 }}>
-        {os.callees.map(p => (
-          <span
-            onClick={() => {
-              setCurObj(os.get(p) ?? {})
-              console.log(os.get(p) ?? {})
-            }}
-          >
-            {p}
+        {os.callees.map(callee => (
+          <span onClick={() => setCurCallee(callee)}>
+            {callee}
             <br />
           </span>
         ))}
@@ -57,10 +54,13 @@ const _Menu: FC<MenuProps> = props => {
     </div>
   )
   function renderState() {
-    return Object.keys(curObj).map(key => {
+    const curStateObject: any = os.get(curCallee) ?? {}
+    console.log('curstateobj', curStateObject)
+
+    return Object.keys(curStateObject).map(key => {
       return (
         <p>
-          {key} : {curObj[key] + ''}
+          {key} : {curStateObject[key] + ''}
         </p>
       )
     })
