@@ -6,7 +6,8 @@ import { PickValuesOfObjectArray } from './type'
 export const MENU_ROUTER = [
   { name: '📜', nav: 'stateReview' },
   { name: '⚙️', nav: 'settings' },
-  { name: '🐷', nav: 'unblock' },
+  { name: '🗑️', nav: 'Wastebasket' },
+  // { name: '🐷', nav: 'unblock' },
 ] as const
 
 export type AvailableNav = typeof MENU_ROUTER[number]['nav']

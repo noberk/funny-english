@@ -22,9 +22,9 @@ const _Menu: FC<MenuProps> = props => {
   let [touchedBox, setTouchedBox] = useState(false)
   let [curCallee, setCurCallee] = useState<string>('')
   let { object, updateObject } = useObject<{
-    nav: AvailableNav | ''
+    nav: AvailableNav
   }>({
-    nav: '',
+    nav: 'Wastebasket',
   })
   //default value assignment
   let { emojiIcon = '📓 ', scale = 2, throb = true } = props
@@ -51,7 +51,7 @@ const _Menu: FC<MenuProps> = props => {
         <div className="menu-panel-wrapper" style={{ width: eachIconWidth }}>
           <span>{emojiIcon}</span>
           {props.menuName.map(item => (
-            <span className="menu-panel-item-span " onClick={() => updateObject('nav', 'stateReview')}>
+            <span className="menu-panel-item-span " onClick={() => updateObject('nav', item.nav)}>
               {item.name}
             </span>
           ))}
@@ -71,7 +71,7 @@ const _Menu: FC<MenuProps> = props => {
     })
   }
   function renderContentByClickedMenu() {
-    if (object.nav === '') return
+    if (object.nav === 'Wastebasket') return
 
     if (object.nav === 'stateReview') {
       return (
