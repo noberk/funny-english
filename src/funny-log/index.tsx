@@ -16,7 +16,7 @@ export const FunnyLog: FC = () => {
   return (
     <>
       <Draggable x={500} y={700}>
-        <Menu emojiIcon="📦" scale={3} throb menuName={MENU_ROUTER} />
+        <Menu minWidth={200} maxWidth={600} emojiIcon="📦" scale={3} throb menuName={MENU_ROUTER} />
       </Draggable>
     </>
   )

@@ -5,5 +5,6 @@ export interface DraggableProps {
     offsetLeft?: number
     x?: number,
     y?: number
+    onMouseUp?: () => void
 
 }

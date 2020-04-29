@@ -3,21 +3,13 @@ import './index.css'
 import { BrowserPropsProvider } from '../../shared/window-context'
 import { os } from '../../hooks/objectStore'
 import { useObject } from '../../hooks/useObject'
-import { ifError } from 'assert'
 import { AvailableNav } from '../..'
-
-interface MenuProps {
-  emojiIcon?: string
-  scale?: number
-  offsetTop?: number
-  offsetLeft?: number
-  throb?: boolean
-  menuName: readonly { name: string; nav: AvailableNav }[]
-}
+import { getSVG } from '../../shared/svgBadge'
 
 const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
   let eachIconWidth = 50
+  let badgeWidth = 16
   let [subItemVisible, setSubItemVisible] = useState(true)
   let [touchedBox, setTouchedBox] = useState(false)
   let [curCallee, setCurCallee] = useState<string>('')
@@ -25,9 +17,10 @@ const _Menu: FC<MenuProps> = props => {
     nav: AvailableNav
   }>({
     nav: 'Wastebasket',
+    callee: 'menu',
   })
   //default value assignment
-  let { emojiIcon = '📓 ', scale = 2, throb = true } = props
+  let { emojiIcon = '📓 ', scale = 2, throb = true, minWidth, maxWidth } = props
 
   useEffect(() => {}, [os.get(curCallee)])
 
@@ -63,9 +56,13 @@ const _Menu: FC<MenuProps> = props => {
   function renderState() {
     const curStateObject: any = os.get(curCallee) ?? {}
     return Object.keys(curStateObject).map(key => {
+      const value = curStateObject[key]
       return (
-        <p>
-          {key} : {curStateObject[key] + ''}
+        <p style={{ marginTop: 10 }}>
+          {getSVG(value)({ width: badgeWidth })}{' '}
+          <span style={{ position: 'relative', top: -4 }}>
+            {key} : {value}
+          </span>
         </p>
       )
     })
@@ -75,14 +72,16 @@ const _Menu: FC<MenuProps> = props => {
 
     if (object.nav === 'stateReview') {
       return (
-        <div className="menu-panel-info" style={{ width: 200, padding: 5, background: '#00235410', fontSize: 14 }}>
-          {os.callees.map(callee => (
-            <span onClick={() => setCurCallee(callee)}>
-              {callee}
-              <br />
-            </span>
-          ))}
-          <br />
+        <div className="menu-panel-info">
+          <nav style={{ minWidth, maxWidth }}>
+            {os.callees.map(callee => (
+              <span className="nav-span" onClick={() => setCurCallee(callee)}>
+                {callee}
+                <br />
+              </span>
+            ))}
+          </nav>
+
           {renderState()}
         </div>
       )
@@ -96,4 +95,15 @@ export const Menu: FC<MenuProps> = props => {
       <_Menu {...props} />
     </BrowserPropsProvider>
   )
+}
+
+interface MenuProps {
+  minWidth: number
+  maxWidth: number
+  emojiIcon?: string
+  scale?: number
+  offsetTop?: number
+  offsetLeft?: number
+  throb?: boolean
+  menuName: readonly { name: string; nav: AvailableNav }[]
 }
