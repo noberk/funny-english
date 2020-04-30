@@ -9,7 +9,7 @@ import { Colorful } from '../toolkit/colorful'
 const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
   let eachIconWidth = 50
-  let badgeWidth = 16
+  let badgeWidth = 20
   let [subItemVisible, setSubItemVisible] = useState(true)
   let [touchedBox, setTouchedBox] = useState(false)
   let [curCallee, setCurCallee] = useState<string>('')
@@ -55,11 +55,12 @@ const _Menu: FC<MenuProps> = props => {
   )
   function renderState() {
     const curStateObject: any = os.get(curCallee) ?? {}
+
     return (
       <div style={{ marginTop: 16 }}>
         {Object.keys(curStateObject).map(key => {
           const value = curStateObject[key]
-          return <Colorful key={key} value={value} badgeWidth={badgeWidth} />
+          return <Colorful objectKey={key} value={value} badgeWidth={badgeWidth} />
         })}
       </div>
     )
