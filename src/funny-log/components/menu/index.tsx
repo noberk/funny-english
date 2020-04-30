@@ -4,7 +4,7 @@ import { BrowserPropsProvider } from '../../shared/window-context'
 import { os } from '../../hooks/objectStore'
 import { useObject } from '../../hooks/useObject'
 import { AvailableNav } from '../..'
-import { Colorful } from '../toolkit/colorful'
+import { ColorfulRows } from '../toolkit/colorful'
 
 const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
@@ -60,7 +60,7 @@ const _Menu: FC<MenuProps> = props => {
       <div style={{ marginTop: 16 }}>
         {Object.keys(curStateObject).map((key, index) => {
           const value = curStateObject[key]
-          return <Colorful objectKey={key} key={index} value={value} badgeWidth={badgeWidth} />
+          return <ColorfulRows objectKey={key} key={index} value={value} badgeWidth={badgeWidth} />
         })}
       </div>
     )
