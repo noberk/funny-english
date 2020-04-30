@@ -23,10 +23,15 @@ export function isConst(str: string) {
   }
 }
 export function isEvent(str: string) {
-  if (typeof str === 'function') {
-    return (str as Function).name.substr(0, 2) == 'on' ? true : false
+  try {
+    if (typeof str === 'function') {
+      return (str as Function).name.substr(0, 2) == 'on' ? true : false
+    }
+    return str.substr(0, 2) == 'on' ? true : false
+  } catch (error) {
+    console.error(error)
+    return false
   }
-  return str.substr(0, 2) == 'on' ? true : false
 }
 
 export function getSVG(value: any) {

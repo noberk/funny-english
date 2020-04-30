@@ -10,8 +10,8 @@ const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
   let eachIconWidth = 50
   let badgeWidth = 20
-  let [subItemVisible, setSubItemVisible] = useState(true)
-  let [touchedBox, setTouchedBox] = useState(false)
+  let [, setSubItemVisible] = useState(true)
+  let [, setTouchedBox] = useState(false)
   let [curCallee, setCurCallee] = useState<string>('')
   let { object, updateObject } = useObject<{
     nav: AvailableNav
@@ -43,8 +43,8 @@ const _Menu: FC<MenuProps> = props => {
       >
         <div className="menu-panel-wrapper" style={{ width: eachIconWidth }}>
           <span>{emojiIcon}</span>
-          {props.menuName.map(item => (
-            <span className="menu-panel-item-span " onClick={() => updateObject('nav', item.nav)}>
+          {props.menuName.map((item, index) => (
+            <span key={index} className="menu-panel-item-span " onClick={() => updateObject('nav', item.nav)}>
               {item.name}
             </span>
           ))}
@@ -58,9 +58,9 @@ const _Menu: FC<MenuProps> = props => {
 
     return (
       <div style={{ marginTop: 16 }}>
-        {Object.keys(curStateObject).map(key => {
+        {Object.keys(curStateObject).map((key, index) => {
           const value = curStateObject[key]
-          return <Colorful objectKey={key} value={value} badgeWidth={badgeWidth} />
+          return <Colorful objectKey={key} key={index} value={value} badgeWidth={badgeWidth} />
         })}
       </div>
     )
@@ -73,8 +73,8 @@ const _Menu: FC<MenuProps> = props => {
       return (
         <div className="menu-panel-info">
           <nav style={{ minWidth, maxWidth }}>
-            {os.callees.map(callee => (
-              <span className="nav-span" onClick={() => setCurCallee(callee)}>
+            {os.callees.map((callee,index) => (
+              <span key={index}  className="nav-span" onClick={() => setCurCallee(callee)}>
                 {callee}
                 <br />
               </span>

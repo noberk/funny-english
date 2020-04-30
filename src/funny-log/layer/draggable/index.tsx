@@ -22,7 +22,12 @@ const _Draggable: FC<DraggableProps> = props => {
       x: 0,
       y: 0,
       callee: 'draggable',
-      onMouseUp: () => void 0,
+      onMouseUp: () => {
+        console.log(123)
+      },
+      alert() {
+        alert(1)
+      },
     },
     { supervise: false, forceCleanUp: false }
   )
