@@ -28,6 +28,8 @@ const _Draggable: FC<DraggableProps> = props => {
       alert() {
         alert(1)
       },
+      arr: [1, 2, 3],
+      ojb: { name: 5, age: 6 },
     },
     { supervise: false, forceCleanUp: false }
   )

@@ -4,6 +4,7 @@ import { isEvent, getSVG } from '../svgs/svgBadge'
 import { SVGBlockSize } from '../svgs'
 import React from 'react'
 import { CSpan } from './colorful'
+import { EMJS } from '../../shared/emojis'
 
 export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeTypeDescription'> {
   private size: SVGBlockSize = {
@@ -71,7 +72,7 @@ const NumberType = class extends NativeTypeRow implements getNativeTypeDescripti
   }
 }
 const EventType = class extends NativeTypeRow implements getNativeTypeDescription {
-  textTextColor = '#ffeb3b'
+  textTextColor = 'rgb(235,184,109)'
   getNativeTypeDescription(): NativeTypeDescription {
     return {
       typeRange: ['event'],
@@ -79,7 +80,7 @@ const EventType = class extends NativeTypeRow implements getNativeTypeDescriptio
       badges: [],
       mainBody: this.getBody(),
       self: this,
-      beforeNode: <></>,
+      beforeNode: <span onClick={this.value}>{EMJS.run}</span>,
       afterNode: <></>,
     }
   }
@@ -93,7 +94,7 @@ const FunctionType = class extends NativeTypeRow implements getNativeTypeDescrip
       badges: [],
       mainBody: this.getBody(),
       self: this,
-      beforeNode: <></>,
+      beforeNode: <span onClick={this.value}>{EMJS.run}</span>,
       afterNode: <></>,
     }
   }

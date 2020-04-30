@@ -29,7 +29,6 @@ export function isEvent(str: string) {
     }
     return str.substr(0, 2) == 'on' ? true : false
   } catch (error) {
-    console.error(error)
     return false
   }
 }
