@@ -1,5 +1,5 @@
 import { isString, isNumber, isFunction } from 'util'
-import * as SVG from '../components/svgs'
+import * as SVG from '.'
 export const path: string = '../assets/'
 export enum SVGType {
   Class = 'class.svg',
@@ -28,14 +28,7 @@ export function isEvent(str: string) {
   }
   return str.substr(0, 2) == 'on' ? true : false
 }
-export function embedSVG(type: SVGType) {
-  let embed = document.createElement('embed')
-  embed.width = side
-  embed.height = side
-  embed.src = path + type
 
-  return embed
-}
 export function getSVG(value: any) {
   if (isString(value) || isNumber(value)) {
     return SVG.Field

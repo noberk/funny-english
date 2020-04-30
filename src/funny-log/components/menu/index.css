@@ -31,6 +31,7 @@
 }
 
 .menu-panel-info {
+  padding: 16px !important;
   margin-top: 6px;
   background-color: #f2f2f2;
   border-radius: 4px;

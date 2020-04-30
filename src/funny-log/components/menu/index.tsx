@@ -4,7 +4,7 @@ import { BrowserPropsProvider } from '../../shared/window-context'
 import { os } from '../../hooks/objectStore'
 import { useObject } from '../../hooks/useObject'
 import { AvailableNav } from '../..'
-import { getSVG } from '../../shared/svgBadge'
+import { Colorful } from '../toolkit/colorful'
 
 const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
@@ -55,18 +55,16 @@ const _Menu: FC<MenuProps> = props => {
   )
   function renderState() {
     const curStateObject: any = os.get(curCallee) ?? {}
-    return Object.keys(curStateObject).map(key => {
-      const value = curStateObject[key]
-      return (
-        <p style={{ marginTop: 10 }}>
-          {getSVG(value)({ width: badgeWidth })}{' '}
-          <span style={{ position: 'relative', top: -4 }}>
-            {key} : {value}
-          </span>
-        </p>
-      )
-    })
+    return (
+      <div style={{ marginTop: 16 }}>
+        {Object.keys(curStateObject).map(key => {
+          const value = curStateObject[key]
+          return <Colorful key={key} value={value} badgeWidth={badgeWidth} />
+        })}
+      </div>
+    )
   }
+
   function renderContentByClickedMenu() {
     if (object.nav === 'Wastebasket') return
 
