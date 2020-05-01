@@ -1,4 +1,5 @@
-
+import { isString, isNumber, isFunction, isBoolean, isUndefined, isNull, isArray } from 'util'
+import { isEvent } from './components/svgs/svgBadge';
 export const tuple = <T extends string[]>(...args: T) => args;
 
 export const tupleNum = <T extends number[]>(...args: T) => args;
@@ -30,4 +31,16 @@ export enum SVGType {
     Keyword,
     Namespace,
     Event,
+}
+export type ExistNativeType = 'event' | 'function' | 'string' | 'number' | 'boolean' | 'obejct' | 'undefined' | 'null' | 'array'
+export function getType(value: unknown): ExistNativeType {
+    if (isBoolean(value)) return 'boolean'
+    if (isString(value)) return 'string'
+    if (isNumber(value)) return 'number'
+    if (isEvent(value as string)) return 'event'
+    if (isFunction(value)) return 'function'
+    if (isUndefined(value)) return 'undefined'
+    if (isArray(value)) return 'array'
+    if (isNull(value)) return 'null'
+    return 'undefined'
 }

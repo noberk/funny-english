@@ -13,7 +13,11 @@ const DATA_TYPE_WRAPPER_STYLE: CSSProperties = { position: 'relative', top: -4 }
 
 export const ColorfulRows = (props: { objectKey: string; value: string; badgeWidth: number }) => renderValueOfState2(props.objectKey, props.value)
 
-export const CSpan: FC<{ color: string }> = props => <span style={{ marginLeft: 6, color: props.color }}>{props.children}</span>
+export const CSpan: FC<{ color: string; ml?: string | number }> = props => {
+  let { ml = 6 } = props
+
+  return <span style={{ marginLeft: ml, color: props.color }}>{props.children}</span>
+}
 
 function renderValueOfState2(objectKey: string, value: any): JSX.Element {
   const typeDesc = new NativeTypeRow(value).getNativeTypeDescription()

@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react'
-import { isString, isNumber, isFunction, isBoolean, isUndefined, isNull, isArray } from 'util'
+
 import { isEvent, getSVG } from '../svgs/svgBadge'
 import { SVGBlockSize } from '../svgs'
 import React from 'react'
 import { CSpan } from './colorful'
 import { EMJS } from '../../shared/emojis'
+import { getType } from '../../type'
 
 export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeTypeDescription'> {
   private size: SVGBlockSize = {
@@ -14,12 +15,12 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
   constructor(protected value: any) {}
   textTextColor = ''
   getNativeTypeDescription(): NativeTypeDescription | undefined {
-    if (this.getType() === 'string') return new StringType(this.value).getNativeTypeDescription()
-    if (this.getType() === 'number') return new NumberType(this.value).getNativeTypeDescription()
-    if (this.getType() === 'boolean') return new BooleanType(this.value).getNativeTypeDescription()
-    if (this.getType() === 'function') return new FunctionType(this.value).getNativeTypeDescription()
-    if (this.getType() === 'event') return new EventType(this.value).getNativeTypeDescription()
-    if (this.getType() === 'array')
+    if (getType(this.value) === 'string') return new StringType(this.value).getNativeTypeDescription()
+    if (getType(this.value) === 'number') return new NumberType(this.value).getNativeTypeDescription()
+    if (getType(this.value) === 'boolean') return new BooleanType(this.value).getNativeTypeDescription()
+    if (getType(this.value) === 'function') return new FunctionType(this.value).getNativeTypeDescription()
+    if (getType(this.value) === 'event') return new EventType(this.value).getNativeTypeDescription()
+    if (getType(this.value) === 'array')
       return new (class extends NativeTypeRow implements getNativeTypeDescription {
         textTextColor = '#b4c8a0'
         getNativeTypeDescription(): NativeTypeDescription {
@@ -27,7 +28,7 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
             typeRange: ['number'],
             typeTextColor: this.textTextColor,
             badges: [],
-            mainBody: this.getArrayBody(),
+            mainBody: this.getArrayHorizontalBody(this.value),
             self: this,
             beforeNode: <></>,
             afterNode: <></>,
@@ -49,19 +50,35 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
       </CSpan>
     )
   }
-  getArrayBody(): ReactNode {
+  /** for array */
+  getArrayHorizontalBody(arrValue: any[]): ReactNode {
+    return (
+      <>
+        <CSpan color="gray">[</CSpan>
+        {arrValue.map(val => {
+          if (getType(val) === 'number' || getType(val) === 'string' || getType(val) === 'boolean') {
+            return (
+              <>
+                {new NativeTypeRow(val).getNativeTypeDescription()?.mainBody}
+                {this.getSeparatorNode(', ')}
+              </>
+            )
+          }
+        })}
+
+        <CSpan color="gray">]</CSpan>
+      </>
+    )
+  }
+  getArrayVertiaclBody(): ReactNode {
     return <CSpan color={this.textTextColor}>{this.value + ''}</CSpan>
   }
-  protected getType(): ExistNativeType {
-    if (isBoolean(this.value)) return 'boolean'
-    if (isString(this.value)) return 'string'
-    if (isNumber(this.value)) return 'number'
-    if (isEvent(this.value)) return 'event'
-    if (isFunction(this.value)) return 'function'
-    if (isUndefined(this.value)) return 'undefined'
-    if (isArray(this.value)) return 'array'
-    if (isNull(this.value)) return 'null'
-    return 'undefined'
+  getSeparatorNode(separator: ReactNode = <></>): ReactNode {
+    return (
+      <CSpan ml={0} color={'gray'}>
+        {separator}
+      </CSpan>
+    )
   }
 }
 interface getNativeTypeDescription {
