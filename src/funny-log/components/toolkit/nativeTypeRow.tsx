@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { isString, isNumber, isFunction, isBoolean, isUndefined, isNull } from 'util'
+import { isString, isNumber, isFunction, isBoolean, isUndefined, isNull, isArray } from 'util'
 import { isEvent, getSVG } from '../svgs/svgBadge'
 import { SVGBlockSize } from '../svgs'
 import React from 'react'
@@ -19,12 +19,37 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
     if (this.getType() === 'boolean') return new BooleanType(this.value).getNativeTypeDescription()
     if (this.getType() === 'function') return new FunctionType(this.value).getNativeTypeDescription()
     if (this.getType() === 'event') return new EventType(this.value).getNativeTypeDescription()
-    else return undefined
+    if (this.getType() === 'array')
+      return new (class extends NativeTypeRow implements getNativeTypeDescription {
+        textTextColor = '#b4c8a0'
+        getNativeTypeDescription(): NativeTypeDescription {
+          return {
+            typeRange: ['number'],
+            typeTextColor: this.textTextColor,
+            badges: [],
+            mainBody: this.getArrayBody(),
+            self: this,
+            beforeNode: <></>,
+            afterNode: <></>,
+          }
+        }
+      })(this.value).getNativeTypeDescription()
+
+    return undefined
   }
   getDefualtTypeSVG() {
     return getSVG(this.value)(this.size)
   }
-  getBody() {
+  getRegularBody(prefix: ReactNode = <></>, affix: ReactNode = <></>) {
+    return (
+      <CSpan color={this.textTextColor}>
+        {prefix}
+        {this.value + ''}
+        {affix}
+      </CSpan>
+    )
+  }
+  getArrayBody(): ReactNode {
     return <CSpan color={this.textTextColor}>{this.value + ''}</CSpan>
   }
   protected getType(): ExistNativeType {
@@ -34,6 +59,7 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
     if (isEvent(this.value)) return 'event'
     if (isFunction(this.value)) return 'function'
     if (isUndefined(this.value)) return 'undefined'
+    if (isArray(this.value)) return 'array'
     if (isNull(this.value)) return 'null'
     return 'undefined'
   }
@@ -50,7 +76,7 @@ const StringType = class extends NativeTypeRow implements getNativeTypeDescripti
       typeRange: ['string'],
       typeTextColor: this.textTextColor,
       badges: [],
-      mainBody: this.getBody(),
+      mainBody: this.getRegularBody(`"`, `"`),
       self: this,
       beforeNode: <></>,
       afterNode: <></>,
@@ -64,7 +90,7 @@ const NumberType = class extends NativeTypeRow implements getNativeTypeDescripti
       typeRange: ['number'],
       typeTextColor: this.textTextColor,
       badges: [],
-      mainBody: this.getBody(),
+      mainBody: this.getRegularBody(),
       self: this,
       beforeNode: <></>,
       afterNode: <></>,
@@ -78,7 +104,7 @@ const EventType = class extends NativeTypeRow implements getNativeTypeDescriptio
       typeRange: ['event'],
       typeTextColor: this.textTextColor,
       badges: [],
-      mainBody: this.getBody(),
+      mainBody: this.getRegularBody(),
       self: this,
       beforeNode: <span onClick={this.value}>{EMJS.run}</span>,
       afterNode: <></>,
@@ -92,7 +118,7 @@ const FunctionType = class extends NativeTypeRow implements getNativeTypeDescrip
       typeRange: ['function'],
       typeTextColor: this.textTextColor,
       badges: [],
-      mainBody: this.getBody(),
+      mainBody: this.getRegularBody(),
       self: this,
       beforeNode: <span onClick={this.value}>{EMJS.run}</span>,
       afterNode: <></>,
@@ -106,14 +132,14 @@ const BooleanType = class extends NativeTypeRow implements getNativeTypeDescript
       typeRange: ['boolean'],
       typeTextColor: this.textTextColor,
       badges: [],
-      mainBody: this.getBody(),
+      mainBody: this.getRegularBody(),
       self: this,
       beforeNode: <></>,
       afterNode: <></>,
     }
   }
 }
-type ExistNativeType = 'event' | 'function' | 'string' | 'number' | 'boolean' | 'obejct' | 'undefined' | 'null'
+type ExistNativeType = 'event' | 'function' | 'string' | 'number' | 'boolean' | 'obejct' | 'undefined' | 'null' | 'array'
 export interface NativeTypeDescription {
   typeRange: Array<ExistNativeType>
   typeTextColor: string

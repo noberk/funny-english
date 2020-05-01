@@ -23,12 +23,33 @@ const _Draggable: FC<DraggableProps> = props => {
       y: 0,
       callee: 'draggable',
       onMouseUp: () => {
-        console.log(123)
+        console.log([
+          1,
+          2,
+          3,
+          {},
+          { name: 2 },
+          [[]],
+          undefined,
+          null,
+          '1',
+          'f',
+          _Draggable,
+          function () {
+            console.log(1)
+          },
+          () => {
+            console.log(2)
+          },
+        ])
       },
       alert() {
         alert(1)
       },
-      arr: [1, 2, 3],
+      getObjects: () => {
+        console.log({ name: 5, age: 2, sex: true })
+      },
+      arr: [1, 2, 3, {}, { name: 2 }, [[]]],
       ojb: { name: 5, age: 6 },
     },
     { supervise: false, forceCleanUp: false }
