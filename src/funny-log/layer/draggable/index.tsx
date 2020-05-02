@@ -49,7 +49,7 @@ const _Draggable: FC<DraggableProps> = props => {
       getObjects: () => {
         console.log({ name: 5, age: 2, sex: true })
       },
-      arr: [1, '2', true, {}, { name: 2 }, [[]]],
+      arr: [1, '2', true, undefined, void 0, null, () => {}, function () {}, _Draggable, {}, { name: 2 }],
       ojb: { name: 5, age: 6 },
     },
     { supervise: false, forceCleanUp: false }

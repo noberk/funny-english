@@ -16,6 +16,11 @@ export type ElementOf<T> = T extends (infer E)[] ? E : T extends readonly (infer
 export type LiteralUnion<T extends U, U> = T | (U & {});
 
 export type PickValuesOfObjectArray<T extends [], K extends string> = T[number][K]
+type PromiseType<T> = T extends Promise<infer U> ? U : never
+type GetTruthyKeys<T extends {}> = {
+    [key in keyof T]: T[key] extends false ? never : key
+}[keyof T]
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any
 
 export type MathOperator = "+" | "-" | "*" | "/" | "%"
 export type ExpectOperator = "==" | "===" | "!==" | "!="
@@ -44,3 +49,13 @@ export function getType(value: unknown): ExistNativeType {
     if (isNull(value)) return 'null'
     return 'undefined'
 }
+
+export function isArrowFunction(fn: Function) {
+    let isNonArrowFnRegex = /^\s*function/;
+    var isArrowFnWithParensRegex = /^\([^)]*\) *=>/;
+    var isArrowFnWithoutParensRegex = /^[^=]*=>/;
+    var fnStr = Function.prototype.toString.call(fn);
+    return fnStr.length > 0 &&
+        !isNonArrowFnRegex.test(fnStr) &&
+        (isArrowFnWithParensRegex.test(fnStr) || isArrowFnWithoutParensRegex.test(fnStr));
+};

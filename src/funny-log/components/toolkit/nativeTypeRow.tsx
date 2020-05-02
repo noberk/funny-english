@@ -4,8 +4,13 @@ import { isEvent, getSVG } from '../svgs/svgBadge'
 import { SVGBlockSize } from '../svgs'
 import React from 'react'
 import { CSpan } from './colorful'
-import { EMJS } from '../../shared/emojis'
-import { getType } from '../../type'
+import { EMJS, SYMBOLS } from '../../shared/emojis'
+import { getType, isArrowFunction } from '../../type'
+import { italic } from '../../shared/styles'
+
+const TYPE_COLORS = {
+  function: 'rgb(220,220,170)',
+}
 
 export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeTypeDescription'> {
   private size: SVGBlockSize = {
@@ -20,6 +25,8 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
     if (getType(this.value) === 'boolean') return new BooleanType(this.value).getNativeTypeDescription()
     if (getType(this.value) === 'function') return new FunctionType(this.value).getNativeTypeDescription()
     if (getType(this.value) === 'event') return new EventType(this.value).getNativeTypeDescription()
+    if (getType(this.value) === 'undefined') return new UndefinedType(this.value).getNativeTypeDescription()
+    if (getType(this.value) === 'null') return new NullType(this.value).getNativeTypeDescription()
     if (getType(this.value) === 'array')
       return new (class extends NativeTypeRow implements getNativeTypeDescription {
         textTextColor = '#b4c8a0'
@@ -54,16 +61,31 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
   getArrayHorizontalBody(arrValue: any[]): ReactNode {
     return (
       <>
-        <CSpan color="gray">[</CSpan>
+        <span onClick={() => {}}>{SYMBOLS.rightPointingTriangle}</span>
+        <span style={italic} color="gray">
+          ({arrValue.length})
+        </span>
+        <CSpan ml={10} color="gray">
+          [
+        </CSpan>
         {arrValue.map(val => {
-          if (getType(val) === 'number' || getType(val) === 'string' || getType(val) === 'boolean') {
-            return (
-              <>
-                {new NativeTypeRow(val).getNativeTypeDescription()?.mainBody}
-                {this.getSeparatorNode(', ')}
-              </>
-            )
+          let matchedBody: ReactNode
+          if (getType(val) === 'number' || getType(val) === 'string' || getType(val) === 'null' || getType(val) === 'boolean' || getType(val) === 'undefined') {
+            matchedBody = new NativeTypeRow(val).getNativeTypeDescription()?.mainBody
           }
+          if (getType(val) === 'function') {
+            let funcValue = 'function'
+            if (isArrowFunction(val)) {
+              funcValue = 'arrow-function'
+            }
+            matchedBody = <CSpan color={TYPE_COLORS.function}>{funcValue}</CSpan>
+          }
+          return (
+            <>
+              {matchedBody}
+              {this.getSeparatorNode(', ')}
+            </>
+          )
         })}
 
         <CSpan color="gray">]</CSpan>
@@ -129,7 +151,7 @@ const EventType = class extends NativeTypeRow implements getNativeTypeDescriptio
   }
 }
 const FunctionType = class extends NativeTypeRow implements getNativeTypeDescription {
-  textTextColor = ''
+  textTextColor = TYPE_COLORS.function
   getNativeTypeDescription(): NativeTypeDescription {
     return {
       typeRange: ['function'],
@@ -156,6 +178,34 @@ const BooleanType = class extends NativeTypeRow implements getNativeTypeDescript
     }
   }
 }
+const UndefinedType = class extends NativeTypeRow implements getNativeTypeDescription {
+  textTextColor = '#808080'
+  getNativeTypeDescription(): NativeTypeDescription {
+    return {
+      typeRange: ['undefined'],
+      typeTextColor: this.textTextColor,
+      badges: [],
+      mainBody: this.getRegularBody(),
+      self: this,
+      beforeNode: <></>,
+      afterNode: <></>,
+    }
+  }
+}
+const NullType = class extends NativeTypeRow implements getNativeTypeDescription {
+  textTextColor = '#808080'
+  getNativeTypeDescription(): NativeTypeDescription {
+    return {
+      typeRange: ['null'],
+      typeTextColor: this.textTextColor,
+      badges: [],
+      mainBody: this.getRegularBody(),
+      self: this,
+      beforeNode: <></>,
+      afterNode: <></>,
+    }
+  }
+}
 type ExistNativeType = 'event' | 'function' | 'string' | 'number' | 'boolean' | 'obejct' | 'undefined' | 'null' | 'array'
 export interface NativeTypeDescription {
   typeRange: Array<ExistNativeType>
@@ -172,3 +222,10 @@ export interface NativeTypeDescription {
   afterNode?: ReactNode
   self: NativeTypeRow
 }
+
+// function say<T extends 'hello' | 'world'>(word: T): T extends 'hello' ? 'mello' : 'wrod' {
+//   return 'mello'
+// }
+
+
+ 
