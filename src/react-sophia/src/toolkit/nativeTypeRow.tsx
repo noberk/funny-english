@@ -4,9 +4,9 @@ import { isEvent, getSVG } from '../svgs/svgBadge'
 import { SVGBlockSize } from '../svgs'
 import React from 'react'
 import { CSpan } from './colorful'
-import { EMJS, SYMBOLS } from '../../shared/emojis'
-import { getType, isArrowFunction } from '../../type'
-import { italic } from '../../shared/styles'
+import { EMJS, SYMBOLS } from '../shared/emojis'
+import { getType, isArrowFunction } from '../type'
+import { italic } from '../shared/styles'
 
 const TYPE_COLORS = {
   function: 'rgb(220,220,170)',

@@ -1,7 +1,7 @@
 import React, { FC, CSSProperties, ReactNode } from 'react'
 import { isString, isNumber, isFunction, isBoolean } from 'util'
 import { getSVG, isEvent } from '../svgs/svgBadge'
-import { EMJS } from '../../shared/emojis'
+import { EMJS } from '../shared/emojis'
 import { NativeTypeRow, NativeTypeDescription } from './nativeTypeRow'
 import { type } from 'os'
 

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { Draggable } from './layer/draggable'
-import { Menu } from './components/menu'
-import { PickValuesOfObjectArray } from './type'
+import { Draggable } from './src/layer/draggable'
+import { Menu } from './src/components/menu'
+import { PickValuesOfObjectArray } from './src/type'
 
 export const MENU_ROUTER = [
   { name: '📜', nav: 'stateReview' },
@@ -10,7 +10,6 @@ export const MENU_ROUTER = [
   // { name: '🐷', nav: 'unblock' },
 ] as const
 
-export type AvailableNav = typeof MENU_ROUTER[number]['nav']
 // export type Z = PickValuesOfObjectArray< typeof MENU_ROUTER, 'nav'>
 export const FunnyLog: FC = () => {
   return (

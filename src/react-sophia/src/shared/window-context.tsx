@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useObject } from '../hooks/useObject'
-import { getWidth, getHeight } from '../../utils/browser'
+import { getWidth, getHeight } from '../../../utils/browser'
 
 interface WindowProps {
   browserWidth?: number

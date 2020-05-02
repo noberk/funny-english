@@ -3,8 +3,8 @@ import './index.css'
 import { BrowserPropsProvider } from '../../shared/window-context'
 import { os } from '../../hooks/objectStore'
 import { useObject } from '../../hooks/useObject'
-import { AvailableNav } from '../..'
-import { ColorfulRows } from '../toolkit/colorful'
+import { ColorfulRows } from '../../toolkit/colorful'
+import type { AvailableNav } from '../../type'
 
 const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
@@ -73,8 +73,8 @@ const _Menu: FC<MenuProps> = props => {
       return (
         <div className="menu-panel-info">
           <nav style={{ minWidth, maxWidth }}>
-            {os.callees.map((callee,index) => (
-              <span key={index}  className="nav-span" onClick={() => setCurCallee(callee)}>
+            {os.callees.map((callee, index) => (
+              <span key={index} className="nav-span" onClick={() => setCurCallee(callee)}>
                 {callee}
                 <br />
               </span>

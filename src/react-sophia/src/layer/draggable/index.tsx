@@ -1,9 +1,18 @@
 import React, { FC, CSSProperties, useEffect } from 'react'
-import type { DraggableProps } from './draggable'
+
 import { BrowserPropsProvider } from '../../shared/window-context'
 import { useObject } from '../../hooks/useObject'
-import { getHeight, getWidth } from '../../../utils/browser'
+import { getHeight, getWidth } from '../../../../utils/browser'
 
+export interface DraggableProps {
+  width?: number
+  height?: number
+  offsetTop?: number
+  offsetLeft?: number
+  x?: number
+  y?: number
+  onMouseUp?: () => void
+}
 const STYLES: CSSProperties = {
   position: 'absolute',
   zIndex: 100,

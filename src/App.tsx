@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.scss";
-import { FunnyLog } from "./funny-log";
+import { FunnyLog } from "./react-sophia";
 
 const store = createStore(combineReducers({ balanceReducer, langReducer }));
 
