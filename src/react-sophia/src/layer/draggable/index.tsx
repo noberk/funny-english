@@ -3,6 +3,8 @@ import React, { FC, CSSProperties, useEffect } from 'react'
 import { BrowserPropsProvider } from '../../shared/window-context'
 import { useObject } from '../../hooks/useObject'
 import { getHeight, getWidth } from '../../../../utils/browser'
+import { debounce } from '../../util/debounce'
+import { throttle } from 'lodash'
 
 export interface DraggableProps {
   width?: number
@@ -93,11 +95,12 @@ const _Draggable: FC<DraggableProps> = props => {
   function mouseUp() {
     updateObject('pressed', false)
   }
+
   return (
     <div
       onMouseDown={mouseDown}
       onMouseUp={mouseUp}
-      onMouseMove={mouseMove}
+      onMouseMove={throttle(mouseMove, 50)}
       onMouseOut={mouseUp}
       onDoubleClick={e => void e.preventDefault()}
       style={{

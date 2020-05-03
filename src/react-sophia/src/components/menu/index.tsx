@@ -5,6 +5,7 @@ import { os } from '../../hooks/objectStore'
 import { useObject } from '../../hooks/useObject'
 import { ColorfulRows } from '../../toolkit/colorful'
 import type { AvailableNav } from '../../type'
+import { getUid } from '../../util/random'
 
 const _Menu: FC<MenuProps> = props => {
   let fontSize: number = 12
@@ -43,8 +44,8 @@ const _Menu: FC<MenuProps> = props => {
       >
         <div className="menu-panel-wrapper" style={{ width: eachIconWidth }}>
           <span>{emojiIcon}</span>
-          {props.menuName.map((item, index) => (
-            <span key={index} className="menu-panel-item-span " onClick={() => updateObject('nav', item.nav)}>
+          {props.menuName.map(item => (
+            <span key={getUid()} className="menu-panel-item-span " onClick={() => updateObject('nav', item.nav)}>
               {item.name}
             </span>
           ))}
@@ -58,9 +59,9 @@ const _Menu: FC<MenuProps> = props => {
 
     return (
       <div style={{ marginTop: 16 }}>
-        {Object.keys(curStateObject).map((key, index) => {
+        {Object.keys(curStateObject).map(key => {
           const value = curStateObject[key]
-          return <ColorfulRows objectKey={key} key={index} value={value} badgeWidth={badgeWidth} />
+          return <ColorfulRows objectKey={key} key={getUid()} value={value} badgeWidth={badgeWidth} />
         })}
       </div>
     )
@@ -73,8 +74,8 @@ const _Menu: FC<MenuProps> = props => {
       return (
         <div className="menu-panel-info">
           <nav style={{ minWidth, maxWidth }}>
-            {os.callees.map((callee, index) => (
-              <span key={index} className="nav-span" onClick={() => setCurCallee(callee)}>
+            {os.callees.map(callee => (
+              <span key={getUid()} className="nav-span" onClick={() => setCurCallee(callee)}>
                 {callee}
                 <br />
               </span>

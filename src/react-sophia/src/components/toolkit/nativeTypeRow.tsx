@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 
 import { isEvent, getSVG } from '../../svgs/svgBadge'
 import { SVGBlockSize } from '../../svgs'
@@ -7,6 +7,7 @@ import { CSpan } from './colorful'
 import { EMJS, SYMBOLS } from '../../shared/emojis'
 import { getType, isArrowFunction } from '../../type'
 import { italic } from '../../shared/styles'
+import { getUid } from '../../util/random'
 
 const TYPE_COLORS = {
   function: 'rgb(220,220,170)',
@@ -35,7 +36,7 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
             typeRange: ['number'],
             typeTextColor: this.textTextColor,
             badges: [],
-            mainBody: this.getArrayHorizontalBody(this.value),
+            mainBody: this.getArrayBody(this.value),
             self: this,
             beforeNode: <></>,
             afterNode: <></>,
@@ -58,10 +59,20 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
     )
   }
   /** for array */
-  getArrayHorizontalBody(arrValue: any[]): ReactNode {
+  getArrayBody(arrValue: any[], deepLevel: number = 0): ReactNode {
+    let [expend, setExpend] = useState(false)
+    let [level, setLevel] = useState(deepLevel)
     return (
-      <>
-        <span onClick={() => {}}>{SYMBOLS.rightPointingTriangle}</span>
+      <article>
+        <span
+          onClick={() => {
+            console.log(!expend)
+
+            setExpend(!expend)
+          }}
+        >
+          {SYMBOLS.downPointingTriangle}1
+        </span>
         <span style={italic} color="gray">
           ({arrValue.length})
         </span>
@@ -81,15 +92,16 @@ export class NativeTypeRow implements Omit<getNativeTypeDescription, 'getNativeT
             matchedBody = <CSpan color={TYPE_COLORS.function}>{funcValue}</CSpan>
           }
           return (
-            <>
+            <span key={getUid()}>
               {matchedBody}
               {this.getSeparatorNode(', ')}
-            </>
+            </span>
           )
         })}
 
         <CSpan color="gray">]</CSpan>
-      </>
+        {expend && <article>12312312312</article>}
+      </article>
     )
   }
   getArrayVertiaclBody(): ReactNode {
@@ -226,6 +238,3 @@ export interface NativeTypeDescription {
 // function say<T extends 'hello' | 'world'>(word: T): T extends 'hello' ? 'mello' : 'wrod' {
 //   return 'mello'
 // }
-
-
- 

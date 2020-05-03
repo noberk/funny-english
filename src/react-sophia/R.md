@@ -1,26 +1,26 @@
 {
-  "compilerOptions": {
-    /* Basic Options */
-    // "incremental": true,                   /* Enable incremental compilation */
-    "target": "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
-    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
-    // "lib": [],                             /* Specify library files to be included in the compilation. */
-    // "allowJs": true,                       /* Allow javascript files to be compiled. */
-    // "checkJs": true,                       /* Report errors in .js files. */
-    "jsx": "preserve" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
-    "declaration": true /* Generates corresponding '.d.ts' file. */,
-    "declarationMap": true /* Generates a sourcemap for each corresponding '.d.ts' file. */,
-    "sourceMap": true /* Generates corresponding '.map' file. */,
-    // "outFile": "./",                       /* Concatenate and emit output to single file. */
-    // "outDir": "./",                        /* Redirect output structure to the directory. */
-    // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
-    // "composite": true,                     /* Enable project compilation */
-    // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
-    // "removeComments": true,                /* Do not emit comments to output. */
-    // "noEmit": true,                        /* Do not emit outputs. */
-    // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
-    "downlevelIteration": true /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */,
-    // "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+"compilerOptions": {
+/_ Basic Options _/
+// "incremental": true, /_ Enable incremental compilation _/
+"target": "es5" /_ Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. _/,
+"module": "commonjs" /_ Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. _/,
+// "lib": [], /_ Specify library files to be included in the compilation. _/
+// "allowJs": true, /_ Allow javascript files to be compiled. _/
+// "checkJs": true, /_ Report errors in .js files. _/
+"jsx": "preserve" /_ Specify JSX code generation: 'preserve', 'react-native', or 'react'. _/,
+"declaration": true /_ Generates corresponding '.d.ts' file. _/,
+"declarationMap": true /_ Generates a sourcemap for each corresponding '.d.ts' file. _/,
+"sourceMap": true /_ Generates corresponding '.map' file. _/,
+// "outFile": "./", /_ Concatenate and emit output to single file. _/
+"outDir": "./lib" /_ Redirect output structure to the directory. _/,
+"rootDir": "./" /_ Specify the root directory of input files. Use to control the output directory structure with --outDir. _/,
+// "composite": true, /_ Enable project compilation _/
+// "tsBuildInfoFile": "./", /_ Specify file to store incremental compilation information _/
+// "removeComments": true, /_ Do not emit comments to output. _/
+// "noEmit": true, /_ Do not emit outputs. _/
+// "importHelpers": true, /_ Import emit helpers from 'tslib'. _/
+"downlevelIteration": true /_ Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. _/,
+// "isolatedModules": true, /_ Transpile each file as a separate module (similar to 'ts.transpileModule'). _/
 
     /* Strict Type-Checking Options */
     "strict": true /* Enable all strict type-checking options. */,
@@ -62,5 +62,19 @@
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
-  }
+
+}
+}
+
+{
+"name": "react-sophia",
+"version": "1.0.0",
+"description": "",
+"main": "index.js",
+"scripts": {
+"test": "echo \"Error: no test specified\" && exit 1"
+},
+"keywords": [],
+"author": "",
+"license": "ISC"
 }

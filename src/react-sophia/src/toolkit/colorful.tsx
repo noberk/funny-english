@@ -23,11 +23,11 @@ function renderValueOfState2(objectKey: string, value: any): JSX.Element {
   const typeDesc = new NativeTypeRow(value).getNativeTypeDescription()
 
   return (
-    <p style={{ marginTop: 10 }}>
+    <div style={{ marginTop: 10 }}>
       {typeDesc?.self.getDefualtTypeSVG()}
       <span style={DATA_TYPE_WRAPPER_STYLE}>
         <span style={KEY_STYLE}> {objectKey}</span> : {typeDesc?.beforeNode} {typeDesc?.mainBody} {typeDesc?.afterNode}
       </span>
-    </p>
+    </div>
   )
 }
