@@ -6,7 +6,7 @@ export const Beam = styled.div`
   height: ${top};
 `
 
-const spanBase = styled.span``
+// const spanBase = styled.span``
 interface Position {
   w?: string
   h?: string

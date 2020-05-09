@@ -5,7 +5,7 @@ import { Button, Popover } from "antd";
 import { gradientColor } from "../../commom/colors";
 import { guidGenerator } from "../../commom/id";
 import { Link } from "react-router-dom";
-import * as _ from "lodash";
+// import * as _ from "lodash";
 import { Stronger, MarginBottom20 } from "../../components/styled";
 
 const Level: any = {

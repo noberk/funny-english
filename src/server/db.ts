@@ -2,7 +2,7 @@ import { MongoClient, MongoError, InsertWriteOpResult } from "mongodb";
 
 
 
-type TableName = "student"|"word";
+type TableName = "student" | "word";
 type Nullable<T> = { [P in keyof T]: T[P] | null }
 type Partial<T> = { [P in keyof T]?: T[P] }
 type Action = (mongoClient: MongoClient) => void;
@@ -31,6 +31,7 @@ export class DBConnetion {
         })
     }
 
+
     insert<T>(obj: T): void {
         this.open(mongoClient => {
             let dbo = mongoClient.db(this.db);
@@ -40,12 +41,12 @@ export class DBConnetion {
             })
         })
     }
-    insertMany<T>(many: Array<T>):Promise<InsertWriteOpResult>{
-        return new Promise((resolve,reject)=>{
-            this.open(mongoClient=>{
+    insertMany<T>(many: Array<T>): Promise<InsertWriteOpResult<any>> {
+        return new Promise((resolve, reject) => {
+            this.open(mongoClient => {
                 let dbo = mongoClient.db(this.db);
-                dbo.collection(this.tableName).insertMany(many,(e,r)=>{
-                    this.er(e);      
+                dbo.collection(this.tableName).insertMany(many, (e, r) => {
+                    this.er(e);
                     resolve(r);
                 })
             })
@@ -60,7 +61,7 @@ export class DBConnetion {
             })
         })
     }
-    findAll<T>() : Promise<T[]>{
+    findAll<T>(): Promise<T[]> {
         return new Promise((resolve, reject) => {
             this.open(mongoClient => {
                 let dbo = mongoClient.db(this.db);

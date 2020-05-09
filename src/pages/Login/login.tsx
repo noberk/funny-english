@@ -4,9 +4,9 @@ import { Link, Redirect } from "react-router-dom";
 import { Form,  Input, Button,message  } from "antd";
 import "./index.css";
 import { MeshRun, unMeshRun } from "../../animation/DynamicPointMesh/dynPointMesh";
-const clientId =
-  "656701571546-e9k0u6ujehdbhe1sijbpbjqevfotfisb.apps.googleusercontent.com";
-const clientCesret = "PN1bawLOwKjHI5EpOHO23DSV";
+// const clientId =
+//   "656701571546-e9k0u6ujehdbhe1sijbpbjqevfotfisb.apps.googleusercontent.com";
+// const clientCesret = "PN1bawLOwKjHI5EpOHO23DSV";
 const intrinsic= {
     account: "noberk",
     password: "123"

@@ -4,39 +4,39 @@ import { Option } from "./option";
 import { GCC } from "./main";
 
 
-export function value2emoji(score :number):string{
-    
+export function value2emoji(score: number): string {
+
     //
     switch (score) {
         case 0: return "";
-        case 2**1: return Option.emoji.dog
-        case 2**2: return Option.emoji.monkey
-        case 2**3: return Option.emoji.mouse
-        case 2**4: return Option.emoji.piggy
-        case 2**5: return Option.emoji.tiger
-        case 2**6: return Option.emoji.caty
-        case 2**7: return Option.emoji.Monocerus
-        case 2**8: return Option.emoji.snake
-        case 2**9: return Option.emoji.bee
-        case 2**10: return Option.emoji.panda
+        case 2 ** 1: return Option.emoji.dog
+        case 2 ** 2: return Option.emoji.monkey
+        case 2 ** 3: return Option.emoji.mouse
+        case 2 ** 4: return Option.emoji.piggy
+        case 2 ** 5: return Option.emoji.tiger
+        case 2 ** 6: return Option.emoji.caty
+        case 2 ** 7: return Option.emoji.Monocerus
+        case 2 ** 8: return Option.emoji.snake
+        case 2 ** 9: return Option.emoji.bee
+        case 2 ** 10: return Option.emoji.panda
         default: return Option.emoji.default
     }
 
 }
-export function value2word(score:number):string{
-    
+export function value2word(score: number): string {
+
     switch (score) {
         case 0: return "";
-        case 2**1: return GCC.data[0].word
-        case 2**2: return GCC.data[1].word
-        case 2**3: return GCC.data[2].word
-        case 2**4: return GCC.data[3].word
-        case 2**5: return GCC.data[4].word
-        case 2**6: return GCC.data[5].word
-        case 2**7: return GCC.data[6].word
-        case 2**8: return GCC.data[7].word
-        case 2**9: return GCC.data[8].word
-        case 2**10: return GCC.data[9].word
+        case 2 ** 1: return GCC.data[0].word
+        case 2 ** 2: return GCC.data[1].word
+        case 2 ** 3: return GCC.data[2].word
+        case 2 ** 4: return GCC.data[3].word
+        case 2 ** 5: return GCC.data[4].word
+        case 2 ** 6: return GCC.data[5].word
+        case 2 ** 7: return GCC.data[6].word
+        case 2 ** 8: return GCC.data[7].word
+        case 2 ** 9: return GCC.data[8].word
+        case 2 ** 10: return GCC.data[9].word
         default: return Option.emoji.default
     }
 }
@@ -50,7 +50,7 @@ export function randomNum(n: number): number {
 export function randomRangeIndexs(count: number, maxRangeValue: number): number[] {
 
     if (count < 1) {
-        throw "參數錯誤 至少生成一個";
+        console.error("參數錯誤 至少生成一個")
     }
     var reuslt: number[] = [];
     while (reuslt.length !== count) {
@@ -290,7 +290,7 @@ export function combineTilesColumns(table: TileInfo[][], dir: System.Direction):
 
 
                         var target = vaildDataCache[targetRightIndex];
-                        target.value = target.value * target.value 
+                        target.value = target.value * target.value
                         finalCache.push(target)
 
                         vaildDataCache.shift();
@@ -332,7 +332,7 @@ export function combineTilesColumns(table: TileInfo[][], dir: System.Direction):
                     if (vaildDataCache[targetRightIndex].value === vaildDataCache[targetIndex].value) {
 
                         var target = vaildDataCache[targetRightIndex];
-                        target.value = target.value * target.value 
+                        target.value = target.value * target.value
                         finalCache.push(target)
 
                         vaildDataCache.pop();
@@ -369,7 +369,7 @@ export function initCreateTiles(length: number, count: number, valuesRange: numb
     let pushCount = 0
     let result: TileInfo[] = [];
     for (let i = 0; i < length; i++) {
-        result.push({ index: i, value: 0, isAid: false, previousIndex: undefined, moveSteps:0 })
+        result.push({ index: i, value: 0, isAid: false, previousIndex: undefined, moveSteps: 0 })
     }
     while (pushCount < count) {
         var ranNum = randomNum(length)
@@ -381,7 +381,7 @@ export function initCreateTiles(length: number, count: number, valuesRange: numb
     return result;
 }
 /**額外獎勵方塊 */
-export function aid(data: TileInfo[], count: number = 1): TileInfo[]  {
+export function aid(data: TileInfo[], count: number = 1): TileInfo[] {
     var emptySolt = data.filter(p => p.value === 0)
     var emptySoltCount = emptySolt.length;
 

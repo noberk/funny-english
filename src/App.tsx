@@ -1,27 +1,26 @@
-import React from "react";
-import Home from "./pages/Home/home";
-import { IntlProvider } from "react-intl";
-import Login from "./pages/Login/login";
-import { createStore, combineReducers } from "redux";
-import { balanceReducer } from "./store/balanceReducer";
-import { langReducer } from "./store/langReducer";
-import { Provider } from "react-redux";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react'
+import Home from './pages/Home/home'
+import { IntlProvider } from 'react-intl'
+import Login from './pages/Login/login'
+import { createStore, combineReducers } from 'redux'
+import { balanceReducer } from './store/balanceReducer'
+import { langReducer } from './store/langReducer'
+import { Provider } from 'react-redux'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
-import "./App.scss";
-import { FunnyLog } from "./react-sophia";
+import './App.scss'
+import { Sophia } from 'react-sophia'
 
-const store = createStore(combineReducers({ balanceReducer, langReducer }));
+const store = createStore(combineReducers({ balanceReducer, langReducer }))
 
 const App: React.FC = () => (
   <IntlProvider
     locale="en"
     messages={{
-      a: "a"
+      a: 'a',
     }}
   >
     <Provider store={store}>
-      <FunnyLog/>
       <div>
         <Router>
           <Switch>
@@ -30,8 +29,9 @@ const App: React.FC = () => (
           </Switch>
         </Router>
       </div>
+      <Sophia />
     </Provider>
   </IntlProvider>
-);
+)
 
-export default App;
+export default App
