@@ -41,7 +41,7 @@ export class DBConnetion {
             })
         })
     }
-    insertMany<T>(many: Array<T>): Promise<InsertWriteOpResult<any>> {
+    insertMany<T>(many: Array<T>): Promise<InsertWriteOpResult> {
         return new Promise((resolve, reject) => {
             this.open(mongoClient => {
                 let dbo = mongoClient.db(this.db);

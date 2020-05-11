@@ -10,7 +10,7 @@ import WordListening from "../WordListening/wordListening";
 import EssentialWord4k from "../EssentialWord4k/essentialWord4k";
 import IELTS from "../IELTS/ielts";
 import GWeAreCouple from "../GWeAreCouple/gWeAreCouple";
-import { WrappedDemo } from "../AddArticle/addArticle";
+import {  Article } from "../AddArticle/addArticle";
 import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown } from "antd";
 import React, { useState } from "react";
 import { Route, Link } from "react-router-dom";
@@ -227,7 +227,7 @@ const Home: React.FC = () => {
           <Route path="/" exact component={StudentList} />
           <Route path="/StudentInfo" exact component={StudenetInfo} />
           <Route path="/addVocabulary" exact component={AddVocabulary} />
-          <Route path="/addArticle" exact component={WrappedDemo} />
+          <Route path="/addArticle" exact component={Article} />
           <Route path="/WordList" exact component={WordList} />
           <Route path="/amuse" exact component={Login} />
           <Route path="/GWeAreCouple" exact component={GWeAreCouple} />
