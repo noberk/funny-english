@@ -15,7 +15,7 @@ const store = createStore(combineReducers({ balanceReducer, langReducer }))
 
 const App: React.FC = () => (
   <>
-    <Sophia />
+    <Sophia emojiIcon="😀" />
     <IntlProvider
       locale="en"
       messages={{
