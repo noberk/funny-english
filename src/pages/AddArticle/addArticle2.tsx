@@ -1,26 +1,81 @@
-import React from 'react'
-import { Form, Select, InputNumber, Switch, Radio, Slider, Button, Upload, Icon, Rate, Checkbox, Row, Col } from 'antd'
+import React, { FC, useContext, useEffect } from 'react'
+import { BookContextProvider, BookContext } from '../../sophia/src/shared/book-context'
+import { Button, Input, Table } from 'antd'
 import { useObject } from '../../sophia/src/index'
-export function Article2() {
+
+const _: FC = () => {
   const { object, updateObject } = useObject(
     {
-      buttonValue: 'comfirm',
+      ...useContext(BookContext),
+      d: {
+        level1: {
+          nname: 512,
+          age: 6,
+        },
+      },
+      books: [],
+      firstName: 'linda',
+      lastName: '',
+      age: '',
+      grandson: { name: 'minay' },
     },
-    { sceneName: '🧪 Test Tube2' }
+    { sceneName: '🦠booklist🦠' }
   )
-  const { object: object1, updateObject: updateObject1 } = useObject(
-    {
-      buttonValue: '(๑ŐдŐ)b2',
-    },
-    { sceneName: '😀 Test Tube2' }
-  )
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  function fetchData() {
+    object.getBooks!().then(d => {
+      updateObject('books', d as any)
+    })
+  }
+  console.log(object)
+
   return (
-    <div>
-      <Button type="primary" onClick={() => updateObject('buttonValue', object.buttonValue + 1)}>
-        {object.buttonValue}
-      </Button>
-      <input type="text" value={object.buttonValue} onChange={e => updateObject('buttonValue', e.target.value)} />
-      <input type="text" value={object1.buttonValue} onChange={e => updateObject1('buttonValue', e.target.value)} />
+    <div style={{ padding: 20, width: '50%' }}>
+      <Button type="primary">{object.name}</Button>
+      <div>
+        <div>
+          Your first name : <Input type="text" value={object.firstName} onChange={e => updateObject('firstName', e.target.value)} />
+        </div>
+        <div>
+          Your last name : <Input type="text" value={object.lastName} onChange={e => updateObject('lastName', e.target.value)} />
+        </div>
+        <div>
+          Your age is : <Input type="text" value={object.age} onChange={e => updateObject('age', e.target.value)} />
+        </div>
+
+        <Button type="ghost">{object.grandson.name}</Button>
+      </div>
+
+      <Table
+        dataSource={object.books}
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
+            key: 'age',
+          },
+          {
+            title: 'Id',
+            dataIndex: 'id',
+            key: 'id',
+          },
+        ]}
+      />
     </div>
+  )
+}
+export const Article2: FC = props => {
+  return (
+    <BookContextProvider>
+      <_ {...props}></_>
+    </BookContextProvider>
   )
 }
