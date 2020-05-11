@@ -92,7 +92,7 @@ const _Menu: FC<MenuProps> = props => {
         <>
           <div className="menu-panel-info">
             <nav style={{ minWidth, maxWidth }}>
-              <span onClick={() => setUpdate()}>♻️</span>
+              {/* <span onClick={() => setUpdate()}>♻️</span> */}
               {object.tabs.map((curState, i) => (
                 <span
                   key={getUid()}

@@ -1,18 +1,18 @@
 import React from 'react'
 import { Form, Select, InputNumber, Switch, Radio, Slider, Button, Upload, Icon, Rate, Checkbox, Row, Col } from 'antd'
 import { useObject } from '../../sophia/src/index'
-export function Article() {
+export function Article2() {
   const { object, updateObject } = useObject(
     {
       buttonValue: 'comfirm',
     },
-    { sceneName: '🧪 Test Tube' }
+    { sceneName: '🧪 Test Tube2' }
   )
   const { object: object1, updateObject: updateObject1 } = useObject(
     {
-      buttonValue: '(๑ŐдŐ)b',
+      buttonValue: '(๑ŐдŐ)b2',
     },
-    { sceneName: '😀 Test Tube' }
+    { sceneName: '😀 Test Tube2' }
   )
   return (
     <div>
