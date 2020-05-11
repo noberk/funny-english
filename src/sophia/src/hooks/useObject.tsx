@@ -5,6 +5,11 @@ import { LIMITED_SCENES_TAG } from '../components/menu'
 export function useObject<T extends { [key: string]: any }>(
   initO: T,
   option: {
+    /**
+     *In Testing mode only... remember that  `Do Not Use` the same `name` in the project otherwise stateName in the panel will be rendered only once...
+     * sceneName =   'name1' & 'name2'  were corrent.
+     * sceneName =  'abc' & 'abc' were incorrent.
+     */
     sceneName?: string
   } = {}
 ) {
