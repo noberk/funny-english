@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Select, InputNumber, Switch, Radio, Slider, Button, Upload, Icon, Rate, Checkbox, Row, Col } from 'antd'
-import { useObject } from 'react-sophia'
+import { useObject } from '../../sophia/src/index'
 export function Article() {
   const { object, updateObject } = useObject(
     {

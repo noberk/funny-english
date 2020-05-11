@@ -9,29 +9,31 @@ import { Provider } from 'react-redux'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './App.scss'
-import { Sophia } from 'react-sophia'
+import { Sophia } from './sophia/src/index'
 
 const store = createStore(combineReducers({ balanceReducer, langReducer }))
 
 const App: React.FC = () => (
-  <IntlProvider
-    locale="en"
-    messages={{
-      a: 'a',
-    }}
-  >
-    <Provider store={store}>
-      <div>
-        <Router>
-          <Switch>
-            <Route path="/login" exact component={Login} />
-            <Route path="/" component={Home} />
-          </Switch>
-        </Router>
-      </div>
-      <Sophia />
-    </Provider>
-  </IntlProvider>
+  <>
+    <Sophia />
+    <IntlProvider
+      locale="en"
+      messages={{
+        a: 'a',
+      }}
+    >
+      <Provider store={store}>
+        <div>
+          <Router>
+            <Switch>
+              <Route path="/login" exact component={Login} />
+              <Route path="/" component={Home} />
+            </Switch>
+          </Router>
+        </div>
+      </Provider>
+    </IntlProvider>
+  </>
 )
 
 export default App

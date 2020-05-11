@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Righteous';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Righteous-Regular.ttf');
+  src: local('Righteous'), local('Righteous');
+}
+.grdq2a0x2p6xt {
+  font-family: 'Righteous';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
