@@ -1,12 +1,11 @@
 import React, { FC, useContext, useEffect } from 'react'
-import { BookContextProvider, BookContext } from '../../sophia/src/shared/book-context'
+
 import { Button, Input, Table } from 'antd'
-import { useObject } from '../../sophia/src/index'
+import { useObject } from 'react-sophia'
 
 const _: FC = () => {
   const { object, updateObject } = useObject(
     {
-      ...useContext(BookContext),
       d: {
         level1: {
           nname: 512,
@@ -21,20 +20,9 @@ const _: FC = () => {
     },
     { sceneName: '🦠booklist🦠' }
   )
-  useEffect(() => {
-    fetchData()
-  }, [])
-
-  function fetchData() {
-    object.getBooks!().then(d => {
-      updateObject('books', d as any)
-    })
-  }
-  console.log(object)
 
   return (
     <div style={{ padding: 20, width: '50%' }}>
-      <Button type="primary">{object.name}</Button>
       <div>
         <div>
           Your first name : <Input type="text" value={object.firstName} onChange={e => updateObject('firstName', e.target.value)} />
@@ -73,9 +61,5 @@ const _: FC = () => {
   )
 }
 export const Article2: FC = props => {
-  return (
-    <BookContextProvider>
-      <_ {...props}></_>
-    </BookContextProvider>
-  )
+  return <_ {...props}></_>
 }

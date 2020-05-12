@@ -9,13 +9,13 @@ import { Provider } from 'react-redux'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './App.scss'
-import { Sophia } from './sophia/src/index'
+import { Sophia } from 'react-sophia'
 
 const store = createStore(combineReducers({ balanceReducer, langReducer }))
 
 const App: React.FC = () => (
   <>
-    <Sophia emojiIcon="😀" />
+    <Sophia emojiIcon="😀" supervise />
     <IntlProvider
       locale="en"
       messages={{
