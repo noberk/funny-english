@@ -509,7 +509,7 @@ export const T1 : TWordList=[
     ["trash", "/'æŋ(k)ʃəs/", "adj", "Trash is waste material or unwanted or worthless things.", "Please take out the trash; it smells bad. ", ""],
     ["wide", "/'æŋ(k)ʃəs/", "adj", "If something is wide, it is large from side to side. ", "The door was as wide as my arms. ", ""],
   
-    ["advice", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
+    ["advice", "/'advais'/", "pron", "Advice is an opinion about what to do", "I don't know how to tudy for my exams. Can you give me some advice", ""],
     ["along", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
     ["attention", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
     ["attract", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
