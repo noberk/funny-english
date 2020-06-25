@@ -510,7 +510,7 @@ export const T1 : TWordList=[
     ["wide", "/'æŋ(k)ʃəs/", "adj", "If something is wide, it is large from side to side. ", "The door was as wide as my arms. ", ""],
   
     ["advice", "/'advais'/", "pron", "Advice is an opinion about what to do", "I don't know how to tudy for my exams. Can you give me some advice", ""],
-    ["along", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
+    ["along", "/'æŋ(k)ʃəs/", "adj", "Along means to move from one part of a road, river, etc. to another.", "I Walk along this tunnel for ten minutes, and you’ll see a door on the left. ", ""],
     ["attention", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
     ["attract", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
     ["climb", "/'æŋ(k)ʃəs/", "adj", "", "", ""],
