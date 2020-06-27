@@ -5,7 +5,7 @@ export interface VerbForms {
   presentParticiple: string
 }
 //{infinitive:'', simplePast:'',pastParticiple:''},
-export const irverb: Partial<VerbForms>[] = [
+export const data: Partial<VerbForms>[] = [
   { infinitive: 'arise', simplePast: 'arose', pastParticiple: 'arisen' },
   { infinitive: 'awake', simplePast: 'awoke(awaked)', pastParticiple: 'awoke (awaked, awoken)' },
   { infinitive: 'be', simplePast: 'was / were', pastParticiple: 'been' },
@@ -49,4 +49,74 @@ export const irverb: Partial<VerbForms>[] = [
   { infinitive: 'forgive', simplePast: 'forgave', pastParticiple: 'forgiven' },
   { infinitive: 'freeze', simplePast: 'forze', pastParticiple: 'forzen' },
   { infinitive: 'get', simplePast: 'got', pastParticiple: 'got (gotten)' },
+
+  { infinitive: 'give', simplePast: 'gave', pastParticiple: 'given' },
+  { infinitive: 'go', simplePast: 'went', pastParticiple: 'gone' },
+  { infinitive: 'grow', simplePast: 'grew', pastParticiple: 'grown' },
+  { infinitive: 'have', simplePast: 'had', pastParticiple: 'had' },
+  { infinitive: 'hear', simplePast: 'heard', pastParticiple: 'heard' },
+  { infinitive: 'hide', simplePast: 'hid', pastParticiple: 'hidden' },
+  { infinitive: 'hurt', simplePast: 'hurt', pastParticiple: 'hurt' },
+  { infinitive: 'keep', simplePast: 'kept', pastParticiple: 'kept' },
+  { infinitive: 'know', simplePast: 'knew', pastParticiple: 'known' },
+  { infinitive: 'lay', simplePast: 'laid', pastParticiple: 'laid' },
+
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+
+
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+
+
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+
+
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+
+
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: '', simplePast: '', pastParticiple: '' },
 ]

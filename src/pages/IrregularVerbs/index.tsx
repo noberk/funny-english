@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Table } from 'antd'
 import { Title } from '../../components/PageTitles/Title'
 import { VerbForms } from '../../data/IrregularVerbs/irregular-verbs'
-import { $get } from '../../utils/service'
+import { $get, $getLocal } from '../../utils/service'
 import { ColumnProps } from 'antd/lib/table/interface'
 
-const columns2: ColumnProps<VerbForms>[] = [
+const columns2: ColumnProps<Partial<VerbForms>>[] = [
   {
     title: 'Infinitive',
     dataIndex: 'infinitive',
@@ -24,7 +24,7 @@ const columns2: ColumnProps<VerbForms>[] = [
 ]
 
 export default function () {
-  const [irregularVerbList, setIrregularVerbList] = useState<VerbForms[]>([])
+  const [irregularVerbList, setIrregularVerbList] = useState<Partial<VerbForms>[]>([])
 
   useEffect(() => {
     loadData()
@@ -32,13 +32,12 @@ export default function () {
 
   async function loadData() {
     try {
-      const data = await $get<VerbForms[]>('getIrregularVerbs')
-      if (Array.isArray(data)) {
+      $getLocal<Partial<VerbForms>[]>('IrregularVerbs/irregular-verbs').then(data => {
         setIrregularVerbList(data)
-      } else {
-        setIrregularVerbList([])
-      }
-    } catch (error) {}
+      })
+    } catch (error) {
+      setIrregularVerbList([])
+    }
   }
   return (
     <>

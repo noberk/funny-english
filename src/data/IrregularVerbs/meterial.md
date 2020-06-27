@@ -1,13 +1,3 @@
-give gave given
-go went gone
-grow grew grown
-have had had
-hear heard heard
-hide hid hidden
-hurt hurt hurt
-keep kept kept
-know knew known
-lay laid laid
 lead led led
 learn learnt (learned) learnt (learned)
 leave left left
