@@ -1,4 +1,4 @@
-interface VerbForms {
+export interface VerbForms {
   infinitive: string
   simplePast: string
   pastParticiple: string
