@@ -3,6 +3,25 @@ import { Table } from 'antd'
 import { Title } from '../../components/PageTitles/Title'
 import { VerbForms } from '../../data/IrregularVerbs/irregular-verbs'
 import { $get } from '../../utils/service'
+import { ColumnProps } from 'antd/lib/table/interface'
+
+const columns2: ColumnProps<VerbForms>[] = [
+  {
+    title: 'Infinitive',
+    dataIndex: 'infinitive',
+    key: 'infinitive',
+  },
+  {
+    title: 'SimplePast',
+    dataIndex: 'simplePast',
+    key: 'simplePast',
+  },
+  {
+    title: 'PastParticiple',
+    dataIndex: 'pastParticiple',
+    key: 'pastParticiple',
+  },
+]
 
 export default function () {
   const [irregularVerbList, setIrregularVerbList] = useState<VerbForms[]>([])
@@ -11,8 +30,15 @@ export default function () {
     loadData()
   }, [])
 
-  function loadData() {
-    $get<VerbForms[]>('getIrregularVerbs')
+  async function loadData() {
+    try {
+      const data = await $get<VerbForms[]>('getIrregularVerbs')
+      if (Array.isArray(data)) {
+        setIrregularVerbList(data)
+      } else {
+        setIrregularVerbList([])
+      }
+    } catch (error) {}
   }
   return (
     <>
@@ -23,7 +49,7 @@ export default function () {
         }
       />
 
-      <Table dataSource={irregularVerbList} />
+      <Table dataSource={irregularVerbList} columns={columns2} />
     </>
   )
 }
