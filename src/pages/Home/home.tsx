@@ -22,6 +22,7 @@ import './home.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { DispatchT } from '../../store/storeType'
 import { Lang } from '../../lib/i18n/language'
+import IrregularVerbs from '../IrregularVerbs'
 
 const { Header, Content, Footer, Sider } = Layout
 const { SubMenu } = Menu
@@ -79,7 +80,7 @@ const Home: React.FC = () => {
             key="sub1"
             title={
               <span>
-                <Icon component={() => emoji('👪')} spin />
+                <Icon component={() => emoji('🈯')} spin />
                 <span className="emojiSize">{Lang[state.lang].leftNav.menu1.name}</span>
               </span>
             }
@@ -87,9 +88,9 @@ const Home: React.FC = () => {
             <Menu.Item key="101">
               <Link to="/">{Lang[state.lang].leftNav.menu1.subMenu[0]}</Link>
             </Menu.Item>
-            <Menu.Item key="102">
+            {/* <Menu.Item key="102">
               <Link to="/StudentInfo">{Lang[state.lang].leftNav.menu1.subMenu[1]}</Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </SubMenu>
           <SubMenu
             key="sub2"
@@ -217,7 +218,7 @@ const Home: React.FC = () => {
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-          <Route path="/" exact component={StudentList} />
+          <Route path="/" exact component={IrregularVerbs} />
           <Route path="/StudentInfo" exact component={StudenetInfo} />
           <Route path="/addVocabulary" exact component={AddVocabulary} />
           <Route path="/addArticle" exact component={Article} />

@@ -41,7 +41,7 @@ export class DBConnetion {
             })
         })
     }
-    insertMany<T>(many: Array<T>): Promise<InsertWriteOpResult> {
+    insertMany<T>(many: Array<T>): Promise<any> {
         return new Promise((resolve, reject) => {
             this.open(mongoClient => {
                 let dbo = mongoClient.db(this.db);
@@ -52,6 +52,7 @@ export class DBConnetion {
             })
         })
     }
+    
     delete<T>(whereStr: Partial<T>) {
         this.open(mongoClient => {
             let dbo = mongoClient.db(this.db);

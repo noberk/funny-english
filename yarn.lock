@@ -10602,10 +10602,10 @@ react-slick@~0.25.2:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react-sophia@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/react-sophia/-/react-sophia-0.0.2.tgz#7b270d44d86685e000f9f41cc5dfa76412742866"
-  integrity sha512-tR3Ztn5PLKIgkYjYwZZPRbFPk179m+EChzO0KVKyHbnFFnzp8b0juvvsnj5DVKgfpN0Gx7CZOGW7l/pKt3I1yw==
+react-sophia@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-sophia/-/react-sophia-0.1.4.tgz#b8393d600aa01c03945391e203e3cee81e024da3"
+  integrity sha512-Yn04fTr+amKnyLM4bi86HQy8zEWDJdKS/3axY7ppxVpbuobyCuCuB5ke75W9GcsgGR1teYEqE2769TC7daFaDw==
 
 react@^16.9.0:
   version "16.13.1"
