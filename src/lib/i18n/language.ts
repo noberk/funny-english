@@ -3,7 +3,7 @@ export const Lang: any = {
     nav: ['Exam', 'Home', 'Help', 'Privacy', 'Support', 'About'],
     leftNav: {
       menu1: { name: 'Get Started', subMenu: ['Irregular Verb', 'Student Info'] },
-      menu2: { name: 'Write', subMenu: ['Vocabulary', 'Article', 'Article2'] },
+      menu2: { name: 'Reading', subMenu: ['Vocabulary', 'Article', 'Article2'] },
       menu3: { name: 'Statistic', subMenu: ['Vocabulary'] },
       menu4: { name: 'Charts', subMenu: ['Hot words(coming soon)'] },
       menu5: {
@@ -20,7 +20,7 @@ export const Lang: any = {
     nav: ['考试', '主页', '帮助', '隐私', '支持', '关于'],
     leftNav: {
       menu1: { name: '入门', subMenu: ['不规则动词', '学生信息'] },
-      menu2: { name: '录入', subMenu: ['词汇', '文章', '文章2'] },
+      menu2: { name: '阅读', subMenu: ['词汇', '文章', '文章2'] },
       menu3: { name: '统计', subMenu: ['词汇'] },
       menu4: { name: '图表', subMenu: ['常用词汇(准备中)'] },
       menu5: {
@@ -37,7 +37,7 @@ export const Lang: any = {
     nav: ['試験', 'ホーム', '助けて', 'プライバシー', 'サポート', '私について'],
     leftNav: {
       menu1: { name: '入门', subMenu: ['不规则动词', '學生情報'] },
-      menu2: { name: '錄入', subMenu: ['詞彙', '文章', '文章2'] },
+      menu2: { name: '阅读', subMenu: ['詞彙', '文章', '文章2'] },
       menu3: { name: '統計', subMenu: ['詞彙'] },
       menu4: { name: '圖表', subMenu: ['ホットワード(近日公開)'] },
       menu5: {

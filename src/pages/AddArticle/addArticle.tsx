@@ -4,7 +4,7 @@ import { useObject } from 'react-sophia'
 export function Article() {
   const { object, updateObject } = useObject(
     {
-      buttonValue: 'comfirm',
+      buttonValue: 'confirm',
       checkBoxValue: true,
     },
     { sceneName: '🧪 Test Tube' }

@@ -11,11 +11,9 @@ import EssentialWord4k from '../EssentialWord4k/essentialWord4k'
 import IELTS from '../IELTS/ielts'
 import GWeAreCouple from '../GWeAreCouple/gWeAreCouple'
 import { Article } from '../AddArticle/addArticle'
-import { Article2 } from '../AddArticle/addArticle2'
 import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown } from 'antd'
 import React, { useState } from 'react'
 import { Route, Link } from 'react-router-dom'
-import { checkMonkUser } from '../Login/login'
 import { IconLanguage } from '../../components/svg'
 
 import './home.css'
@@ -106,9 +104,6 @@ const Home: React.FC = () => {
             </Menu.Item>
             <Menu.Item key="202">
               <Link to="/addArticle">{Lang[state.lang].leftNav.menu2.subMenu[1]}</Link>
-            </Menu.Item>
-            <Menu.Item key="203">
-              <Link to="/addArticle2">{Lang[state.lang].leftNav.menu2.subMenu[1]}</Link>
             </Menu.Item>
           </SubMenu>
           <SubMenu
@@ -222,7 +217,6 @@ const Home: React.FC = () => {
           <Route path="/StudentInfo" exact component={StudenetInfo} />
           <Route path="/addVocabulary" exact component={AddVocabulary} />
           <Route path="/addArticle" exact component={Article} />
-          <Route path="/addArticle2" exact component={Article2} />
           <Route path="/WordList" exact component={WordList} />
           <Route path="/amuse" exact component={Login} />
           <Route path="/GWeAreCouple" exact component={GWeAreCouple} />
