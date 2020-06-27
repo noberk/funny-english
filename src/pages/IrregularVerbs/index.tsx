@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { Table } from 'antd'
 import { Title } from '../../components/PageTitles/Title'
 import { VerbForms } from '../../data/IrregularVerbs/irregular-verbs'
+import { $get } from '../../utils/service'
 
 export default function () {
   const [irregularVerbList, setIrregularVerbList] = useState<VerbForms[]>([])
 
   useEffect(() => {
-    fetch("../")
+    loadData()
   }, [])
-  
+
+  function loadData() {
+    $get<VerbForms[]>('getIrregularVerbs')
+  }
   return (
     <>
       <Title

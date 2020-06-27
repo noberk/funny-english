@@ -11,6 +11,8 @@
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
     "antd": "^3.23.2",
+    "axios": "^0.19.2",
+    "http-proxy-middleware": "^1.0.4",
     "koa": "^2.8.1",
     "koa-favicon": "^2.0.1",
     "lodash": "^4.17.15",
@@ -33,6 +35,7 @@
     "typesafe-actions": "^4.4.2",
     "typescript": "3.8.3"
   },
+  "proxy": "http://www.andoso.cn",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
