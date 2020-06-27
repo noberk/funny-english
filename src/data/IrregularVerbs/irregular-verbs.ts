@@ -84,16 +84,16 @@ export const data: Partial<VerbForms>[] = [
   { infinitive: 'send', simplePast: 'sent', pastParticiple: 'sent' },
 
 
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
-  { infinitive: '', simplePast: '', pastParticiple: '' },
+  { infinitive: 'shake', simplePast: 'shook', pastParticiple: 'shaken' },
+  { infinitive: 'shave', simplePast: 'shaved', pastParticiple: 'shaven' },
+  { infinitive: 'shoot', simplePast: 'shot', pastParticiple: 'shot' },
+  { infinitive: 'show', simplePast: 'showed', pastParticiple: 'shown' },
+  { infinitive: 'shut', simplePast: 'shut', pastParticiple: 'shut' },
+  { infinitive: 'sing', simplePast: 'sang', pastParticiple: 'sung' },
+  { infinitive: 'sink', simplePast: 'sank', pastParticiple: 'sunk' },
+  { infinitive: 'sit', simplePast: 'sat', pastParticiple: 'sat' },
+  { infinitive: 'sleep', simplePast: 'slept', pastParticiple: 'slept' },
+  { infinitive: 'smell', simplePast: 'smelt (smelled)', pastParticiple: 'smelt (smelled)' },
 
 
   { infinitive: '', simplePast: '', pastParticiple: '' },

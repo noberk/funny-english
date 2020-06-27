@@ -1,14 +1,3 @@
-
-shake shook shaken
-shave shaved shaven (shaved)
-shoot shot shot
-show showed shown
-shut shut shut
-sing sang sung
-sink sank sunk
-sit sat sat
-sleep slept slept
-smell smelt (smelled) smelt (smelled)
 speak spoke spoken
 spell spelt (spelled) spelt (spelled)
 spend spent spent
