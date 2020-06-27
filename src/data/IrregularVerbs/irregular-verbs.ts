@@ -7,7 +7,7 @@ export interface VerbForms {
 //{infinitive:'', simplePast:'',pastParticiple:''},
 export const data: Partial<VerbForms>[] = [
   { infinitive: 'arise', simplePast: 'arose', pastParticiple: 'arisen' },
-  { infinitive: 'awake', simplePast: 'awoke, awaked,', pastParticiple: 'awoke, awaked, awoken,' },
+  { infinitive: 'awake', simplePast: 'awoke, awaked', pastParticiple: 'awoke, awaked, awoken' },
   { infinitive: 'be', simplePast: 'was / were', pastParticiple: 'been' },
   { infinitive: 'become', simplePast: 'became', pastParticiple: 'become' },
   { infinitive: 'bear', simplePast: 'bore', pastParticiple: 'borne,born' },

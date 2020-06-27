@@ -11,24 +11,29 @@ const columns2: ColumnProps<Partial<VerbForms>>[] = [
     title: 'Infinitive',
     dataIndex: 'infinitive',
     key: 'infinitive',
-    render: val => (
-      <>
-        {val} <Sound word={val} />
-      </>
-    ),
+    render: val => spreadMultipleIrregularVerbs(val),
   },
   {
     title: 'SimplePast',
     dataIndex: 'simplePast',
     key: 'simplePast',
+    render: val => spreadMultipleIrregularVerbs(val),
   },
   {
     title: 'PastParticiple',
     dataIndex: 'pastParticiple',
     key: 'pastParticiple',
+    render: val => spreadMultipleIrregularVerbs(val),
   },
 ]
-
+export function spreadMultipleIrregularVerbs(word: string) {
+  return word.split(',').map(w => (
+    <span style={{ fontSize: '1.3rem', marginRight: 10 }}>
+      {w.trim()}
+      <Sound word={w.trim()} />
+    </span>
+  ))
+}
 export default function () {
   const [irregularVerbList, setIrregularVerbList] = useState<Partial<VerbForms>[]>([])
 
