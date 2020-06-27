@@ -4,12 +4,18 @@ import { Title } from '../../components/PageTitles/Title'
 import { VerbForms } from '../../data/IrregularVerbs/irregular-verbs'
 import { $get, $getLocal } from '../../utils/service'
 import { ColumnProps } from 'antd/lib/table/interface'
+import { Sound } from '../../components/common'
 
 const columns2: ColumnProps<Partial<VerbForms>>[] = [
   {
     title: 'Infinitive',
     dataIndex: 'infinitive',
     key: 'infinitive',
+    render: val => (
+      <>
+        {val} <Sound word={val} />
+      </>
+    ),
   },
   {
     title: 'SimplePast',
