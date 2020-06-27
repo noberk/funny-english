@@ -3,6 +3,8 @@ import { Checkbox, Col, Row } from 'antd'
 import { useObject } from 'react-sophia'
 import { IELTSReadingMaterial } from '../../data/IELTS/Cambridge-Reading/types'
 import { Title } from '../../components/PageTitles/Title'
+
+import './index.scss'
 export function Article() {
   const { object, updateObject } = useObject<Partial<IELTSReadingMaterial & { checkBoxValue?: boolean }>>(
     {
@@ -28,7 +30,7 @@ export function Article() {
   }
 
   return (
-    <div>
+    <div className="addArticle-thesis">
       <Row>
         <Col span={12}>
           <Title tilte={title} description="" />

@@ -1,0 +1,15 @@
+@mixin addArticle-thesis-selection {
+  color: plum;
+  background: whitesmoke;
+}
+.addArticle-thesis {
+  font-size: 16px;
+
+  ::-moz-selection {
+    @include addArticle-thesis-selection;
+  }
+
+  ::selection {
+    @include addArticle-thesis-selection;
+  }
+}
