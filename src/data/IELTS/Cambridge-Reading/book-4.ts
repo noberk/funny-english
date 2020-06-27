@@ -1,4 +1,4 @@
-import { IELTSReadingMaterial } from ".";
+import { IELTSReadingMaterial, initQStatement, QStatements, initQDragMatch } from ".";
 
 export const data: IELTSReadingMaterial = {
     title: 'These Misconceptions of Tropical Rainforests',
@@ -17,12 +17,36 @@ export const data: IELTSReadingMaterial = {
         'The results of this study suggest that certain ideas predominate in the thinking of children about rainforests. Pupils’ responses indicate some misconceptions in basic scientific knowledge of rainforests’ ecosystems such as their ideas about rainforests as habitats for animals, plants and humans and the relationship between climatic change and destruction of rainforests.',
         'Pupils did not volunteer ideas that suggested that they appreciated the complexity of causes of rainforest destruction. In other words, they gave no indication of an appreciation of either the rage of ways in which rainforests are important or the complex social, economic and political factors which drive the activities which are destroying the rainforests. One encouragement is that the results of similar studies about other environmental issues suggest that older children seem to acquire the ability to appreciate value and evaluate conflicting views. Environmental education offers an arena in which these sills can be developed, which is essential fore these children as future decision –makers.'
     ],
-    questionType: {
-        title: 'Question 1-8',
-        directive: [
-            'Do the following statements agree with the information given in Reading Passage',
-            'In boxes 1-8 on your answer sheet write',
-            
-        ]
-    }
+    questions: [
+        { ...initQStatement({ from: 1, to: 8 }) },
+        {
+            ...initQDragMatch({ from: 9, to: 13 },
+                [
+                    { desc: 'What was the children’s most frequent response when asked where the rainforests were?', answer: 'A' },
+                    { desc: 'What was the most common response to the question about the importance of the rainforests?', answer: 'A' },
+                    { desc: 'What did most children give as the reason for the loss of the rainforests?　', answer: 'A' },
+                    { desc: 'Why did most children think it important for the rainforests to be protected?　', answer: 'A' },
+                    { desc: 'Which of the responses is cited as unexpectedly uncommon, given the amount of time spent on the issue by the newspapers and television?', answer: 'A' }
+                ],
+                [
+                    { order: 'A', content: 'There is a complicated combination of reasons for the loss of the rainforests.  ' },
+                    { order: 'B', content: 'The rainforests are being destroyed by the same things that are destroying the forests of Western Europe. ' },
+                    { order: 'C', content: 'Rainforests are located near the Equator.' },
+                    { order: 'D', content: 'Brazil is home to the rainforests.  ' },
+                    { order: 'E', content: 'Without rainforests some animals would have nowhere to live.' },
+                    { order: 'F', content: 'Rainforests are important habitats for a lot of plants.' },
+                    { order: 'G', content: 'People are responsible for the loss of the rainforests.    ' },
+                    { order: 'H', content: 'The rainforests are a source of oxygen.' },
+                    { order: 'I', content: 'Rainforests are of consequence for a number of different reasons.  ' },
+                    { order: 'J', content: 'As the rainforests are destroyed, the world gets warmer.' },
+                    { order: 'K', content: ' Without rainforests there would not be enough oxygen in the air.' },
+                    { order: 'L', content: 'There are people for whom the rainforests are home.' },
+                    { order: 'M', content: 'Rainforests are found in Africa.  ' },
+                    { order: 'N', content: 'Rainforests are not really important to human life.' },
+                    { order: 'O', content: 'The destruction of the rainforests is the direct result of logging activity' },
+                    { order: 'P', content: 'Humans depend on the rainforests for their continuing existence. ' },
+                ]
+            )
+        }]
 }
+
