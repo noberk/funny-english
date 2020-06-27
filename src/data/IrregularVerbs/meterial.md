@@ -1,23 +1,4 @@
-lead led led
-learn learnt (learned) learnt (learned)
-leave left left
-lend lent lent
-let let let
-lose lost lost
-make made made
-mean meant meant
-meet met met
-pay paid paid
-read read read
-ride rode ridden
-ring rang rung
-rise rose risen
-run ran run
-say said said
-see saw seen
-seek sought sought
-sell sold sold
-send sent sent
+
 shake shook shaken
 shave shaved shaven (shaved)
 shoot shot shot
