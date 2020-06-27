@@ -94,7 +94,7 @@ const Home: React.FC = () => {
             key="sub2"
             title={
               <span>
-                <Icon component={() => emoji('✍️')} />
+                <Icon component={() => emoji('📚')} />
                 <span className="emojiSize">{Lang[state.lang].leftNav.menu2.name}</span>
               </span>
             }

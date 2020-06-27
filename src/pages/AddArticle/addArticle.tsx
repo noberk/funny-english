@@ -1,23 +1,41 @@
-import React from 'react'
-import { Form, Select, InputNumber, Switch, Radio, Slider, Button, Upload, Icon, Rate, Checkbox, Row, Col } from 'antd'
+import React, { useEffect } from 'react'
+import { Checkbox, Col, Row } from 'antd'
 import { useObject } from 'react-sophia'
+import { IELTSReadingMaterial } from '../../data/IELTS/Cambridge-Reading/types'
+import { Title } from '../../components/PageTitles/Title'
 export function Article() {
-  const { object, updateObject } = useObject(
+  const { object, updateObject } = useObject<Partial<IELTSReadingMaterial & { checkBoxValue?: boolean }>>(
     {
-      buttonValue: 'confirm',
+      paragraphs: [],
       checkBoxValue: true,
     },
     { sceneName: '🧪 Test Tube' }
   )
+  const { paragraphs, title = '123' } = object
+  useEffect(() => {
+    loadArticle()
+  }, [])
+  function loadArticle() {
+    import('../../data/IELTS/Cambridge-Reading/book-4').then(d => {
+      updateObject({
+        paragraphs: d.data.paragraphs,
+        title: d.data.title,
+      })
+    })
+  }
+  function writeAnThesis() {
+    return paragraphs?.map(p => <p>{p}</p>)
+  }
 
   return (
     <div>
-      <Button type="primary" onClick={() => updateObject('buttonValue', object.buttonValue + 1)}>
-        {object.buttonValue}
-      </Button>{' '}
-      <br />
-      <input type="text" value={object.buttonValue} onChange={e => updateObject('buttonValue', e.target.value)} />
-      <br />
+      <Row>
+        <Col span={12}>
+          <Title tilte={title} description="" />
+          {writeAnThesis()}
+        </Col>
+        <Col span={12}>col</Col>
+      </Row>
       <Checkbox
         defaultChecked={object.checkBoxValue}
         value="男"

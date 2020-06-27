@@ -42,7 +42,7 @@ export function initQDragMatch(range: AnswerOrderRange,
 
 export function initQMultiSelect(range: AnswerOrderRange, question: QMultiSelectAnswers[]) {
     let questionRange: any = range?.fixedNumber
-    if (questionRange === undefined) {
+if (questionRange === undefined) {
         questionRange = initQuestionOrderRange(range?.from, range?.to)
     }
     const data: BaseQuestion<QMultiSelect> = {
