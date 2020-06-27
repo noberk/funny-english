@@ -10,6 +10,7 @@ import * as _ from 'lodash'
 import '../../animation/DynamicPointMesh/dynPointMesh'
 import '../../animation/DynamicPointMesh/dynPointMesh.css'
 import { MeshRun } from '../../animation/DynamicPointMesh/dynPointMesh'
+import { Title } from '../../components/PageTitles/Title'
 
 function getWordPropertyCssName(type: wordPropertyType) {
   switch (type) {
@@ -41,7 +42,7 @@ const Level: any = {
   6: ['#facd68', '#fc76b3', '#786388'], //mistery purple
   7: ['#00f7a7', '#04f5ed', '#05c184'], //mistery purple
   8: ['#1de5e2', '#b588f7', '#7a21b9'], //mistery purple
-  9: ['#ffe324', '#ffb553', '#bd8c2d'] //mistery purple
+  9: ['#ffe324', '#ffb553', '#bd8c2d'], //mistery purple
 }
 const LevelLength = Object.getOwnPropertyNames(Level).length
 interface IEssential4KState {
@@ -53,19 +54,16 @@ interface IEssential4KProps {
   pageSize: number
   match?: any
 }
-export default class Essential4K extends React.Component<
-  IEssential4KProps,
-  IEssential4KState
-> {
+export default class Essential4K extends React.Component<IEssential4KProps, IEssential4KState> {
   static defaultProps = {
-    pageSize: 100
+    pageSize: 100,
   }
   constructor(props: any) {
     super(props)
     this.state = {
       data: [],
       intId: 1,
-      linkButtonCount: []
+      linkButtonCount: [],
     }
   }
   componentDidMount = async () => {
@@ -85,20 +83,14 @@ export default class Essential4K extends React.Component<
     }
     this.setState({
       linkButtonCount: lbCountArr,
-      data: _.cloneDeep(ess.essential4k).splice(0, this.props.pageSize)
+      data: _.cloneDeep(ess.essential4k).splice(0, this.props.pageSize),
     })
     console.log('componentDidMount')
   }
 
   highlight = (text: string, word: string) => {
     let words = text.split(' ')
-    return words.map(w =>
-      w.toUpperCase().includes(word.toUpperCase()) ? (
-        <s key={guidGenerator()}>{w} </s>
-      ) : (
-        <i key={guidGenerator()}>{w} </i>
-      )
-    )
+    return words.map(w => (w.toUpperCase().includes(word.toUpperCase()) ? <s key={guidGenerator()}>{w} </s> : <i key={guidGenerator()}>{w} </i>))
   }
   highLightArticle = (paragraph: string, plainWord: string[]) => {
     let words = paragraph.split(' ')
@@ -129,11 +121,8 @@ export default class Essential4K extends React.Component<
   loadword = async (page: number) => {
     const ess = await import('../../data/ES4K')
     this.setState({
-      data: _.cloneDeep(ess.essential4k).splice(
-        (page - 1) * this.props.pageSize,
-        this.props.pageSize
-      ),
-      intId: page
+      data: _.cloneDeep(ess.essential4k).splice((page - 1) * this.props.pageSize, this.props.pageSize),
+      intId: page,
     })
     // console.log(ess.essential4k.length);
 
@@ -170,12 +159,13 @@ export default class Essential4K extends React.Component<
         </div>
 
         <div className="essentialWord4k_right">
-          <h1 className="essentialWord4k_h1"> 🌴The 4000 Essential words🌴</h1>
-          <h2>
-            In this series of courses which contains 100 words below. We hope
+          <Title
+            tilte="🌴The 4000 Essential words🌴"
+            description="In this series of courses which contains 100 words below. We hope
             what you can follow this page to learn step by step that aid you to
-            build your vocabularies!
-          </h2>
+            build your vocabularies!"
+          />
+
           {/* here is words button list */}
           <div style={{ marginBottom: '1rem' }}>
             {data.map((item, index) => (
@@ -186,10 +176,7 @@ export default class Essential4K extends React.Component<
                   <>
                     <p>Pron : {item[1]}</p>
                     <p>
-                      Attr :{' '}
-                      <span
-                        className={`e_${item[2]} e_span`}
-                      >{`${item[2]}.`}</span>
+                      Attr : <span className={`e_${item[2]} e_span`}>{`${item[2]}.`}</span>
                     </p>
                     <p>Definition : {item[3]}</p>
                     <p>Example : {item[4]}</p>
@@ -203,10 +190,7 @@ export default class Essential4K extends React.Component<
                   size="large"
                   style={{
                     borderColor: `${Level[(intId % LevelLength) + 1][2]}`,
-                    backgroundColor: gradientColor(
-                      Level[(intId % LevelLength) + 1],
-                      data.length
-                    )[index]
+                    backgroundColor: gradientColor(Level[(intId % LevelLength) + 1], data.length)[index],
                   }}
                   type="primary"
                 >
@@ -227,10 +211,7 @@ export default class Essential4K extends React.Component<
                   <span>{item[2]} </span>
                   <Sound word={item[0]} />
                 </div>
-                <div className="essentialWord4k_highlight">
-                  {' '}
-                  {this.highlight(item[3], item[0])}{' '}
-                </div>
+                <div className="essentialWord4k_highlight"> {this.highlight(item[3], item[0])} </div>
                 <div style={{ marginBottom: '20px' }}>{item[4]} </div>
               </div>
             ))}
