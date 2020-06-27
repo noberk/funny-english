@@ -1,35 +1,9 @@
+import type { BaseQuestion, QStatement, QStatementAnswers, AnswerRange, QDragMatch } from "./types"
+import { QuestionType } from "./types"
 
-export interface IELTSReadingMaterial {
-    title: string,
-    hint: string
-    paragraphs: string[]
-    section: 1 | 2 | 3
-    questions: BaseQuestion<QStatements | QDragMatch>[]
-}
-export enum QuestionType { Statement, Grab, MultiSelect }
-
-export interface BaseQuestion<Q> {
-    type: QuestionType
-    data: Q
-    title: string
-    directive: string[]
-}
-export type AnswerRange = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P'
-
-export interface QStatements {
-
-}
-export interface QDragMatch {
-    question: {
-        desc: string
-        answer: string
-    }[]
-    questionRange: { order: string, content: string }[]
-
-}
-export function initQStatement(range: { from: number, to: number }) {
+export function initQStatement(range: { from: number, to: number }, question: QStatementAnswers[]) {
     const questionRange = initQuestionOrderRange(range.from, range.to)
-    const statement: BaseQuestion<QStatements> = {
+    const statement: BaseQuestion<QStatement> = {
         type: QuestionType.Statement,
         title: questionRange,
         directive: [
@@ -38,10 +12,7 @@ export function initQStatement(range: { from: number, to: number }) {
             'FALSE     if the statement contradicts the information',
             'NOT GIVEN     if there is no information on this'
         ],
-        data: {
-
-        }
-
+        data: { question }
     }
     return statement
 }

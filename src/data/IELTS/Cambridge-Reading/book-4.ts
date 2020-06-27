@@ -1,4 +1,4 @@
-import { IELTSReadingMaterial, initQStatement, QStatements, initQDragMatch } from ".";
+import { IELTSReadingMaterial, initQStatement, QStatement, initQDragMatch } from ".";
 
 export const data: IELTSReadingMaterial = {
     title: 'These Misconceptions of Tropical Rainforests',
@@ -18,7 +18,7 @@ export const data: IELTSReadingMaterial = {
         'Pupils did not volunteer ideas that suggested that they appreciated the complexity of causes of rainforest destruction. In other words, they gave no indication of an appreciation of either the rage of ways in which rainforests are important or the complex social, economic and political factors which drive the activities which are destroying the rainforests. One encouragement is that the results of similar studies about other environmental issues suggest that older children seem to acquire the ability to appreciate value and evaluate conflicting views. Environmental education offers an arena in which these sills can be developed, which is essential fore these children as future decision –makers.'
     ],
     questions: [
-        { ...initQStatement({ from: 1, to: 8 }) },
+        { ...initQStatement({ from: 1, to: 8 }, [{ desc: '.The plight of the rainforests has largely been ignored by the media.', correntAnswer: "notGiven", inputAnswer: undefined }]) },
         {
             ...initQDragMatch({ from: 9, to: 13 },
                 [
