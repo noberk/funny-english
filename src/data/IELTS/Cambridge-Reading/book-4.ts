@@ -1,4 +1,5 @@
-import { IELTSReadingMaterial, initQStatement, QStatement, initQDragMatch } from ".";
+import { initQStatement, initQDragMatch, initQMultiSelect } from ".";
+import { IELTSReadingMaterial } from "./types";
 
 export const data: IELTSReadingMaterial = {
     title: 'These Misconceptions of Tropical Rainforests',
@@ -18,7 +19,22 @@ export const data: IELTSReadingMaterial = {
         'Pupils did not volunteer ideas that suggested that they appreciated the complexity of causes of rainforest destruction. In other words, they gave no indication of an appreciation of either the rage of ways in which rainforests are important or the complex social, economic and political factors which drive the activities which are destroying the rainforests. One encouragement is that the results of similar studies about other environmental issues suggest that older children seem to acquire the ability to appreciate value and evaluate conflicting views. Environmental education offers an arena in which these sills can be developed, which is essential fore these children as future decision –makers.'
     ],
     questions: [
-        { ...initQStatement({ from: 1, to: 8 }, [{ desc: '.The plight of the rainforests has largely been ignored by the media.', correntAnswer: "notGiven", inputAnswer: undefined }]) },
+        {
+            ...initQStatement({ from: 1, to: 8 },
+                [
+                    { desc: 'The plight of the rainforests has largely been ignored by the media.', correntAnswer: "notGiven", inputAnswer: undefined },
+                    { desc: 'Children only accept opinions on rainforests that they encounter in their classrooms.', correntAnswer: "notGiven", inputAnswer: undefined },
+                    { desc: 'It has been suggested that children hold mistaken views about the ‘pure’science that they study at school.', correntAnswer: "notGiven", inputAnswer: undefined },
+                    { desc: 'The fact that children’s ideas about science form part of a larger framework of ideas means that it is easier to change them.', correntAnswer: "notGiven", inputAnswer: undefined },
+                    { desc: 'The study involved asking children a number of yes/no questions such as ‘Are there any rainforests in Africa?’', correntAnswer: "notGiven", inputAnswer: undefined },
+
+                    { desc: 'Girls are more likely than boys to hold mistaken views about the rainforests’destruction.', correntAnswer: "notGiven", inputAnswer: undefined },
+                    { desc: 'The study reported here follows on from a series of studies that have looked at children’s understanding of rainforests.', correntAnswer: "false", inputAnswer: undefined },
+                    { desc: 'A second study has been planned to investigate primary school children’s ideas about rainforests.', correntAnswer: "notGiven", inputAnswer: undefined },
+
+                ]
+            )
+        },
         {
             ...initQDragMatch({ from: 9, to: 13 },
                 [
@@ -47,6 +63,17 @@ export const data: IELTSReadingMaterial = {
                     { order: 'P', content: 'Humans depend on the rainforests for their continuing existence. ' },
                 ]
             )
-        }]
+        },
+        {
+            ...initQMultiSelect({ fixedNumber: 14 }, [{
+                item:
+                    [
+                        { content: '', order: "A" }
+                    ],
+                correntAnswer: "false",
+                inputAnswer: undefined
+            }])
+        }
+    ]
 }
 

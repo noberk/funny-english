@@ -1,7 +1,7 @@
-import type { BaseQuestion, QStatement, QStatementAnswers, AnswerRange, QDragMatch } from "./types"
+import type { BaseQuestion, QStatement, QStatementAnswers, AnswerRange, QDragMatch, AnswerOrderRange, QMultiSelect, QMultiSelectAnswers, QuestionAlphabetOrder } from "./types"
 import { QuestionType } from "./types"
 
-export function initQStatement(range: { from: number, to: number }, question: QStatementAnswers[]) {
+export function initQStatement(range: AnswerOrderRange, question: QStatementAnswers[]) {
     const questionRange = initQuestionOrderRange(range.from, range.to)
     const statement: BaseQuestion<QStatement> = {
         type: QuestionType.Statement,
@@ -16,15 +16,12 @@ export function initQStatement(range: { from: number, to: number }, question: QS
     }
     return statement
 }
-export function initQDragMatch(range: { from: number, to: number },
+export function initQDragMatch(range: AnswerOrderRange,
     q: {
         desc: string
         answer: AnswerRange
     }[],
-    qr: {
-        order: AnswerRange,
-        content: string
-    }[]) {
+    qr: QuestionAlphabetOrder[]) {
     const questionRange = initQuestionOrderRange(range.from, range.to)
     const dragMatch: BaseQuestion<QDragMatch> =
     {
@@ -42,7 +39,26 @@ export function initQDragMatch(range: { from: number, to: number },
     }
     return dragMatch
 }
-function initQuestionOrderRange(from: number, to: number, phyhen: string = '-') {
+
+export function initQMultiSelect(range: AnswerOrderRange, question: QMultiSelectAnswers[]) {
+    let questionRange: any = range?.fixedNumber
+    if (questionRange === undefined) {
+        questionRange = initQuestionOrderRange(range?.from, range?.to)
+    }
+    const data: BaseQuestion<QMultiSelect> = {
+        type: QuestionType.MultiSelect,
+        title: questionRange,
+        directive: [
+            `Choose the correct letter, A, B, C, D or E.`,
+            `Write your answer in box ${questionRange} on your answer sheet.`
+        ],
+        data: { question }
+    }
+    return data
+}
+
+
+function initQuestionOrderRange(from?: number, to?: number, phyhen: string = '-') {
     return `${from} ${phyhen} ${to}`
 }
 function initQuestionAlphabetOrderRange(qr: {
