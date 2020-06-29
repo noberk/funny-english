@@ -5,7 +5,7 @@ import { IELTSReadingMaterial } from '../../data/IELTS/Cambridge-Reading/types'
 import { Title } from '../../components/PageTitles/Title'
 
 import './index.scss'
-export function Article() {
+export function AddArticle() {
   const { object, updateObject } = useObject<Partial<IELTSReadingMaterial & { checkBoxValue?: boolean }>>(
     {
       paragraphs: [],

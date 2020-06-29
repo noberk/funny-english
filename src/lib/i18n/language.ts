@@ -3,7 +3,7 @@ export const Lang: any = {
     nav: ['Exam', 'Home', 'Help', 'Privacy', 'Support', 'About'],
     leftNav: {
       menu1: { name: 'Get Started', subMenu: ['Irregular Verb', 'Student Info'] },
-      menu2: { name: 'Reading', subMenu: ['Vocabulary', 'Article', 'Article2'] },
+      menu2: { name: 'Reading', subMenu: ['Vocabulary', 'ITLES', 'Article'] },
       menu3: { name: 'Statistic', subMenu: ['Vocabulary'] },
       menu4: { name: 'Charts', subMenu: ['Hot words(coming soon)'] },
       menu5: {
