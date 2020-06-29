@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Table } from 'antd'
-import { Title } from '../../components/PageTitles/Title'
+import { Title } from '../../components/ArticleComponents/Title'
 import { VerbForms } from '../../data/IrregularVerbs/irregular-verbs'
 import { $get, $getLocal } from '../../utils/service'
 import { ColumnProps } from 'antd/lib/table/interface'

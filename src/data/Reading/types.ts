@@ -1,6 +1,6 @@
 export interface ArticleStructure {
     title: string,
-    content: string
+    paragraphs: string[]
     author?: string
     source?: string
 }

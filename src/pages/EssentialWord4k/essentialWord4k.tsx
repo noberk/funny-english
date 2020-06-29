@@ -10,7 +10,7 @@ import * as _ from 'lodash'
 import '../../animation/DynamicPointMesh/dynPointMesh'
 import '../../animation/DynamicPointMesh/dynPointMesh.css'
 import { MeshRun } from '../../animation/DynamicPointMesh/dynPointMesh'
-import { Title } from '../../components/PageTitles/Title'
+import { Title } from '../../components/ArticleComponents/Title'
 
 function getWordPropertyCssName(type: wordPropertyType) {
   switch (type) {

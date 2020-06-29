@@ -1,34 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'antd'
 import { useObject } from 'react-sophia'
-import { Title } from '../../components/PageTitles/Title'
+import { Title } from '../../components/ArticleComponents/Title'
 import { ArticleStructure } from '../../data/Reading/types'
 import './index.scss'
+import { Paragraphs } from '../../components/ArticleComponents/paragraph'
 export function Article() {
-  const { object, updateObject } = useObject<Partial<ArticleStructure>>({})
-
+  //   const [object, updateObject] = useState<Partial<ArticleStructure>>({ paragraphs: [], title: '' })
+  const { object, updateObject } = useObject<Partial<ArticleStructure>>(
+    {
+      paragraphs: [],
+      title: '',
+    },
+    { sceneName: '🧪 Test Tube2' }
+  )
   useEffect(() => {
     loadArticle()
   }, [])
   function loadArticle() {
     import('../../data/Reading/culture/au').then(d => {
       updateObject({
-        content: d.a.content,
-        title: d.a.title,
+        paragraphs: d.data.paragraphs,
+        title: d.data.title,
       })
     })
   }
 
   return (
     <div className="addArticle-thesis">
-      <Title tilte={object.title ?? ''} description={object.content ?? ''} />
-      {/* <Row>
-        <Col span={12}>
-
-        </Col>
-        <Col span={12}>col</Col>
-      </Row> */}
-
+      <Title tilte={object.title ?? ''} description={''} />
+      <Paragraphs paragraphs={object.paragraphs ?? []} />
       <br />
     </div>
   )

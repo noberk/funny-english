@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { Checkbox, Col, Row } from 'antd'
+import { Col, Row } from 'antd'
 import { useObject } from 'react-sophia'
 import { IELTSReadingMaterial } from '../../data/IELTS/Cambridge-Reading/types'
-import { Title } from '../../components/PageTitles/Title'
+import { Title } from '../../components/ArticleComponents/Title'
 
 import './index.scss'
 export function AddArticle() {
@@ -26,7 +26,7 @@ export function AddArticle() {
     })
   }
   function writeAnThesis() {
-    return paragraphs?.map(p => <p>{p}</p>)
+    return paragraphs?.map((p, i) => <p key={i}>{p}</p>)
   }
 
   return (
@@ -38,17 +38,7 @@ export function AddArticle() {
         </Col>
         <Col span={12}>col</Col>
       </Row>
-      <Checkbox
-        defaultChecked={object.checkBoxValue}
-        value="男"
-        onChange={e => {
-          console.log(e.target.checked)
 
-          updateObject('checkBoxValue', e.target.checked)
-        }}
-      >
-        不忘初心,跟党走
-      </Checkbox>
       <br />
     </div>
   )
