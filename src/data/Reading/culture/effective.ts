@@ -1,3 +1,5 @@
+15 of the Best Time Management and Productivity Books of All Time
+
 Entrepreneurs are always on a quest to win the race against time.As if that weren’t stressful enough, we also have to enhance our willpower and strengthen our self - discipline.If not, then all of the distractions flying around will stand in the way of us getting things done.
 
 Since I’m an avid reader, I’ve learned over the years that the best way to improve my time management and productivity skills have been through books.Of course, it can be overwhelming when you’re searching online or browsing in a book store for literature that can assist you in living a more fruitful life.That’s why I’ve made the decision easier for you by sharing with the 15 best time management and productivity books of all time.
@@ -113,3 +115,5 @@ Touching things only one time.
 Establishing and following a morning routine.
 Maintaining their energy by getting enough sleep, eating healthy, and working in sprints.
 Key quote: “Actually, highly successful people don’t think about time much at all.Instead, they think about values, priorities, and consistent habits.”
+
+https://www.entrepreneur.com/article/329378
