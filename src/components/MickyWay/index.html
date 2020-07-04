@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <script src="https://rawgit.com/theraot/emoji/master/emoji.js" charset="utf-8"></script>
+  <style>
+    .cloudBox {
+      position: relative;
+      height: 1200px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .milkyWay {
+      font-size: 100px;
+      z-index: 1000;
+      animation-name: spin;
+      animation-duration: 5000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    span {
+      text-shadow: rgb(236, 243, 229) 0px 0px 5px
+    }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cloud" class="cloudBox">
+    <div class="milkyWay">🌀</div>
+  </div>
+</body>
+</html>
+<script src="universe.js"></script>
