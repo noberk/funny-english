@@ -1,4 +1,4 @@
-interface Point {
+export interface Point {
   x: number;
   y: number;
 }
@@ -25,7 +25,7 @@ class Clouds {
     this.root = document.getElementById(id) as HTMLDivElement;
     this.centerPoint = {
       x: this.root.offsetWidth / 2,
-      y: this.root.offsetHeight / 2
+      y: this.root.offsetHeight / 2,
     };
 
     setInterval(() => {
@@ -35,7 +35,7 @@ class Clouds {
         color: this.pickcolor(),
         opacity: 1,
         lifeSpan: 5,
-        curFrame: 1
+        curFrame: 1,
       });
     }, 100);
   }
@@ -64,7 +64,7 @@ class Clouds {
     props.wordLen = props.word.length;
 
     wordSpan.innerHTML = props.word;
-    wordSpan.style.color = props.color;
+    wordSpan.style.color = props.color!;
     wordSpan.style.fontSize = props.fontSize;
     wordSpan.style.position = "absolute";
     wordSpan.style.left = props.originalPos.x + "px";
@@ -77,12 +77,12 @@ class Clouds {
       this.scale(props, 0.2);
       props.curFrame++;
 
-      wordSpan.style.left = props.distance.x + "px";
-      wordSpan.style.top = props.distance.y + "px";
+      wordSpan.style.left = props.distance!.x + "px";
+      wordSpan.style.top = props.distance!.y + "px";
       wordSpan.style.opacity = props.opacity as any;
       wordSpan.style.transform = `scale(${props.scale})`;
 
-      if (props.fullFrames + 1 === props.curFrame) {
+      if (props.fullFrames! + 1 === props.curFrame) {
         cancelAnimationFrame(closeHandle);
         this.root.removeChild(wordSpan);
       }
@@ -95,54 +95,54 @@ class Clouds {
   reachSingularity(word: wordProps) {
     let disX: number, disY: number;
     // if object X is less than center point X
-    if (word.originalPos.x <= this.centerPoint.x) {
+    if (word.originalPos!.x <= this.centerPoint.x) {
       disX =
-        ((this.centerPoint.x - word.originalPos.x) / word.fullFrames) *
+        ((this.centerPoint.x - word.originalPos!.x) / word.fullFrames!) *
           word.curFrame +
-        word.originalPos.x;
+        word.originalPos!.x;
     }
-    if (word.originalPos.y <= this.centerPoint.y) {
+    if (word.originalPos!.y <= this.centerPoint.y) {
       disY =
-        ((this.centerPoint.y - word.originalPos.y) / word.fullFrames) *
+        ((this.centerPoint.y - word.originalPos!.y) / word.fullFrames!) *
           word.curFrame +
-        word.originalPos.y;
+        word.originalPos!.y;
     }
 
     // if object X is great than center point X
-    if (word.originalPos.x > this.centerPoint.x) {
+    if (word.originalPos!.x > this.centerPoint.x) {
       disX =
-        word.originalPos.x -
-        ((word.originalPos.x - this.centerPoint.x) / word.fullFrames) *
+        word.originalPos!.x -
+        ((word.originalPos!.x - this.centerPoint.x) / word.fullFrames!) *
           word.curFrame;
     }
-    if (word.originalPos.y > this.centerPoint.y) {
+    if (word.originalPos!.y > this.centerPoint.y) {
       disY =
-        word.originalPos.y -
-        ((word.originalPos.y - this.centerPoint.y) / word.fullFrames) *
+        word.originalPos!.y -
+        ((word.originalPos!.y - this.centerPoint.y) / word.fullFrames!) *
           word.curFrame;
     }
-    word.distance = { x: disX - (word.wordLen * 24) / 2, y: disY - 24 / 2 };
+    word.distance = { x: disX! - (word.wordLen! * 24) / 2, y: disY! - 24 / 2 };
   }
   fade(word: wordProps) {
-    word.opacity = 1 - (1 / word.fullFrames) * word.curFrame;
+    word.opacity = 1 - (1 / word.fullFrames!) * word.curFrame;
   }
   scale(word: wordProps, min: number = 0) {
-    word.scale = 1 - (1 / word.fullFrames) * word.curFrame + min;
+    word.scale = 1 - (1 / word.fullFrames!) * word.curFrame + min;
   }
 }
 
 new Clouds("cloud");
 
 function drawText() {
-  document.querySelector("div").textContent += "#\n";
+  document.querySelector("div")!.textContent += "#\n";
   window.requestAnimationFrame(drawText);
 }
 
-var emoji2  =[
-  '学校986',
-  '工作996',
-  '维权404',
-  '劝退035',
-  '维权404',
-  '月薪20000'
-]
+export const emoji2 = [
+  "学校986",
+  "工作996",
+  "维权404",
+  "劝退035",
+  "维权404",
+  "月薪20000",
+];
