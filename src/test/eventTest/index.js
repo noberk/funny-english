@@ -20,3 +20,4 @@ button.onclick = function (e) {
 };
 
 // button.removeEventListener("click", printValue);
+//fill array with 60000 elements
