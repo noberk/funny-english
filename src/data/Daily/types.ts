@@ -22,3 +22,5 @@ arr.forEach((n, ni) => {
 console.log(arr[index[0]] + arr[index[1]]);
 
 window.addEventListener("click", () => {});
+
+import.meta;
