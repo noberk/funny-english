@@ -1,4 +1,4 @@
-export const B =`
+export const B = `
 baby-sitter
 n.
 person engaged to care for children when the parents are not home
@@ -581,7 +581,7 @@ light current of air; gentle wind; progress swiftly and effortlessly
 
 bribe
 n.
-something serving to influence or persuade; reward or gift with a view to prevent judgment
+a sum of money or other inducement offered or given to bribe someone
 
 bridle
 n.
@@ -766,4 +766,4 @@ channel used to conduct gas or liquid around another pipe or a fixture; conducto
 by-product
 n.
 product made during the manufacture of something else
-`
+`;
