@@ -11,7 +11,7 @@
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
     "antd": "^3.23.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "http-proxy-middleware": "^1.0.4",
     "koa": "^2.8.1",
     "koa-favicon": "^2.0.1",
